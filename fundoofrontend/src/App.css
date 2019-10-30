@@ -1,0 +1,226 @@
+/* .card1{
+  height: 250px;
+  width:250px;
+  background-color:blue;
+  position:relative;
+  z-index:11;
+}
+.card1:hover + .card2 {
+background-color:orange;
+}
+.card2{
+  height: 250px;
+  width:250px;
+  background-color:green;
+  position:absolute;
+  z-index:10;
+  top:295px;
+  left:35px;
+}
+.card3{
+  height: 250px;
+  width:250px;
+  background-color:blue;
+  position:relative;
+
+  z-index: 11;
+}
+.card4{
+  height: 250px;
+  width:250px;
+  background-color:green;
+  position: absolute;
+  top:295px;
+  right: 100px;
+  z-index: 10;
+} */
+
+/* .second-card{
+  height: 250px;
+  width:250px;
+  background-color:green;
+  position:absolute;
+  z-index:10;
+  top:295px;
+  left:35px;
+}
+.first:hover + .second-card {
+  background-color:orange;
+  }
+ */
+
+/* .first-div{
+  height: 250px;
+  width:250px;
+  background-color:black;
+  position:relative;
+  z-index:11;
+  top:-250px;
+  left: 300px
+}
+
+.second-div{
+  height: 250px;
+  width:250px;
+  background-color:seagreen;
+  position:absolute;
+  z-index:10;
+  top:295px;
+  right:35px;
+  
+} */
+
+.header {
+  width: 100vw;
+  height: 10vh;
+  background: orange;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-feel {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.text {
+  background-color: rgb(255, 255, 255);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.card {
+  width: 250px;
+  height: 250px;
+  box-shadow: 20px 20px grey;
+  border: 1px solid black;
+  margin: 2em;
+}
+
+.service-cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 4em;
+  flex-wrap: wrap;
+}
+
+#login-heading {
+  margin-top: 0;
+}
+
+.login-card {
+  width: 30%;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding: 30px;
+  height: 70%;
+}
+
+.heading {
+  color: rgb(72, 39, 28);
+  font-size: 23px;
+}
+
+.login-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-contents>div {
+  margin: 1em;
+}
+
+#registration-heading {
+  margin-top: 0;
+}
+
+.registration-card {
+  width: 550px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding: 30px;
+  height: 550px;
+}
+
+.registration-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration-contents>div {
+  margin: 0em;
+}
+
+.personal-filed {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px 0px 1px 0px;
+}
+
+.password-field {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px 0px 1px 0px;
+}
+
+.card-1 {
+  width: 150px;
+  height: 150px;
+  box-shadow: 20px 20px grey;
+  border: 1px solid black;
+  margin: 2em;
+}
+
+.contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 4em;
+  flex-wrap: wrap;
+}
+
+.forgot-card {
+  width: 450px;
+  height: 350px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding: 30px;
+  margin: 1;
+}
+
+.forgot-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forgot-container>div {
+  margin: 1em;
+}
+
+.forgot-button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+.button-style{
+  display: flex;
+  justify-content: center;
+}
+.base-line{
+  display: flex;
+  justify-content: center;
+}
