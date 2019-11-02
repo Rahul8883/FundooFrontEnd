@@ -1,5 +1,5 @@
 /******************************************************************************************
- * @purpose : Accessing Axios here for Make http requests from node.js  
+ * @purpose : Accessing Axios here for Make http requests from node.js and hitting back-end
  * @file : shopingServices.jsx.jsx
  * @module :  Access base URL, to read the property of back-end.
  * @author : Rahul Ranjan

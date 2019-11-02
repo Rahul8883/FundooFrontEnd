@@ -5,6 +5,7 @@ import Login from './pages/LoginPage'
 import ServiceCardPage from './pages/ServiceCardPage'; 
 import Registration from './pages/RegistrationPage';
 import Forgot from './pages/ForgotPage';
+import AppBar from './pages/AppBarPage';
 function App() {
   return (
    <Router>
@@ -13,6 +14,7 @@ function App() {
        <Route path='/register' component={Registration}></Route>
        <Route path='/servicePage' exact component ={ServiceCardPage}></Route>
        <Route path='/forgot' component={Forgot}></Route>
+       <Route path='/appBar' component={AppBar}></Route>
      </Switch>
    </Router>
   );

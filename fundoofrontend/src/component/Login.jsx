@@ -13,20 +13,80 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
+import userLogin from '../services/userServices';
+import Snackbar from '@material-ui/core/Snackbar';
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: "",
             password: "",
+            snackbarOpen: false,
+            snackbarMsg: ""
         };
+    }
+    snackbarClose = (e) => {
+        this.setState({ snackbarOpen: false })
+    }
+    handleEmailChange = (event) => {
+        console.log("------------->event");
+        const email = event.target.value;
+        this.setState({
+            email: email
+        })
+    }
+    handlePasswordChange = (event) => {
+        console.log("-------------->event");
+        const password = event.target.value;
+        this.setState({
+            password: password
+        })
     }
     handleForgot = () => {
         this.props.history.push('/forgot')
     }
     handleRegister = () => {
         this.props.history.push('/register')
+    }
+    handleSubmit = () => {
+        if (this.state.email === "") {
+            this.setState({
+                snackbarOpen: true,
+                snackbarMsg: "Email cann't be empty..!!"
+            })
+        } else if (!/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)) {
+            console.log("entered", /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email));
+            this.setState({
+                openSnackBar: true,
+                snackBarMessage: "Invalid Email..!"
+            })
+        } else if (this.state.password === "") {
+            this.setState({
+                snackbarOpen: true,
+                snackbarMsg: "Password cann't be empty..!!"
+            })
+        } else if (this.state.password.length < 6) {
+            this.setState({
+                openSnackBar: true,
+                snackbarMsg: "password must be of atleast 6 characters..!!"
+            })
+        } else {
+            console.log("Login ture");
+            let data = {
+                'email': this.state.email,
+                'password': this.state.password
+            }
+            userLogin.userLogin(data).then((res) => {
+                localStorage.setItem('email', this.state.email, res.id)
+                this.props.history.push('/dashboard');
+                this.setState({ snackbarOpen: true, snackbarMsg: "Login successfully!!" })
+            }).catch(err => {
+                console.log("err in login component ", err);
+            })
+        }
     }
     render() {
         return (
@@ -50,11 +110,12 @@ class Login extends Component {
                             <TextField
                                 type="email"
                                 name="email"
-                                placeholder="Email" 
+                                placeholder="Email"
                                 id="standard-basic"
                                 label="Email id*"
-
                                 fullWidth
+                                value={this.state.email}
+                                onChange={this.handleEmailChange}
                             />
                         </div>
                         <div>
@@ -66,7 +127,8 @@ class Login extends Component {
                                 label="Password*"
                                 margin="normal"
                                 fullWidth
-
+                                value={this.state.password}
+                                onChange={this.handlePasswordChange}
                             />
                             <FormControlLabel
                                 control={<Checkbox value="remember" color="primary" />}
@@ -80,8 +142,7 @@ class Login extends Component {
                                 fullWidth
                                 variant="contained"
                                 color="secondary"
-                                className="submit-box"
-
+                                onClick={this.handleSubmit}
                             >
                                 SignIn
                              </Button>
@@ -104,7 +165,23 @@ class Login extends Component {
                         </div>
                     </div>
                 </Card>
-
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                    }}
+                    open={this.state.snackbarOpen}
+                    autoHideDuration={6000}
+                    onClose={this.handleClose}
+                    message={<span id="message-id">{this.state.snackbarMsg}</span>}
+                    action={[
+                        <IconButton
+                            onClick={this.handleClose}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    ]}
+                />
 
             </div>
 

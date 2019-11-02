@@ -106,8 +106,7 @@ background-color:orange;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 4em;
-  flex-wrap: wrap;
+ 
 }
 
 #login-heading {
