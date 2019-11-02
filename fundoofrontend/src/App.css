@@ -94,11 +94,12 @@ background-color:orange;
 }
 
 .card {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   box-shadow: 20px 20px grey;
   border: 1px solid black;
   margin: 2em;
+  padding: 1em;
 }
 
 .service-cards {
@@ -164,19 +165,19 @@ background-color:orange;
 
 .personal-filed {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 4px 0px 1px 0px;
 }
 
 .password-field {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 4px 0px 1px 0px;
 }
 
 .card-1 {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   box-shadow: 20px 20px grey;
   border: 1px solid black;
   margin: 2em;
@@ -223,4 +224,13 @@ background-color:orange;
 .base-line{
   display: flex;
   justify-content: center;
+}
+.MailFind{
+  color: brown;
+  font-size: 23px; 
+}
+.Recovery{
+  color: seagreen;
+   font-size: 25px;
+   font-family:'Times New Roman', Times, serif; 
 }

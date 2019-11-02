@@ -1,10 +1,19 @@
+/******************************************************************************************
+ * @purpose : User Interface -Responsive design to support multiple resolution for Registration page
+ * @file : Registration.jsx
+ * @module : Registration Card
+ * @author : Rahul Ranjan
+ * @version : 1.0
+ * @since : 29-oct-2019
+ ******************************************************************************************/
 import React, { Component } from "react";
 import TextField from '@material-ui/core/TextField';
 import { Button, Card } from '@material-ui/core/';
 import Link from '@material-ui/core/Link';
 import { withRouter } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';
-import RegistrationPage from "../pages/RegistrationPage";
+// import RegistrationPage from "../pages/RegistrationPage";
+import ServiceCard from './ServiceCard'
 class Registration extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +24,9 @@ class Registration extends Component {
             password: "",
             confirmpassword: ""
         };
+    }
+    handleLogin = () => {
+        this.props.history.push('/login')
     }
     render() {
         return (
@@ -90,17 +102,8 @@ class Registration extends Component {
                                 />
                             </div>
                         </div>
-                        <div className="contents">
-                            <div class="container3">
-                                <div className="card-1">
-
-                                </div>
-                            </div>
-                            <div className="container-4">
-                                <div className="card-1">
-
-                                </div>
-                            </div>
+                        <div>
+                           <ServiceCard/> 
                         </div>
                         <div>
                             <div>
@@ -117,7 +120,7 @@ class Registration extends Component {
                                 <div>
                                     <Grid container>
                                         <Grid item xs>
-                                            <Link href="#" variant="body2" >
+                                            <Link href="#" variant="body2" onClick={this.handleLogin}>
                                                 SignIn instead
                                   </Link>
                                         </Grid>

@@ -1,3 +1,11 @@
+/******************************************************************************************
+ * @purpose : User Interface -Responsive design to support multiple resolution for Login page
+ * @file : Login.jsx
+ * @module : Login Card
+ * @author : Rahul Ranjan
+ * @version : 1.0
+ * @since : 29-oct-2019
+ ******************************************************************************************/
 import React, { Component } from "react";
 import TextField from '@material-ui/core/TextField';
 import { Button, Card } from '@material-ui/core/';
@@ -13,6 +21,12 @@ class Login extends Component {
             email: "",
             password: "",
         };
+    }
+    handleForgot = () => {
+        this.props.history.push('/forgot')
+    }
+    handleRegister = () => {
+        this.props.history.push('/register')
     }
     render() {
         return (
@@ -74,14 +88,14 @@ class Login extends Component {
                             <div>
                                 <Grid container>
                                     <Grid item xs>
-                                        <Link href="#" variant="body2" >
+                                        <Link href="#" variant="body2" onClick={this.handleRegister}>
                                             Don't have an account Sign Up
                                   </Link>
                                     </Grid>
                                 </Grid>
                                 <Grid container>
                                     <Grid item xs>
-                                        <Link href="#" variant="body2" >
+                                        <Link href="#" variant="body2" onClick={this.handleForgot}>
                                             Forgot password
                                   </Link>
                                     </Grid>

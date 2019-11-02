@@ -1,0 +1,49 @@
+             <div class="container1">
+                        <div className="card">    
+                              this.state.serviceArr.map((key)=>{
+                                  return(
+                                    <div style={{ color: "black", textAlign: "left", fontSize: "148%", paddingRight: "22%" }}>
+                                    price:${key.price}/month</div>
+                                  )
+                              })
+                          }
+                        
+                        </div>
+                    </div>
+                    <div className="container-20">
+                        <div className="card">
+
+                        </div>
+                    </div>
+
+
+
+
+
+                    ------------------register mapping------------------------------
+                                           <div className="contents">
+                            <div class="container3">
+                                <div className="card-1">
+                                    <h4>Price : $ 99 per month</h4>
+                                    <h4 style={{ color: "blue" }}>Advance</h4>
+                                    <div style={{ fontSize: "15px" }}>
+                                        <ul>
+                                            <li>$ 99/month</li>
+                                            <li>Ability to add title, description, image, labels, checklist and colors</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="container-4">
+                                <div className="card-1">
+                                    <h4>Price : $ 49 per month</h4>
+                                    <h4 style={{ color: "blue" }}>Basic</h4>
+                                    <div style={{ fontSize: "15px" }}>
+                                        <ul>
+                                            <li>$ 49/month</li>
+                                            <li>Ability to add title, description.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
