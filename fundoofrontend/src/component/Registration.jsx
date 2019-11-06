@@ -60,6 +60,7 @@ class Registration extends Component {
         this.setState({ confirmPassword: confirmPassword })
     }
     handleLogin = () => {
+        
         this.props.history.push('/login')
     }
     handleSubmit = () => {
@@ -99,15 +100,15 @@ class Registration extends Component {
             let data = {
                 "firstName": this.state.firstName,
                 "lastName": this.state.lastName,
+                service:this.props.location.state.serviceName,
                 'email': this.state.email,
               'password': this.state.password
             }
-            console.log("data b4 passsing to backend--------",data);
+            console.log("data to passsing to backend--------",data);
             
             userRegister.userRegister(data).then((res) => {
-                console.log("response in register",res);
-        
-                localStorage.setItem('email', this.state.email, res.id)
+                console.log("response after registation",res);
+
                 this.props.history.push('/login');
                 this.setState({ snackbarOpen: true, snackbarMsg: "Registration done  successfully!!" })
             }).catch(err => {
@@ -116,7 +117,15 @@ class Registration extends Component {
         }
     }
     render() {        
-        console.log("location",this.props.location.state.con);
+        // console.log("location",this.props.location.state.con);
+        var serviceName="",status="",color="",productId="",cartId=""
+        if(this.props.location.state!==undefined){
+            serviceName=this.props.location.state.serviceName
+            productId=this.props.location.state.productId
+            cartId=this.props.location.state.cartId
+            status="Selected"
+            color="orange"
+        }
         return (
             <div className="registration-container">
                 <Card className="registration-card">
@@ -202,9 +211,13 @@ class Registration extends Component {
                             </div>
                         </div>
                         <div>
-                            <ServiceCard nameProps={this.props.location.state.con}
-                            idProps={this.props.location.state.id}
+                            <ServiceCard
+                            cartProps={true}
+                            status={status}
+                            propsColor={color}
+                            propsProductId={productId}
                             />
+                            
                         </div>
                         <div>
                             <div>

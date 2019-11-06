@@ -10,6 +10,8 @@ import React, { Component } from 'react';
 import Registration from '../component/Registration'
 export default class RegistrationPage extends Component {
     render() {
+        console.log("service props data",this.props);
+        
         return (
             <div>
                 <Registration props={this.props} />

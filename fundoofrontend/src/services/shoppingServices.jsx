@@ -9,7 +9,7 @@
 import axios from 'axios'
 // Back-end Api's URL
 const baseURL = "http://fundoonotes.incubation.bridgelabz.com/api"
-export default  function userServic() {
+export   function userServic() {
     return axios.get(baseURL + '/user/service', (err, data) => {
         if (err) {
             return err;
@@ -18,16 +18,12 @@ export default  function userServic() {
         }
     })
 }
-// function addToCart() {
-//     return axios.post(baseURL + '/productscarts/addToCart', (err, data) => {
-//         if (err) {
-//             return err;
-//         } else {
-//             return data;
-//         }
-//     })
+export  function addToCart(data) {
+    return axios.post(baseURL + '/productcarts/addToCart',data,{
+      
+    })
 
-// }
+}
 // function userCartDetail() {
 //     return axios.get(baseURL + `/productscarts/productcarts/mycart`, {
 //         headers: {

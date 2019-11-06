@@ -6,7 +6,7 @@ import ServiceCardPage from './pages/ServiceCardPage';
 import Registration from './pages/RegistrationPage';
 import Forgot from './pages/ForgotPage';
 import AppBar from './pages/AppBarPage';
-import loginServiceCard from './pages/loginServicecardPage'
+
 function App() {
   return (
    <Router>
@@ -16,7 +16,7 @@ function App() {
        <Route path='/servicePage' exact component ={ServiceCardPage}></Route>
        <Route path='/forgot' component={Forgot}></Route>
        <Route path='/appBar' component={AppBar}></Route>
-       <Route path='/loginServicecard' component ={loginServiceCard}></Route>
+      
      </Switch>
    </Router>
   );

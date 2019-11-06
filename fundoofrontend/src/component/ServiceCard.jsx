@@ -7,18 +7,22 @@
  * @since : 29-oct-2019
  ******************************************************************************************/
 import React, { Component } from "react";
-import userService from '../services/shoppingServices';
+import { userServic, addToCart } from '../services/shoppingServices';
 import { withRouter } from 'react-router-dom';
+import { Card } from "@material-ui/core";
 
 class ServiceCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            serviceArr: []
+            mouseState: false,
+            serviceArr: [],
+            cartHoverId: '',
+            cartId: ""
         }
     }
     componentDidMount() {
-        userService().then(res => {
+        userServic().then(res => {
             this.setState({
                 serviceArr: res.data.data.data
             })
@@ -26,36 +30,71 @@ class ServiceCard extends Component {
         }).catch(err => {
             console.log("err in get user shoping services", err);
         })
-        console.log("window.location.href",window.location.pathname);  
+        console.log("window.location.href", window.location.pathname);
     }
     handleLogin = () => {
         this.props.history.push('/login')
     }
-    handleRegister = (id,con) => {
-        console.log("con");
-        var data={
-            "con":con,
-            "id":id
+    handleRegister = (productId) => {
+        var data = {
+            productId: productId
         }
-        this.props.history.push('/register',data)
+        console.log("data before add to cart", data);
+
+        addToCart(data)
+            .then(async response => {
+                console.log("RES_FROM_ADD_TO_CART", response);
+                var data = {
+                    cartId: response.data.data.details.id,
+                    productId: response.data.data.details.productId,
+                    serviceName: response.data.data.details.product.name
+                }
+                console.log("data before sending to reg", data);
+                this.props.history.push('/register', data)
+            })
+            .catch(err => {
+                console.log("ERR_AFTER_HITTING_ADD_TO_CART", err);
+
+            })
+
+    }
+    handleMouseEnter = async (id) => {
+        console.log("log id in mouse enter", id);
+
+        await this.setState({
+            mouseState: true,
+            cartHoverId: id
+        })
+    }
+    handleMouseLeave() {
+        this.setState({
+            mouseState: false
+        })
     }
     render() {
+
+
+        const mouseColor = this.state.mouseState ? "orange" : "gray"
         const serviceMap = this.state.serviceArr.map(key => {
             return (
-                <div className="card" onClick={()=>this.handleRegister(key.id,true)} 
-                style={{background:this.props.idProps===key.id?"orange":"grey"}}
+
+                <Card className="outercard" style={{ background: (key.id === this.props.propsProductId) ? this.props.propsColor : "gray" && (key.id === this.state.cartHoverId ? mouseColor : "gray") }}
                 >
-                    <div style={{fontFamily:"TimesNewRoman", fontSize:"25px"}}> price: ${key.price}per month</div>
-                    <div style={{ color: "#0000ff", fontSize:"20px", flexWrap:"wrap"}}>{key.name}</div>
-                    <div style={{fontFamily:"TimesNewRoman", fontSize:"15px"}}>
-                        <li>${key.price}/month</li>
-                        <li>{key.description}</li>
-                    </div>
-                </div>
+                    <Card onMouseEnter={this.props.cartProps ? null : () => this.handleMouseEnter(key.id)} className="Innercard" onClick={(this.props.cartProps) ? null : () => this.handleRegister(key.id)} onMouseLeave={this.props.idProps === key.id ? null : () => this.handleMouseLeave(key.id)}
+                    >
+                        <div style={{ fontFamily: "TimesNewRoman", fontSize: "25px" }}> price: ${key.price}per month</div>
+                        <div style={{ color: "#0000ff", fontSize: "20px", flexWrap: "wrap" }}>{key.name}</div>
+                        <div style={{ fontFamily: "TimesNewRoman", fontSize: "15px" }}>
+                            <li>${key.price}/month</li>
+                            <li>{key.description}</li>
+                        </div>
+                    </Card>
+                    <div className="obey"> {key.id === this.props.propsProductId ? this.props.status : "addToCart"}</div>
+                </Card>
             )
         })
         return (
-            window.location.pathname === '/servicepage' ?
+            this.props.cartProps !== true ?
                 <div className="service-container">
                     <div className="header">
                         <div>
@@ -75,7 +114,7 @@ class ServiceCard extends Component {
                     {serviceMap}
                 </div>
         )
-        
+
     }
 }
 
