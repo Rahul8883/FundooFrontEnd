@@ -9,13 +9,32 @@
 import React, { Component } from "react";
 import TextField from '@material-ui/core/TextField';
 import { Button, Card } from '@material-ui/core/';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import userServices from '../services/userServices';
 class Forgot extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: ''
         };
+    }
+    handleLogin=()=>{
+        this.props.history.push('/login')
+    }
+    handlerForgot=()=>{
+        console.log("Entered in handle Reset");
+        userServices.userForgot(this.state.email).then((res)=>{
+            console.log("Forgot in process..", res);
+        }).catch((err)=>{
+            console.log("Error in Forgot Component..");
+        })
+    }
+    handleEmailChange = (event) => {
+        console.log("------------->event");
+        const email = event.target.value;
+        this.setState({
+            email: email
+        })
     }
     render() {
         return (
@@ -44,7 +63,9 @@ class Forgot extends Component {
                                         name="Email id"
                                         placeholder="Email"
                                         fullWidth
+                                        id="standard-basic"
                                         value={this.state.email}
+                                        onChange={this.handleEmailChange}
                                     />
                                 </div>
                                 <div className="forgot-button">
@@ -54,6 +75,7 @@ class Forgot extends Component {
                                             variant="contained"
                                             color="secondary"
                                             className="submit-box"
+                                            onClick={this.handleLogin}
                                         >
                                             Back
                              </Button>
@@ -64,6 +86,8 @@ class Forgot extends Component {
                                             variant="contained"
                                             color="secondary"
                                             className="submit-box"
+                                            
+                                            onClick={this.handlerForgot}
                                         >
                                             Next
                              </Button>

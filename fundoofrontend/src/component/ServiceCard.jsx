@@ -26,20 +26,28 @@ class ServiceCard extends Component {
         }).catch(err => {
             console.log("err in get user shoping services", err);
         })
-        console.log("window.location.href",window.location.pathname);
-        
+        console.log("window.location.href",window.location.pathname);  
     }
     handleLogin = () => {
         this.props.history.push('/login')
     }
+    handleRegister = (id,con) => {
+        console.log("con");
+        var data={
+            "con":con,
+            "id":id
+        }
+        this.props.history.push('/register',data)
+    }
     render() {
-        // const service = this.state.serviceArr.map((key) => {
         const serviceMap = this.state.serviceArr.map(key => {
             return (
-                <div className="card">
-                    <div> price: ${key.price}per month</div>
-                    <div style={{ color: "#0000ff" }}>{key.name}</div>
-                    <div>
+                <div className="card" onClick={()=>this.handleRegister(key.id,true)} 
+                style={{background:this.props.idProps===key.id?"orange":"grey"}}
+                >
+                    <div style={{fontFamily:"TimesNewRoman", fontSize:"25px"}}> price: ${key.price}per month</div>
+                    <div style={{ color: "#0000ff", fontSize:"20px", flexWrap:"wrap"}}>{key.name}</div>
+                    <div style={{fontFamily:"TimesNewRoman", fontSize:"15px"}}>
                         <li>${key.price}/month</li>
                         <li>{key.description}</li>
                     </div>
@@ -67,7 +75,7 @@ class ServiceCard extends Component {
                     {serviceMap}
                 </div>
         )
-        // })
+        
     }
 }
 

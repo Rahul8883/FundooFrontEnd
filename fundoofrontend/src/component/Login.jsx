@@ -79,7 +79,8 @@ class Login extends Component {
                 'email': this.state.email,
                 'password': this.state.password
             }
-            userLogin.userLogin(data).then((res) => {
+            userLogin.userLogin(data).then((res) => { 
+                console.log("res in login---------",res);
                 localStorage.setItem('email', this.state.email, res.id)
                 this.props.history.push('/dashboard');
                 this.setState({ snackbarOpen: true, snackbarMsg: "Login successfully!!" })
@@ -171,14 +172,14 @@ class Login extends Component {
                         horizontal: 'center',
                     }}
                     open={this.state.snackbarOpen}
-                    autoHideDuration={6000}
-                    onClose={this.handleClose}
+                    autoHideDuration={2000}
+                    onClose={this.snackbarClose}
                     message={<span id="message-id">{this.state.snackbarMsg}</span>}
                     action={[
                         <IconButton
                             onClick={this.handleClose}
                         >
-                            <CloseIcon />
+                            <CloseIcon onClick={this.snackbarClose}/>
                         </IconButton>
                     ]}
                 />

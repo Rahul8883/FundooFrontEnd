@@ -14,7 +14,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import MoreIcon from '@material-ui/icons/MoreVert';
+// import MoreIcon from '@material-ui/icons/MoreVert';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 export default class AppBarComponent extends Component {
     render() {

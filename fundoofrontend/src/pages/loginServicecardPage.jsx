@@ -1,18 +1,18 @@
 /******************************************************************************************
- * @purpose : Accessing login Component here  
- * @file : LoginPage.jsx
- * @module :  Access Login.jsx
+ * @purpose : Accessing Forgot Component here  
+ * @file : ForgotPage.jsx
+ * @module :  Access Forgot.jsx
  * @author : Rahul Ranjan
  * @version : 1.0
  * @since : 29-oct-2019
  ******************************************************************************************/
 import React, { Component } from 'react';
-import Login from '../component/Login';
-export default class LoginPage extends Component {
+import LoginServiceCard from '../component/LoginServicecard'
+export default class loginServicecardPage extends Component {
     render() {
         return (
             <div>
-                <Login props={this.props} />
+                <LoginServiceCard props={this.props} />
             </div>
         )
     }

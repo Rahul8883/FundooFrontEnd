@@ -1,7 +1,12 @@
 import axios from 'axios'
 const baseURL = "http://fundoonotes.incubation.bridgelabz.com/api"
- function userRegister(data) {
-    return axios.post(baseURL + '/user/userSignup', (err, data) => {
+
+
+function userRegister(data) {
+    console.log("Data", data);
+    
+    return axios.post(baseURL + '/user/userSignup', (err,data) => {
+        
         if (err) {
             return err;
         } else {
