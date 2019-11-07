@@ -1,37 +1,32 @@
 import React, { Component } from 'react';
-
-// import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-
-// import MenuItem from '@material-ui/core/MenuItem';
-// import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-// import MoreIcon from '@material-ui/icons/MoreVert';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 export default class AppBarComponent extends Component {
     render() {
         return (
             <div>
-
-                <AppBar position="static">
-                    <Toolbar>
-                        <div className="abcdfghsigklo">
+                <AppBar  style={{maxWidth:"100%"}} position="static">
+                    <Toolbar style={{ backgroundColor: "white",width: "100%" }}>
+                        <div className="appbar_div_1">
                             <IconButton
                                 edge="start"
-
                                 color="inherit"
                                 aria-label="open drawer"
                             >
                                 <MenuIcon />
                             </IconButton>
+                            <div className="imageTag">
+                                <img style={{ width: "60px", height: "63px", display: "flex" }} src={require('../assets/image/keep-512.png')} />
+                            </div>
                             <Typography >
                                 <div>
                                     <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>F</span>
@@ -43,31 +38,24 @@ export default class AppBarComponent extends Component {
                                 </div>
                             </Typography>
                         </div>
-                        <div >
-                            <div className="hjdsgfhjudsBGFYHDS">
-                                
-                                    <SearchIcon />
-                                </div>
+                        <div className="searchEngine">
+                            <div>
+                                <SearchIcon />
+                            </div>
+                            <div>
                                 <InputBase
                                     placeholder="Search…"
-                                    // classes={{
-                                    //     root: classes.inputRoot,
-                                    //     input: classes.inputInput,
-                                    // }}
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
-                            
+                            </div>
                         </div>
                         <div />
-                        <div >
-
-
+                        <div className="applogo">
+                          <div className="Cart_referece_dashboard_logo">
                             <IconButton
                                 edge="end"
                                 aria-label="account of current user"
-                                // aria-controls={menuId}
                                 aria-haspopup="true"
-
                                 color="inherit"
                             >
                                 <RefreshIcon />
@@ -75,9 +63,7 @@ export default class AppBarComponent extends Component {
                             <IconButton
                                 edge="end"
                                 aria-label="account of current user"
-                                // aria-controls={menuId}
                                 aria-haspopup="true"
-
                                 color="inherit"
                             >
                                 <ShoppingCartIcon />
@@ -85,28 +71,25 @@ export default class AppBarComponent extends Component {
                             <IconButton
                                 edge="end"
                                 aria-label="account of current user"
-                                // aria-controls={menuId}
                                 aria-haspopup="true"
-
                                 color="inherit"
                             >
                                 <DashboardIcon />
                             </IconButton>
+                            </div>
+                          <div className="AccountCircle">
                             <IconButton
                                 edge="end"
                                 aria-label="account of current user"
-                                // aria-controls={menuId}
                                 aria-haspopup="true"
-
                                 color="inherit"
                             >
                                 <AccountCircle />
                             </IconButton>
+                            </div>
                         </div>
-
                     </Toolbar>
                 </AppBar>
-
             </div>
         )
     }
