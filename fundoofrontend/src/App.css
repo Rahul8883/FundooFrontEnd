@@ -250,26 +250,3 @@ background-color:orange;
 .AccountCircle{
   padding: 2em;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.drawerHeader {
-  display: 'flex';
-  align-Items: 'center';
-  padding: '0 8px';
-  
-  justify-Content: 'flex-end';
-}

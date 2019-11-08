@@ -1,30 +1,32 @@
 import React, { Component } from 'react'
 import Drawer from '@material-ui/core/Drawer'
-import { withRouter } from 'react-router-dom';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import { MenuItem, Button } from '@material-ui/core';
-const drawerWidth = 240;
-
-const styles = theme => ({
-    root: {
-        display: 'flex',
+// import { withRouter } from 'react-router-dom';
+import { MenuItem, Button, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import EmojiObjectsOutlineIcon from '@material-ui/icons/EmojiObjectsOutlined';
+import AddAlertOutlineIcon from '@material-ui/icons/AddAlertOutlined';
+// import LabeloutlineIcon from '@material-ui/icons/LabelOutlined';
+import ArchiveOutlineIcon from '@material-ui/icons/ArchiveOutlined';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import EditOutlineIcon from '@material-ui/icons/EditOutlined';
+var theme = createMuiTheme({
+    overrides: {
+        MuiDrawer: {
+            paper: {
+                width: "174px",
+                top: "65px",
+                width: " 212px",
+                height: "100vh"
+            }
+        }
     }
 })
+
 export class DrawerComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             open: false,
+            labelArr: []
         }
     }
     handledrawer = () => {
@@ -37,37 +39,88 @@ export class DrawerComponent extends Component {
             open: false
         })
     }
-    handleButton = () => {
+    handleDraweropen = () => {
         this.setState({
             open: !this.state.open
         })
     }
-    handleClose=()=>{
+    handleDrawerClose = () => {
         this.setState({
-            open:false
+            open: false
         })
     }
     render() {
-        console.log("open ",this.state.open);
-        
+        console.log("open ", this.state.open);
         return (
             <div>
-                <Button onClick={this.handleButton}>Menu</Button>
-                <div>
-                    <Drawer
-                    anchor="left" 
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                    >
-                       <MenuItem>
-                       Notes
-                       </MenuItem> 
-                    </Drawer>
-                </div>
+                {/* <Button onClick={this.handleDraweropen}>Menu</Button> */}
+                <MuiThemeProvider theme={theme}>
+                    <div>
+                        <Drawer
+                            variant="persistent"
+                            anchor="left"
+                            open={this.props.menuSelect}
+                            onClose={this.handleDrawerClose}
+                            drawerWidth={10}
+                        >
+                            <div>
+                                <MenuItem id="noteMenu">
+                                    <EmojiObjectsOutlineIcon
+                                    />
+                                    <div
+                                    //      style={{color:"inherit",
+                                    //     letterspacing: ".01785714em",
+                                    //     fontfamily: "Google Sans,Roboto,Arial,sansserif",
+                                    //     fontsize: ".875rem",
+                                    //     fontweight: "500",
 
-            </div>
+                                    // }}
+
+                                    >Notes</div>
+                                </MenuItem>
+                            </div>
+                            <div>
+                                <MenuItem id="noteMenu">
+                                    <AddAlertOutlineIcon />
+                                    <b>Remender</b>
+                                </MenuItem>
+                            </div>
+                            <div style={{ borderBottom: "1px solid lightgrey", borderTop: "1px solid lightgrey" }}>
+                                <div style={{  fontSize: "13px", marginBottom: "10px", marginTop: "10px", fontFamily: "arial" }}>
+                                    <b>LABELS</b>
+                                    {/* <div style={{ overflowY: "auto", maxHeight: "500px", borderRadius: "0px 25px 25px 0px" }}>
+                                        labelArr
+                                    </div> */}
+                                    {/* <Editlabel></Editlabel> */}
+                                    <div>
+                                        <MenuItem id="noteMenu">
+                                            <EditOutlineIcon/>
+                                            <b>Edit Labels</b>
+                                        </MenuItem>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <MenuItem id="noteMenu">
+
+                                    <ArchiveOutlineIcon />
+                                    <b>Archive</b>
+                                </MenuItem>
+                            </div>
+                            <div>
+                                <MenuItem id="noteMenu">
+                                    <DeleteOutlineIcon />
+                                    <b>Tresh</b>
+                                </MenuItem>
+                            </div>
+                        </Drawer>
+
+                    </div>
+                </MuiThemeProvider>
+            </div >
         )
     }
 }
 
 export default DrawerComponent
+

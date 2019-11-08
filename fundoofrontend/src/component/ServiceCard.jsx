@@ -98,11 +98,11 @@ class ServiceCard extends Component {
                 <div className="service-container">
                     <div className="header">
                         <div>
-                            <span style={{ fontFamily: "TimesNewRoman", fontSize: "30px", justifyContent: "center", alignItems: "center" }}>Fundoonotes</span>
+                            <h2 style={{ fontFamily: "TimesNewRoman", fontSize: "30px", justifyContent: "center", alignItems: "center", marginleft: "100px" }}>Fundoonotes</h2>
                         </div>
                     </div>
-                    <div className="text-feel">
-                        <text className="text">FundooNotes offered. Choose below service to Register.</text>
+                    <div className="text-feel" >
+                        <text className="text" >FundooNotes offered. Choose below service to Register.</text>
                     </div>
                     <div className="service-cards">
                         {serviceMap}

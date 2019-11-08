@@ -10,7 +10,21 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import DrawerComponent from '../component/DrawerComponent'
 export default class AppBarComponent extends Component {
+    constructor(){
+        super();
+        this.state={
+            menu:false
+        }
+    }
+    handleMenu = async () => {
+        await this.setState({
+        menu: !this.state.menu
+        })
+        // await this.props.transition(this.state.menu);
+        console.log("state ",this.state.menu);
+        }
     render() {
         return (
             <div>
@@ -21,9 +35,12 @@ export default class AppBarComponent extends Component {
                                 edge="start"
                                 color="inherit"
                                 aria-label="open drawer"
+                                onClick={this.handleMenu}
                             >
+
                                 <MenuIcon />
                             </IconButton>
+                            <DrawerComponent menuSelect={this.state.menu}/>
                             <div className="imageTag">
                                 <img style={{ width: "60px", height: "63px", display: "flex" }} src={require('../assets/image/keep-512.png')} />
                             </div>

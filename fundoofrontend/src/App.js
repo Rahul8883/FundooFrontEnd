@@ -6,7 +6,9 @@ import ServiceCardPage from './pages/ServiceCardPage';
 import Registration from './pages/RegistrationPage';
 import Forgot from './pages/ForgotPage';
 import AppBar from './pages/AppBarPage';
-import Drawer from './pages/DrawerPage'
+import Drawer from './pages/DrawerPage';
+import dashboardPage from './pages/dashboardPage'
+import createNotes from './pages/createNotesPage';
 function App() {
   return (
    <Router>
@@ -17,7 +19,8 @@ function App() {
        <Route path='/forgot' component={Forgot}></Route>
        <Route path='/appBar' component={AppBar}></Route>
        <Route path='/drawer' component={Drawer}></Route>
-      
+      <Route path ='/dashboard' component={dashboardPage}></Route>
+      <Route path ='/createNotes' component ={createNotes}></Route>
      </Switch>
    </Router>
   );
