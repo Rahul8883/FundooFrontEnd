@@ -15,7 +15,7 @@ function userRegister(data) {
     })
 }
  function userForgot(data) {
-    return axios.post(baseURL + '/forgot', (err, data) => {
+    return axios.post(baseURL + 'user/forgot', (err, data) => {
         if (err) {
             return err;
         } else {

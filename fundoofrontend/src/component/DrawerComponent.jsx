@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Drawer from '@material-ui/core/Drawer'
 // import { withRouter } from 'react-router-dom';
-import { MenuItem, Button, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { MenuItem, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import EmojiObjectsOutlineIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import AddAlertOutlineIcon from '@material-ui/icons/AddAlertOutlined';
 // import LabeloutlineIcon from '@material-ui/icons/LabelOutlined';
@@ -110,7 +110,7 @@ export class DrawerComponent extends Component {
                             <div>
                                 <MenuItem id="noteMenu">
                                     <DeleteOutlineIcon />
-                                    <b>Tresh</b>
+                                    <b>Trash</b>
                                 </MenuItem>
                             </div>
                         </Drawer>

@@ -42,7 +42,7 @@ export default class AppBarComponent extends Component {
                             </IconButton>
                             <DrawerComponent menuSelect={this.state.menu}/>
                             <div className="imageTag">
-                                <img style={{ width: "60px", height: "63px", display: "flex" }} src={require('../assets/image/keep-512.png')} />
+                                <img style={{ width: "60px", height: "63px", display: "flex" }} src={require('../assets/image/keep-512.png')} alt="img"/>
                             </div>
                             <Typography >
                                 <div>

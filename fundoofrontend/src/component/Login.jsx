@@ -17,6 +17,7 @@ import { withRouter } from 'react-router-dom';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import userLogin from '../services/userServices';
+import ServiceCard from './ServiceCard'
 import Snackbar from '@material-ui/core/Snackbar';
 class Login extends Component {
     constructor(props) {
@@ -60,8 +61,8 @@ class Login extends Component {
         } else if (!/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)) {
             console.log("entered", /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email));
             this.setState({
-                openSnackBar: true,
-                snackBarMessage: "Invalid Email..!"
+                snackbarOpen: true,
+                snackbarMsg: "Invalid Email..!"
             })
         } else if (this.state.password === "") {
             this.setState({
@@ -70,7 +71,7 @@ class Login extends Component {
             })
         } else if (this.state.password.length < 6) {
             this.setState({
-                openSnackBar: true,
+                snackbarOpen: true,
                 snackbarMsg: "password must be of atleast 6 characters..!!"
             })
         } else {
@@ -79,11 +80,14 @@ class Login extends Component {
                 'email': this.state.email,
                 'password': this.state.password
             }
-            userLogin.userLogin(data).then((res) => { 
-                console.log("res in login---------",res);
+            userLogin.userLogin(data).then((res) => {
+                console.log("res in login---------", res);
                 localStorage.setItem('email', this.state.email, res.id)
                 this.props.history.push('/dashboard');
-                this.setState({ snackbarOpen: true, snackbarMsg: "Login successfully!!" })
+                this.setState({
+                    snackbarOpen: true,
+                    snackbarMsg: "Login successfully!!"
+                })
             }).catch(err => {
                 console.log("err in login component ", err);
             })
@@ -166,6 +170,17 @@ class Login extends Component {
                         </div>
                     </div>
                 </Card>
+                <Card className="login-card" style={{background:"grey"}}>
+                    <div>service</div>
+                    <ServiceCard
+                
+                        cartProps={true}
+                         status={localStorage.getItem('cartId')}
+                         propsColor={localStorage.getItem('status')}
+                        // propsProductId={localStorage.getItem('pId')}
+                    />
+                    
+                </Card>
                 <Snackbar
                     anchorOrigin={{
                         vertical: 'bottom',
@@ -179,7 +194,7 @@ class Login extends Component {
                         <IconButton
                             onClick={this.handleClose}
                         >
-                            <CloseIcon onClick={this.snackbarClose}/>
+                            <CloseIcon onClick={this.snackbarClose} />
                         </IconButton>
                     ]}
                 />

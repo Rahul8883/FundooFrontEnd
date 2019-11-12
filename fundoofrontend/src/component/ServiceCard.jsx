@@ -54,9 +54,7 @@ class ServiceCard extends Component {
             })
             .catch(err => {
                 console.log("ERR_AFTER_HITTING_ADD_TO_CART", err);
-
             })
-
     }
     handleMouseEnter = async (id) => {
         console.log("log id in mouse enter", id);
@@ -77,37 +75,50 @@ class ServiceCard extends Component {
         const mouseColor = this.state.mouseState ? "orange" : "gray"
         const serviceMap = this.state.serviceArr.map(key => {
             return (
-
-                <Card className="outercard" style={{ background: (key.id === this.props.propsProductId) ? this.props.propsColor : "gray" && (key.id === this.state.cartHoverId ? mouseColor : "gray") }}
+                
+                <Card className="outercard" 
+                style={{ 
+                background:
+                (key.id === this.props.propsProductId) ? this.props.propsColor : "gray" && (key.id === this.state.cartHoverId ? mouseColor : "gray"),
+                transform:(mouseColor==="orange")&&(key.id === this.state.cartHoverId)?"scale(1.1)":(null),
+                position:"relative",
+                overflow:"visible"
+                }}
                 >
-                    <Card onMouseEnter={this.props.cartProps ? null : () => this.handleMouseEnter(key.id)} className="Innercard" onClick={(this.props.cartProps) ? null : () => this.handleRegister(key.id)} onMouseLeave={this.props.idProps === key.id ? null : () => this.handleMouseLeave(key.id)}
+                    <Card className="Innercard" onMouseEnter={this.props.cartProps ? null : () =>
+                        this.handleMouseEnter(key.id)}  onClick={(this.props.cartProps) ? null : () =>
+                            this.handleRegister(key.id)} onMouseLeave={this.props.idProps === key.id ? null : () =>
+                            this.handleMouseLeave(key.id)}
                     >
+                        <div className="serviceCard-Contant" style={{    padding: "3vh 2vh"}}>
                         <div style={{ fontFamily: "TimesNewRoman", fontSize: "25px" }}> price: ${key.price}per month</div>
-                        <div style={{ color: "#0000ff", fontSize: "20px", flexWrap: "wrap" }}>{key.name}</div>
-                        <div style={{ fontFamily: "TimesNewRoman", fontSize: "15px" }}>
+                        <div style={{ color: "#0000ff", fontSize: "25px", flexWrap: "wrap" }}>{key.name}</div>
+                        <div style={{ fontFamily: "TimesNewRoman", fontSize: "20px" }}>
                             <li>${key.price}/month</li>
                             <li>{key.description}</li>
                         </div>
+                        </div>
                     </Card>
-                    <div className="obey"> {key.id === this.props.propsProductId ? this.props.status : "addToCart"}</div>
+                    <div className="serviceCard_selector"> {key.id === this.props.propsProductId ? this.props.status : "ADD TO CART"}</div>
                 </Card>
             )
         })
         return (
             this.props.cartProps !== true ?
-                <div className="service-container">
-                    <div className="header">
-                        <div>
-                            <h2 style={{ fontFamily: "TimesNewRoman", fontSize: "30px", justifyContent: "center", alignItems: "center", marginleft: "100px" }}>Fundoonotes</h2>
-                        </div>
+                <div className="serviceCard-container">
+                    <div className="serviceCard_header">
+                            <div className="serviceCard_HeaderTitle">Fundoonotes</div>
                     </div>
-                    <div className="text-feel" >
-                        <text className="text" >FundooNotes offered. Choose below service to Register.</text>
-                    </div>
+
+                    <div className="serviceCard_Notes">
+                        <div className="Card_Note" >FundooNotes offered. Choose below service to Register.</div>
+                    
                     <div className="service-cards">
                         {serviceMap}
                     </div>
-                    <span onClick={this.handleLogin} className="base-line">  LogIn Instead</span>
+                    
+                    </div>
+                    <span className="serviceCard_LoginButton" onClick={this.handleLogin} >SignIn</span>
                 </div>
                 :
                 <div className="service-cards">

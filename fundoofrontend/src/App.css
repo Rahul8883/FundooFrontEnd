@@ -1,43 +1,3 @@
-/* .card1{
-  height: 250px;
-  width:250px;
-  background-color:blue;
-  position:relative;
-  z-index:11;
-}
-.card1:hover + .card2 {
-background-color:orange;
-}
-.card2{
-  height: 250px;
-  width:250px;
-  background-color:green;
-  position:absolute;
-  z-index:10;
-  top:295px;
-  left:35px;
-}
- */
-.header {
-  width: 100vw;
-  height: 10vh;
-  background: orange;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.text-feel {
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-}
-.text {
-  background-color: rgb(255, 255, 255);
-  font-family: 'Times New Roman', Times, serif;
-}
 .card {
   width: 160px;
   height: 160px;
@@ -49,23 +9,21 @@ background-color:orange;
   flex-wrap: wrap;
   transition: transform 1s;
 }
+
 .card:hover {
   transform: scale(1.3);
   box-shadow: 20px 20px orange;
 }
+
 .card:active {
   transform: scale(1.3);
   box-shadow: 20px 20px orange;
 }
-.service-cards {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+
 #login-heading {
   margin-top: 0;
 }
+
 .login-card {
   width: 30%;
   text-align: center;
@@ -74,22 +32,27 @@ background-color:orange;
   padding: 30px;
   height: 70%;
 }
+
 .heading {
   color: rgb(72, 39, 28);
   font-size: 23px;
 }
+
 .login-container {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .login-contents>div {
   margin: 1em;
 }
+
 #registration-heading {
   margin-top: 0;
 }
+
 .registration-card {
   width: 550px;
   text-align: center;
@@ -98,25 +61,30 @@ background-color:orange;
   padding: 30px;
   height: 600px;
 }
+
 .registration-container {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .registration-contents>div {
   margin: 0em;
 }
+
 .personal-filed {
   display: flex;
   justify-content: space-between;
   padding: 4px 0px 1px 0px;
 }
+
 .password-field {
   display: flex;
   justify-content: space-between;
   padding: 4px 0px 1px 0px;
 }
+
 .card-1 {
   width: 200px;
   height: 200px;
@@ -124,6 +92,7 @@ background-color:orange;
   border: 1px solid black;
   margin: 2em;
 }
+
 .contents {
   display: flex;
   align-items: center;
@@ -131,6 +100,7 @@ background-color:orange;
   margin: 4em;
   flex-wrap: wrap;
 }
+
 .forgot-card {
   width: 450px;
   height: 350px;
@@ -140,75 +110,76 @@ background-color:orange;
   padding: 30px;
   margin: 1;
 }
+
 #orange {
   background: orange;
 }
+
 .forgot-container {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .forgot-container>div {
   margin: 1em;
 }
+
 .forgot-button {
   display: flex;
   justify-content: space-between;
   margin-top: 1em;
 }
+
 .button-style {
   display: flex;
   justify-content: center;
 }
-.base-line {
-  display: flex;
-  justify-content: center;
-}
+
 .MailFind {
   color: brown;
   font-size: 23px;
 }
+
 .Recovery {
   color: seagreen;
   font-size: 25px;
   font-family: 'Times New Roman', Times, serif;
 }
+
 .ServiceCardPage {
   width: 420px;
   height: 480px;
   display: flex;
   flex-direction: column;
 }
+
 .cardDivision {
   display: flex;
   justify-content: center;
 }
+
 .loginContainerPage {
   display: flex;
   justify-content: center;
   flex-direction: row;
 }
+
 .servicePage {
   flex-direction: column;
 }
-.outercard {
-  width: 20%;
-  height: 15rem;
+
+.signUpFeel {
+  margin: 30px;
 }
-.Innercard {
-  width: 84%;
-  height: 11rem;
-  padding: 4px;
-}
-.obey {
-  padding: 19px 57px;
-}
+
 .MuiToolbar-regular {
   min-height: 64px;
   justify-content: space-between;
-  display: flex; 
+  display: flex;
 }
+
 .appbar_div_1 {
   min-width: 232px;
   height: 48px;
@@ -220,6 +191,7 @@ background-color:orange;
   display: flex;
   color: black;
 }
+
 .searchEngine {
   min-width: 232px;
   height: 48px;
@@ -231,9 +203,9 @@ background-color:orange;
   background: #fff;
   border-radius: 6px;
   background: rgb(238, 236, 236);
-  /* padding: 0px 430px 1px 1px; */
   margin: 0em 19em 0em;
 }
+
 .applogo {
   min-width: 232px;
   height: 48px;
@@ -244,9 +216,124 @@ background-color:orange;
   display: flex;
   color: black;
 }
-.Cart_referece_dashboard_logo{
 
-}
-.AccountCircle{
+.AccountCircle {
   padding: 2em;
+}
+
+/* --------------------------------------service card--------------------------------------- */
+
+.serviceCard_HeaderTitle {
+  font-family: 'Times New Roman', Times, serif;
+  font-Size: 30px;
+  justify-Content: center;
+  align-Items: center;
+  margin-left: 100px;
+  padding: 1em;
+}
+
+.serviceCard_header {
+  width: 100vw;
+  height: 10vh;
+  background: orange;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* .serviceCard_Notes {
+ 
+} */
+
+.Card_Note {
+  background-color: rgb(255, 255, 255);
+  font-family: 'Roboto', Arial, sans-serif;
+  /* margin-bottom: 10%; */
+  place-content: stretch center;
+  align-items: stretch;
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  font-size: 25px;
+  padding: 34px 0px 0px 0px;
+}
+
+.service-cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 5%;
+}
+
+.serviceCard_selector {
+  /* padding: 0px 19px;(we can use this also..) */
+  font-size: 18px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.serviceCard_LoginButton {
+  color: #0606f8;
+  cursor: pointer;
+  /* margin: 123px 0px 0px 0px; */
+  place-content: stretch center;
+  align-items: stretch;
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  font-family: monospace;
+  /* margin: 8%; */
+}
+
+.Innercard {
+  width: 93%;
+  height: 267px;
+  padding: 4px;
+  margin-top: -34px;
+  margin-left: -17px;
+  font-family: "Roboto", "Helvetica Neue", "sans-serif";
+}
+
+.outercard {
+  width: 17%;
+  height: 281px;
+  font-family: monospace;
+}
+
+.serviceCard-Contant {
+  font-stretch: inherit;
+}
+
+/* -------------------------------------createNotes----------------------------------------- */
+
+.createNote_container {
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+
+.CreateNote_Card {
+  height: 100%;
+  width: 50%;
+  border-width: 1px 1px 1px 6px;
+  display: flex;
+  /* we have to override this using muiThemeProvider*/
+  /* box-shadow: 0px 1px 5px #888888;
+   border-radius: 11px; */
+}
+
+.CreateNote_TextField {
+  margin-Left: 8;
+  flex: 1;
+  width: 70%;
+  height: 50px;
+  word-wrap: break-word;
+}
+
+.first_Card_icons {
+  padding: 0px 0px 0px 250px;
+  align-items: center;
 }

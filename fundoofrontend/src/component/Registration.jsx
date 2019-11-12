@@ -27,13 +27,18 @@ class Registration extends Component {
             email: "",
             password: "",
             confirmpassword: "",
-            SnackbarOpen: false,
-            SnackbarMsg: ""
+            snackbarOpen: false,
+            snackbarMsg: ""
         }
     }
-    SnackbarClose = (e) => {
-        this.setState({ SnackbarOpen: false })
+    snackbarClose = (e) => {
+        this.setState({ snackbarOpen: false })
     }
+    // handleClose=(e)=>{
+    //     this.setState({
+    //         snackbarOpen:false
+    //     })
+    // }
     handlefirstNameChange = (event) => {
         console.log("------------->event");
         const firstName = event.target.value;
@@ -60,19 +65,18 @@ class Registration extends Component {
         this.setState({ confirmPassword: confirmPassword })
     }
     handleLogin = () => {
-        
         this.props.history.push('/login')
     }
     handleSubmit = () => {
-        if (this.firstName === "") {
+        if (this.state.firstName === "") {
             this.setState({
                 snackbarOpen: true,
                 snackbarMsg: "first Name cann't be Empty..!"
             })
-        } else if (this.lastName === "") {
+        } else if (this.state.lastName === "") {
             this.setState({
                 snackbarOpen: true,
-                snackbarMsg: "first Name cann't be Empty..!"
+                snackbarMsg: "Last Name cann't be Empty..!"
             })
         } else if (this.state.email === "") {
             this.setState({
@@ -82,8 +86,8 @@ class Registration extends Component {
         } else if (!/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)) {
             console.log("entered", /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email));
             this.setState({
-                openSnackBar: true,
-                snackBarMessage: "Invalid Email..!"
+                snackbarOpen: true,
+                snackbarMsg: "Invalid Email..!"
             })
         } else if (this.state.password === "") {
             this.setState({
@@ -92,7 +96,7 @@ class Registration extends Component {
             })
         } else if (this.state.password.length < 6) {
             this.setState({
-                openSnackBar: true,
+                snackbarOpen: true,
                 snackbarMsg: "password must be of atleast 6 characters..!!"
             })
         } else {
@@ -125,6 +129,11 @@ class Registration extends Component {
             cartId=this.props.location.state.cartId
             status="Selected"
             color="orange"
+            localStorage.setItem('cartId',cartId);
+            localStorage.setItem('status',status);
+            localStorage.setItem('color',color);
+            localStorage.setItem('pId',productId)
+
         }
         return (
             <div className="registration-container">
@@ -219,8 +228,8 @@ class Registration extends Component {
                             />
                             
                         </div>
-                        <div>
-                            <div>
+                        <div >
+                            <div className="signUpFeel">
                                 <Button
                                     type="submit"
                                     variant="contained"
@@ -251,14 +260,14 @@ class Registration extends Component {
                         horizontal: 'center',
                     }}
                     open={this.state.snackbarOpen}
-                    autoHideDuration={6000}
-                    onClose={this.handleClose}
+                    autoHideDuration={2000}
+                    onClose={this.snackbarClose}
                     message={<span id="message-id">{this.state.snackbarMsg}</span>}
                     action={[
                         <IconButton
                             onClick={this.handleClose}
                         >
-                            <CloseIcon />
+                            <CloseIcon onClick={this.snackbarClose}/>
                         </IconButton>
                     ]}
                 />
