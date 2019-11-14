@@ -184,26 +184,28 @@
   min-width: 232px;
   height: 48px;
   width: 100%;
-  -webkit-box-align: center;
+  
   vertical-align: middle;
-  white-space: nowrap;
+
   align-items: center;
   display: flex;
   color: black;
+ 
 }
 
 .searchEngine {
-  min-width: 232px;
+  /* min-width: 232px;
   height: 48px;
   vertical-align: middle;
   white-space: nowrap;
-  align-items: center;
+  align-items: center; */
   display: flex;
   color: black;
-  background: #fff;
+  /* background: #fff; */
   border-radius: 6px;
   background: rgb(238, 236, 236);
-  margin: 0em 19em 0em;
+  
+  padding-left: 5px;
 }
 
 .applogo {
@@ -312,17 +314,16 @@
 .createNote_container {
   display: flex;
   justify-content: center;
-  padding: 100px;
+  /* padding-top: 8%; */
+  /* padding-bottom: 3%; */
+  padding: 7% 4% 3% 2%;
 }
 
-.CreateNote_Card {
-  height: 100%;
-  width: 50%;
-  border-width: 1px 1px 1px 6px;
+.CreateNote_Card1 {
   display: flex;
-  /* we have to override this using muiThemeProvider*/
-  /* box-shadow: 0px 1px 5px #888888;
-   border-radius: 11px; */
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
 }
 
 .CreateNote_TextField {
@@ -336,4 +337,81 @@
 .first_Card_icons {
   padding: 0px 0px 0px 250px;
   align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 24%;
+}
+
+.CreateNote_Card2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.SecondCard_createNotes {
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+
+
+
+}
+
+.input_field {
+  padding: 6px 0px 4px 7px;
+}
+
+/* .closeButton {
+ 
+} */
+
+.iconEffect {
+  color: #202124;
+  opacity: 0.71;
+}
+/* ----------------------------------getCard----------------------------------------------------------------------- */
+.get-cards1{
+  width:200px;
+  min-height: 100px;
+  height: auto;
+}
+.get-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
+  width: 60%;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4px;
+}
+.get-cardDetails > div{
+margin: 0.6em 0;
+}
+.column{
+  
+    float: left;
+    width: 40%;
+    padding: 0 10px; 
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.get-card-effect{
+float: right;
+width: 75%;
+flex-wrap: wrap;
+padding : 0  16px;
+}
+.get-Whole-Card{
+  float: left;
+  width: 30%;
+  padding: 0 10px;
+}
+.getNotesMainDiv {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

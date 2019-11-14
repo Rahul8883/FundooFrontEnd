@@ -11,7 +11,10 @@ function userRegister(data) {
  function userLogin(data) {
      console.log("login data",data);
      
-    return axios.post(baseURL + '/user/login', data,{
+    return axios.post(baseURL + '/user/login', data).then(res=>{
+        console.log("res in login",res.data);
+        
+        localStorage.setItem("token",res.data.id)
     })
 }
  function userForgot(data) {

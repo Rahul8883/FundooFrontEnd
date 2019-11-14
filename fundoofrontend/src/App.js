@@ -9,6 +9,7 @@ import AppBar from './pages/AppBarPage';
 import Drawer from './pages/DrawerPage';
 import dashboardPage from './pages/dashboardPage'
 import createNotes from './pages/createNotesPage';
+import GetCreatedNote from './pages/GetNotePage'
 function App() {
   return (
    <Router>
@@ -21,6 +22,7 @@ function App() {
        <Route path='/drawer' component={Drawer}></Route>
       <Route path ='/dashboard' component={dashboardPage}></Route>
       <Route path ='/createNotes' component ={createNotes}></Route>
+      <Route path ='/getCreatedNote' component={GetCreatedNote}></Route>
      </Switch>
    </Router>
   );

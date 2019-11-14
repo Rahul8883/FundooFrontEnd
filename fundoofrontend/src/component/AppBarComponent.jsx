@@ -10,8 +10,11 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import DrawerComponent from '../component/DrawerComponent'
+import DrawerComponent from '../component/DrawerComponent';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+
 export default class AppBarComponent extends Component {
+    
     constructor(){
         super();
         this.state={
@@ -28,7 +31,8 @@ export default class AppBarComponent extends Component {
     render() {
         return (
             <div>
-                <AppBar  style={{maxWidth:"100%"}} position="static">
+              
+                <AppBar  style={{maxWidth:"100%"}} position="fixed">
                     <Toolbar style={{ backgroundColor: "white",width: "100%" }}>
                         <div className="appbar_div_1">
                             <IconButton
@@ -106,7 +110,9 @@ export default class AppBarComponent extends Component {
                             </div>
                         </div>
                     </Toolbar>
+
                 </AppBar>
+              
             </div>
         )
     }
