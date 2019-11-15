@@ -184,28 +184,10 @@
   min-width: 232px;
   height: 48px;
   width: 100%;
-  
   vertical-align: middle;
-
   align-items: center;
   display: flex;
   color: black;
- 
-}
-
-.searchEngine {
-  /* min-width: 232px;
-  height: 48px;
-  vertical-align: middle;
-  white-space: nowrap;
-  align-items: center; */
-  display: flex;
-  color: black;
-  /* background: #fff; */
-  border-radius: 6px;
-  background: rgb(238, 236, 236);
-  
-  padding-left: 5px;
 }
 
 .applogo {
@@ -352,9 +334,6 @@
   display: flex;
   justify-content: center;
   padding: 100px;
-
-
-
 }
 
 .input_field {
@@ -369,12 +348,16 @@
   color: #202124;
   opacity: 0.71;
 }
+
 /* ----------------------------------getCard----------------------------------------------------------------------- */
-.get-cards1{
-  width:200px;
+
+.get-cards1 {
+  width: 200px;
+  /* width:auto; */
   min-height: 100px;
   height: auto;
 }
+
 .get-container {
   display: flex;
   align-items: center;
@@ -385,33 +368,73 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 4px;
 }
-.get-cardDetails > div{
-margin: 0.6em 0;
+
+.get-cardDetails>div {
+  margin: 0.6em 0;
 }
-.column{
-  
-    float: left;
-    width: 40%;
-    padding: 0 10px; 
+
+.column {
+  float: left;
+  width: 40%;
+  padding: 0 10px;
 }
+
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-.get-card-effect{
-float: right;
-width: 75%;
-flex-wrap: wrap;
-padding : 0  16px;
+
+.get-card-effect {
+  float: right;
+  width: 75%;
+  flex-wrap: wrap;
+  padding: 0 16px;
 }
-.get-Whole-Card{
+
+.get-Whole-Card {
   float: left;
   width: 30%;
   padding: 0 10px;
 }
+
 .getNotesMainDiv {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+/* -----------------------------------AppBar-------------------------------------------- */
+
+.searchIcon {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.inputSearchField {
+  max-width: 100%;
+}
+
+.searchEngine {
+  border-radius: 8px;
+  background: #f1f3f4;
+  border: 1px solid transparent;
+  max-width: 720px;
+  color: black;
+  display: flex;
+  direction: ltr;
+  font: 13px/27px Roboto, RobotoDraft, Arial, sans-serif;  position: relative;
+  height: 45px;
+  align-items: center;
+  transition: background 100ms ease-in, width 100ms ease-out;
+}
+
+.IconWithSearch {
+  padding-right: 30px;
+  max-width: 100%;
+  padding-left: 10px;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 48px;
 }

@@ -4,12 +4,10 @@ import { Card } from "@material-ui/core";
 import AddAlertOutlineIcon from "@material-ui/icons/AddAlertOutlined";
 import ImageIcon from "@material-ui/icons/ImageOutlined";
 import PersonAddIcon from "@material-ui/icons/PersonAddOutlined";
-import PaletteIcon from "@material-ui/icons/PaletteOutlined";
-import ArchiveIcon from "@material-ui/icons/ArchiveOutlined";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import UndoIcon from "@material-ui/icons/Undo";
-import RedoIcon from "@material-ui/icons/Redo";
-import { getNote } from "../services/notesServices";
+import { getNote, changeColor } from "../services/notesServices";
+import ColorComponenet from '../component/ColorComponenet'
+import ArchivedComponent from "./ArchivedComponent";
 
 class GetNoteComponent extends Component {
     constructor(props) {
@@ -17,12 +15,12 @@ class GetNoteComponent extends Component {
         this.state = {
             // openNote: false,
             // title: "",
-            // noteId: "",
+            notesId: "",
             // oldState: "",
             // search: "",
             // isDeleted: "",
             // description: "",
-            // color: "",
+            color: "",
             // newNotes: {},
             // reminder: "",
             // archive: false,
@@ -30,6 +28,27 @@ class GetNoteComponent extends Component {
             // lebal: ""
             notes: []
         };
+    }
+    hanNoteColor = (col, notesId) => {
+        let data = {
+            color: col,
+            noteIdList: [notesId]
+        }
+        console.log("response coming from color componenet", data);
+
+        this.setState({
+            color: col
+        })
+
+        changeColor(data).then((res) => {
+            console.log("Response while hettinf back-end Api", res);
+            this.getAllNotes();
+
+        }).catch((err) => {
+            console.log("error occur while hetting back-end", err);
+
+        })
+
     }
     componentDidMount() {
         this.getAllNotes();
@@ -50,17 +69,19 @@ class GetNoteComponent extends Component {
         console.log("triggered");
 
     }
+    handleRefreshArchive=()=>{
+        if(true){
+        this.getAllNotes()}
+    }
     render() {
         return (
             <div className="get-container">
                 {this.state.notes.map((data) => {
                     return (
-
-
-
+                        data.isArchived===false &&
                         <div className="get-Whole-Card">
                             <div className="get-card-effect">
-                                <Card className="get-cards1" onClick={this.handleCardClick} style={{ padding: "1em" }}>
+                                <Card className="get-cards1" onClick={this.handleCardClick} style={{ padding: "1em", backgroundColor: data.color }}>
                                     <div className="get-cardDetails">
                                         <div>{data.title}</div>
                                         <div>{data.description}</div>
@@ -71,7 +92,7 @@ class GetNoteComponent extends Component {
                                         style={{
                                             display: "flex",
                                             justifyContent: "space-between",
-                                            width: "129%"
+                                            width: "200px"
                                         }}
                                     >
 
@@ -82,13 +103,18 @@ class GetNoteComponent extends Component {
                                             <PersonAddIcon className="iconEffect" />
                                         </div>
                                         <div>
-                                            <PaletteIcon className="iconEffect" />
+                                            <ColorComponenet
+                                                className="iconEffect"
+                                                propsToColorPallate={this.hanNoteColor}
+                                                notesId={data.id}
+                                            />
                                         </div>
                                         <div>
                                             <ImageIcon className="iconEffect" />
                                         </div>
                                         <div>
-                                            <ArchiveIcon className="iconEffect" />
+                                            <ArchivedComponent notesId={data.id}
+                                            refreshArchive={this.handleRefreshArchive} className="iconEffect" />
                                         </div>
                                         <div>
                                             <MoreVertIcon className="iconEffect" />

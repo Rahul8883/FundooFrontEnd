@@ -10,6 +10,8 @@ import Drawer from './pages/DrawerPage';
 import dashboardPage from './pages/dashboardPage'
 import createNotes from './pages/createNotesPage';
 import GetCreatedNote from './pages/GetNotePage'
+import colorPage from './pages/colorPage';
+import ArchivePage from './pages/ArchivePage'
 function App() {
   return (
    <Router>
@@ -23,6 +25,8 @@ function App() {
       <Route path ='/dashboard' component={dashboardPage}></Route>
       <Route path ='/createNotes' component ={createNotes}></Route>
       <Route path ='/getCreatedNote' component={GetCreatedNote}></Route>
+      <Route path ='/colorPage' component={colorPage}></Route>
+     <Route path ='/archive' component={ArchivePage}></Route>
      </Switch>
    </Router>
   );

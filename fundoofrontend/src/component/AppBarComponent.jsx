@@ -6,13 +6,11 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountCircle from '@material-ui/icons/AccountCircleOutlined';
 import RefreshIcon from '@material-ui/icons/Refresh';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import DashboardIcon from '@material-ui/icons/Dashboard';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
+import DashboardIcon from '@material-ui/icons/DashboardOutlined';
 import DrawerComponent from '../component/DrawerComponent';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-
 export default class AppBarComponent extends Component {
     
     constructor(){
@@ -59,16 +57,19 @@ export default class AppBarComponent extends Component {
                                 </div>
                             </Typography>
                         </div>
+                        <div className="IconWithSearch">
                         <div className="searchEngine">
-                            <div>
+                            <div className="searchIcon">
                                 <SearchIcon />
                             </div>
-                            <div>
+                            <div className="inputSearchField">
                                 <InputBase
+                                     style={{width:"850px"}}
                                     placeholder="Search…"
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
                             </div>
+                        </div>
                         </div>
                         <div />
                         <div className="applogo">
