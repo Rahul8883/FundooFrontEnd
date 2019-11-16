@@ -89,7 +89,7 @@ export default class ColorComponenet extends Component {
             </Tooltip>
         );
         return (
-            // <MuiThemeProvider theme={thm}>
+           
                 <PopupState variant="popper" >
                     {popupState => (
                         <div>
@@ -103,8 +103,6 @@ export default class ColorComponenet extends Component {
                                 {this.state.open ?
                                     <Paper
                                         className="colorPalleteCard" style={{width:"32%"}}
-                                    // onMouseEnter={this.openPopper}
-                                    // onMouseLeave={this.closePopper}
                                     >
                                         {changeColor}
                                     </Paper>
@@ -113,7 +111,7 @@ export default class ColorComponenet extends Component {
                         </div>
                     )}
                 </PopupState>
-            // </MuiThemeProvider>
+          
 
         )
     }

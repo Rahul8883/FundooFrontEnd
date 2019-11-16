@@ -18,9 +18,6 @@ class ArchivedComponent extends Component {
         }
         archiveNotes(data).then((res) => {
             console.log("response from archive", res);
-            // this.setState({
-            //     note: this.data.data.data
-            // })
             this.props.refreshArchive(true)
             console.log("Response of archived data", this.state.note);
 

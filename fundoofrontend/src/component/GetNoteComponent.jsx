@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Card } from "@material-ui/core";
+import { Card, InputBase } from "@material-ui/core";
 import AddAlertOutlineIcon from "@material-ui/icons/AddAlertOutlined";
 import ImageIcon from "@material-ui/icons/ImageOutlined";
 import PersonAddIcon from "@material-ui/icons/PersonAddOutlined";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { getNote, changeColor } from "../services/notesServices";
 import ColorComponenet from '../component/ColorComponenet'
 import ArchivedComponent from "./ArchivedComponent";
+import MoreComponent from "./MoreComponent";
 
 class GetNoteComponent extends Component {
     constructor(props) {
@@ -73,21 +73,33 @@ class GetNoteComponent extends Component {
         if(true){
         this.getAllNotes()}
     }
+    displayRef=(value)=>{
+        console.log('====================================');
+        console.log("ref value in getnote",value);
+        console.log('====================================');
+        this.setState({
+            notes:[...this.state.notes,value]
+        })
+    }
     render() {
         return (
             <div className="get-container">
                 {this.state.notes.map((data) => {
                     return (
-                        data.isArchived===false &&
+                        data.isArchived===false && data.isDeleted===false&&
                         <div className="get-Whole-Card">
                             <div className="get-card-effect">
                                 <Card className="get-cards1" onClick={this.handleCardClick} style={{ padding: "1em", backgroundColor: data.color }}>
                                     <div className="get-cardDetails">
-                                        <div>{data.title}</div>
-                                        <div>{data.description}</div>
+                                        <InputBase value={data.title}
+                                        multiline
+                                        >
+                                        </InputBase>
+                                        <InputBase value={data.description}
+                                        multiline
+                                        >
+                                        </InputBase>
                                     </div>
-
-
                                     <div
                                         style={{
                                             display: "flex",
@@ -117,7 +129,7 @@ class GetNoteComponent extends Component {
                                             refreshArchive={this.handleRefreshArchive} className="iconEffect" />
                                         </div>
                                         <div>
-                                            <MoreVertIcon className="iconEffect" />
+                                            <MoreComponent notesId={data.id} />
                                         </div>
                                     </div>
 

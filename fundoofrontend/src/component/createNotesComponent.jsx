@@ -8,12 +8,12 @@ import ImageIcon from '@material-ui/icons/ImageOutlined';
 import InputBase from '@material-ui/core/InputBase';
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
 import ArchiveIcon from '@material-ui/icons/ArchiveOutlined';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import UndoIcon from '@material-ui/icons/Undo';
 import RedoIcon from '@material-ui/icons/Redo';
 import { createNote, changeColor } from '../services/notesServices';
 import ColorComponent from '../component/ColorComponenet'
 // import {createNote} from '../services/notesServices'
+import MoreComponent from '../component/MoreComponent'
 class CreateNotesComponent extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +26,8 @@ class CreateNotesComponent extends Component {
             reminder: "",
             isArchived: false,
             labelIdList: "",
-            lebal: ""
+            lebal: "",
+            addedNote:[]
         }
     }
     handleListener = () => {
@@ -107,6 +108,12 @@ class CreateNotesComponent extends Component {
         try {
             createNote(data).then((result) => {
                 console.log("result in create note component for add notes", result);
+                this.setState({
+                    addedNote:result.data.status.details
+                })
+                this.props.addNotesProps(this.state.addedNote)
+                console.log("add note after setstate",this.state.addedNote);
+                
             }).catch((err) => {
                 console.log("err occure while hitting back-end", err);
             })
@@ -224,7 +231,7 @@ class CreateNotesComponent extends Component {
                                                 />
                                             </div>
                                             <div>
-                                                <MoreVertIcon
+                                               <MoreComponent
                                                     className="iconEffect"
                                                 />
                                             </div>
