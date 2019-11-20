@@ -21,7 +21,9 @@ class DashboardPage extends Component {
         return (
             <div>
                 <AppBarComponent props={this.props} />
+                <div className="mainDivCreate">
                 <CreateNotesComponent addNotesProps={this.handleAddNoteRef} />
+                </div>
                 <div className="getNotesMainDiv">
                 <GetNoteComponent
                 wrappedComponentRef={this.createReff}

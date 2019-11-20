@@ -38,7 +38,7 @@ class moreComponent extends Component {
                 <Popper open={this.state.anchorEl} anchorEl={this.state.anchorEl} style={{zIndex:"9999"}}>
                     <Paper>
                    <MenuItem><TrashComponent noteIdToTrash={this.state.trashNotesId}/></MenuItem>
-                   
+                   <MenuItem>Add Label</MenuItem>
                        
                 </Paper>
                 </Popper>

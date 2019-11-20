@@ -63,8 +63,9 @@ export class DrawerComponent extends Component {
                             onClose={this.handleDrawerClose}
                             drawerWidth={10}
                         >
-                            <div>
-                                <MenuItem id="noteMenu">
+                        <div className="DrawerAllIcon">                           
+                         <div>
+                                <MenuItem id="DrawerSubIcon">
                                     <EmojiObjectsOutlineIcon
                                     />
                                     <div
@@ -80,7 +81,7 @@ export class DrawerComponent extends Component {
                                 </MenuItem>
                             </div>
                             <div>
-                                <MenuItem id="noteMenu">
+                                <MenuItem id="DrawerSubIcon">
                                     <AddAlertOutlineIcon />
                                     <b>Remender</b>
                                 </MenuItem>
@@ -93,7 +94,7 @@ export class DrawerComponent extends Component {
                                     </div> */}
                                     {/* <Editlabel></Editlabel> */}
                                     <div>
-                                        <MenuItem id="noteMenu">
+                                        <MenuItem id="DrawerSubIcon">
                                             <EditOutlineIcon/>
                                             <b>Edit Labels</b>
                                         </MenuItem>
@@ -101,18 +102,20 @@ export class DrawerComponent extends Component {
                                 </div>
                             </div>
                             <div>
-                                <MenuItem id="noteMenu">
+                                <MenuItem id="DrawerSubIcon">
 
                                     <ArchiveOutlineIcon />
                                     <b>Archive</b>
                                 </MenuItem>
                             </div>
                             <div>
-                                <MenuItem id="noteMenu">
+                                <MenuItem id="DrawerSubIcon">
                                     <DeleteOutlineIcon />
                                     <b>Trash</b>
                                 </MenuItem>
                             </div>
+                            </div>
+
                         </Drawer>
 
                     </div>

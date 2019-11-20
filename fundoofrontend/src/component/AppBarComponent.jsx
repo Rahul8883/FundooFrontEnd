@@ -54,6 +54,11 @@ export default class AppBarComponent extends Component {
                                     <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>d</span>
                                     <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
                                     <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
+                                    <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>n</span>
+                                    <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
+                                    <span style={{ color: 'orange', fontFamily: 'TimesNewRoman', fontSize: 25 }}>t</span>
+                                    <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>e</span>
+                                    <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>s</span>
                                 </div>
                             </Typography>
                         </div>

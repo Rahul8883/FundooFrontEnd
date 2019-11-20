@@ -38,10 +38,21 @@ const hexdaDecimalCodeWithName = [
     { color: "#a7ffeb" },
     { color: "#cbf0f8" },
     { color: "#aecbfa" },
-    { color: "#fff" },
     { color: "#f28b82" },
     { color: "#fbbc04" },
-    { color: "#fff475" }
+    { color: "#fff475" },
+    { name: "Red", color: "#ef9a9a" },
+{ name: "Cyan", color: "#80deea" },
+{ name: "Blue", color: "#2196f3" },
+{ name: "Indigo", color: "#9fa8da" },
+{ name: "LightBlue", color: "#90caf9" },
+{ name: "Purple", color: "#b39ddb" },
+{ name: "Yellow", color: "#c5e1a5" },
+{ name: "Lime", color: "#e6ee9c" },
+{ name: "Pink", color: "#f48fb1" },
+{ name: "gray", color: "#eeeeee" },
+{ name: "Brown", color: "#bcaaa4" },
+{color: "#bcdaa6"},
 ]
 export default class ColorComponenet extends Component {
     constructor(props) {

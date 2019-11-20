@@ -94,9 +94,6 @@ class CreateNotesComponent extends Component {
         })
     }
     handleClose = () => {
-        // this.setState({
-        //     openNote:!this.state.openNote
-        // })
         var data = {
             title: this.state.title,
             description: this.state.description,
@@ -149,13 +146,14 @@ class CreateNotesComponent extends Component {
                 (
                     <div className="createNote_container"
                         onClick={this.handleOpenNotes}>
-                        <Card className="CreateNote_Card1" >
+                        <Card className="CreateNote_Card1" style={{ margin: "36px 0px 0px 113px"}} >
                             <div classname="createNote_input_base">
                                 <InputBase
                                     className="CreateNote_TextField"
                                     placeholder="Take a note..."
                                     multiline
                                     spellCheck={true}
+                                    style={{marginleft: "10px"}}
                                     onClick={this.handleNotes}
                                 />
                             </div>
