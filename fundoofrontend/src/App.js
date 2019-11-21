@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from './pages/LoginPage'
@@ -13,13 +13,14 @@ import GetCreatedNote from './pages/GetNotePage'
 import colorPage from './pages/colorPage';
 import ArchivePage from './pages/ArchivePage';
 import morePage from './pages/MorePage'
-function App() {
+class  App extends Component {
+  render(){
   return (
     <Router>
       <Switch>
         <Route path='/login' component={Login}></Route>
         <Route path='/register' component={Registration}></Route>
-        <Route path='/servicePage' exact component={ServiceCardPage}></Route>
+        <Route path='/' exact component={ServiceCardPage}></Route>
         <Route path='/forgot' component={Forgot}></Route>
         <Route path='/appBar' component={AppBar}></Route>
         <Route path='/drawer' component={Drawer}></Route>
@@ -32,6 +33,7 @@ function App() {
       </Switch>
     </Router>
   );
+  }
 }
 
 export default App;

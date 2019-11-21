@@ -473,11 +473,11 @@
     padding: 0px 0px 0px 0px;
   }
 }
-/* -----------------------------------AppBar-------------------------------------------- */
-.DrawerAllIcon{
+/* -----------------------------------Drawer-------------------------------------------- */
+/* .DrawerAllIcon{
   padding-left: 24px;
   letter-spacing: .01785714em;
-}
+} */
 .DrawerSubIcon{
   border-radius: 0 25px 25px 0;
     color: #202124;
@@ -486,4 +486,38 @@
     font-size: .875rem;
     font-weight: 500;
     line-height: 2.25rem;
+}
+.Label{
+  color: #5f6368;
+  cursor: default;
+  letter-spacing: .07272727em;
+  font-family: Roboto,Arial,sans-serif;
+  font-size: .6875rem;
+  font-weight: 500;
+  line-height: 1rem;
+  text-transform: uppercase;
+  padding: 15px 24px 10px;
+}
+.Icon{
+  height: 24px;
+  width: 24px;
+  float: left;
+  margin-top: 8px;
+  vertical-align: middle;
+  color: #5f6368;
+  opacity: 1;
+  margin-bottom: 7px;
+}
+.DrawerIcons{
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+.mainDrawerIcon{
+  
+ 
+}
+.iconName{
+  font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: .875rem;
 }

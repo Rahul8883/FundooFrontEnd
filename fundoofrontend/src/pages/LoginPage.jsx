@@ -7,13 +7,15 @@
  * @since : 29-oct-2019
  ******************************************************************************************/
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Login from '../component/Login';
-export default class LoginPage extends Component {
+ class LoginPage extends Component {
     render() {
         return (
             <div>
-                <Login props={this.props} />
+                <Login/>
             </div>
         )
     }
 }
+export default withRouter(LoginPage)

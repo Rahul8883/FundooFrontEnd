@@ -109,6 +109,12 @@ class CreateNotesComponent extends Component {
                     addedNote:result.data.status.details
                 })
                 this.props.addNotesProps(this.state.addedNote)
+                this.setState({
+                    openNote: false,
+                    title:"",
+                    description:"",
+                    color:""
+                })
                 console.log("add note after setstate",this.state.addedNote);
                 
             }).catch((err) => {
@@ -119,24 +125,22 @@ class CreateNotesComponent extends Component {
 
         }
     }
-    hanNoteColor = (col, notesId) => {
-        let data = {
+    hanNoteColor = async(col) => {
+        console.log('====================================');
+        console.log("colr in getnote",col);
+        console.log('====================================');
+      await this.setState({
             color: col,
-            noteIdList: [notesId]
-        }
-        console.log("response coming from color componenet", data);
-
-        this.setState({
-            color: col
         })
-        changeColor(data).then((res) => {
-            console.log("Response while hettinf back-end Api", res);
-            this.getAllNotes();
+        // console.log("response coming from color componenet", data);
+        // changeColor(data).then((res) => {
+        //     console.log("Response while hettinf back-end Api after create note bg color", res);
+        //     this.getAllNotes();
 
-        }).catch((err) => {
-            console.log("error occur while hetting back-end", err);
+        // }).catch((err) => {
+        //     console.log("error occur while hetting back-end", err);
 
-        })
+        // })
 
     }
 
@@ -175,7 +179,7 @@ class CreateNotesComponent extends Component {
                 :
                 (
                     <div className="SecondCard_createNotes">
-                        <ClickAwayListener onClickAway={this.handleListener}>
+                        {/**<ClickAwayListener onClickAway={this.handleListener}>*/}
                             <Card className="CreateNote_Card1" style={{ backgroundColor: this.state.color }}>
                                 <div>
                                     <div className="input_field">
@@ -255,7 +259,7 @@ class CreateNotesComponent extends Component {
                                     </div>
                                 </div>
                             </Card>
-                        </ClickAwayListener>
+                        {/*</ClickAwayListener>*/}
                     </div>
                 )
         )

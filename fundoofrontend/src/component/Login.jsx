@@ -82,12 +82,13 @@ class Login extends Component {
             }
             userLogin.userLogin(data).then((res) => {
                 console.log("res in login---------", res);
-                localStorage.setItem('email', this.state.email, res.id)
+                localStorage.setItem('email',res.data.id)
+                localStorage.setItem("userId",res.data.userId)
                 this.props.history.push('/dashboard');
-                this.setState({
-                    snackbarOpen: true,
-                    snackbarMsg: "Login successfully!!"
-                })
+                // this.setState({
+                //     snackbarOpen: true,
+                //     snackbarMsg: "Login successfully!!"
+                // })
             }).catch(err => {
                 console.log("err in login component ", err);
             })

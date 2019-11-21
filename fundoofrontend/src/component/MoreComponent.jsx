@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { Paper, Popper, ClickAwayListener, MenuItem } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVertOutlined';
 import TrashComponent from '../component/TrashComponent';
+import LabelComponent from '../component/LabelComponent'
 class moreComponent extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +39,7 @@ class moreComponent extends Component {
                 <Popper open={this.state.anchorEl} anchorEl={this.state.anchorEl} style={{zIndex:"9999"}}>
                     <Paper>
                    <MenuItem><TrashComponent noteIdToTrash={this.state.trashNotesId}/></MenuItem>
-                   <MenuItem>Add Label</MenuItem>
+                   <MenuItem><LabelComponent/></MenuItem>
                        
                 </Paper>
                 </Popper>
