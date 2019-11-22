@@ -28,7 +28,12 @@ class moreComponent extends Component {
             open: false
         })
     }
+    handleLabelProps=(isTrue)=>{
+        this.props.createlabelPropsToMore(isTrue)
+    }
     render() {
+        console.log('vfcghhh--===-=',this.props.createlabelPropsToMore);
+        
         return (
             <div>
                 <ClickAwayListener onClickAway={this.handleClose}>
@@ -36,10 +41,11 @@ class moreComponent extends Component {
                         onClick={(e)=>this.handleMore(e)}
                     />
                 </ClickAwayListener>
-                <Popper open={this.state.anchorEl} anchorEl={this.state.anchorEl} style={{zIndex:"9999"}}>
-                    <Paper>
+
+                <Popper   open={this.state.anchorEl} anchorEl={this.state.anchorEl} style={{zIndex:"9999"}}>
+                    <Paper className="moreOption">
                    <MenuItem><TrashComponent noteIdToTrash={this.state.trashNotesId}/></MenuItem>
-                   <MenuItem><LabelComponent/></MenuItem>
+                   <MenuItem><LabelComponent notesIdToLabel={this.props.notesId} createlabelPropsToMore={this.handleLabelProps}/></MenuItem>
                        
                 </Paper>
                 </Popper>

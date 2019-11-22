@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Paper, Popper, ClickAwayListener, InputBase, Button, List, Checkbox } from '@material-ui/core';
-import { createLabel, getLabel } from '../services/notesServices';
+import { createLabel, getLabel, noteLabels, getNote } from '../services/notesServices';
+import { borderTop } from '@material-ui/system';
+import SearchIcon from '@material-ui/icons/SearchOutlined';
 class LabelComponent extends Component {
     constructor(props) {
         super(props);
@@ -50,6 +52,12 @@ class LabelComponent extends Component {
             console.log("Error occur while heatting get Label back-end Api", err);
         })
     }
+    getNotes = () => {
+        getNote().then((res) => {
+            console.log("response coming from get notes", res);
+
+        })
+    }
     handleAddLabel = (e) => {
         console.log("notes id is ", this.props.notesId);
         this.setState({
@@ -67,6 +75,18 @@ class LabelComponent extends Component {
             check: !this.state.check,
             anchorEl: false
         })
+        console.log("state of check notes ", this.props.notesIdToLabel)
+        var data = {
+            "labelId": labelId,
+            "noteId": this.props.notesIdToLabel
+        }
+        console.log("data in create label component", data);
+        noteLabels(data).then((res) => {
+            console.log("response coming from note label back-end aApi", res);
+            this.props.createlabelPropsToMore(true)
+        }).catch((err) => {
+            console.log("Error occur while heatting note Label back-end Api ", err);
+        })
     }
     handleChangeCreateLabel = async (e) => {
         console.log("even data", e.target.value);
@@ -75,54 +95,43 @@ class LabelComponent extends Component {
         })
         console.log("satae data after setstate", this.state.labelData);
     }
-    // renderAllLabel = () => {
-    //     return (
-    //         <div>
-    //             {this.state.allLabels.map((key) =>
-    //                 <List>
-    //                     <Checkbox
-    //                         value={key.label}
-    //                         onClick={(e) => this.CheckedNotes(e, key.id)}>
-    //                     </Checkbox>
-    //                     {key.label}
-    //                 </List>
-    //             )}
-    //         </div>
-    //     )
-    // }
     render() {
-       
-       var allLabelData= this.state.allLabels.map((key) =>{
-            return(
+        var allLabelData = this.state.allLabels.map((key) => {
+            return (
                 <div>
-            <List>
-                <Checkbox
-                    value={key.label}
-                    onClick={(e) => this.CheckedNotes(e, key.id)}>
-                </Checkbox>
-                {key.label}
-            </List>
-            </div>
-        )}
+                    <List>
+                        <Checkbox
+                            value={key.label}
+                            onClick={() => this.CheckedNotes(key.id)}>
+                        </Checkbox>
+                        {key.label}
+                    </List>
+                </div>
+            )
+        }
         )
         return (
             <div>
                 <ClickAwayListener onClickAway={this.handleClose}>
-                    <div onClick={(e) => this.handleAddLabel(e)}>Add Label</div>
+                    <div onClick={(e) => this.handleAddLabel(e)} className="MoreItem">Add Label</div>
                 </ClickAwayListener>
                 <Popper open={this.state.anchorEl} anchorEl={this.state.anchorEl} style={{ zIndex: "9999" }}>
                     <Paper>
                         <div>{"Label note ?"}</div>
+                        <div>
                         <InputBase
                             placeholder="Enter Label name"
                             multiline
                             spellCheck={true}
+                            // style={{ borderBottom: "1px solid", borderTop: "1px solid" }}
                             value={this.state.labelData}
                             onChange={this.handleChangeCreateLabel}
                         />
+                        <SearchIcon />
+                        </div>
                         {allLabelData}
-                        <div style={{ borderBottom: "1px solid #ddd" }}>
-                            <Button onClick={this.handleCreateLabel}>Create</Button>
+                        <div >
+                            <Button onClick={this.handleCreateLabel}><h4>+Create</h4></Button>
                         </div>
                     </Paper>
                 </Popper>

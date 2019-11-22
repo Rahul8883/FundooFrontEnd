@@ -126,9 +126,7 @@ class CreateNotesComponent extends Component {
         }
     }
     hanNoteColor = async(col) => {
-        console.log('====================================');
         console.log("colr in getnote",col);
-        console.log('====================================');
       await this.setState({
             color: col,
         })
@@ -179,7 +177,7 @@ class CreateNotesComponent extends Component {
                 :
                 (
                     <div className="SecondCard_createNotes">
-                        {/**<ClickAwayListener onClickAway={this.handleListener}>*/}
+                {/*<ClickAwayListener onClickAway={this.handleListener}>*/}
                             <Card className="CreateNote_Card1" style={{ backgroundColor: this.state.color }}>
                                 <div>
                                     <div className="input_field">
@@ -253,13 +251,14 @@ class CreateNotesComponent extends Component {
                                                 //  style={{display:"flex", justifyContent:"space-between", width :"129%"}}
                                                 style={{ margin: "spacing.unit" }}
                                                 onClick={this.handleClose}
+                                                // onClick={this.handleListener}
                                             >Close
                                         </Button>
                                         </div>
                                     </div>
                                 </div>
                             </Card>
-                        {/*</ClickAwayListener>*/}
+                                        { /*  </ClickAwayListener>*/}
                     </div>
                 )
         )

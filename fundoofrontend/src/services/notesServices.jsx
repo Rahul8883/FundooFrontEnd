@@ -104,12 +104,12 @@ export function removeReminder(data) {
 
 export function createLabel(data) {
     console.log("Data in CreateLabel services ", data);
-    return axios.post(baseURL + "/noteLabels", data,{
-        headers:{
-            "Authorization" : localStorage.getItem("token")
+    return axios.post(baseURL + "/noteLabels", data, {
+        headers: {
+            "Authorization": localStorage.getItem("token")
         }
     })
-    
+
 }
 export function getLabel() {
     return axios.get(baseURL + "/noteLabels/getNoteLabelList", {
@@ -127,3 +127,33 @@ export function getLabel() {
 //         }
 //     })
 // }
+
+
+export function noteLabels(data) {
+    const noteId = data.noteId;
+    const labelId = data.labelId;
+    return axios.post(baseURL + `/notes/${noteId}/addLabelToNotes/${labelId}/add`, data, {
+        headers: {
+            Authorization: localStorage.getItem('token')
+
+        }
+    })
+}
+
+// export function removeLabelFromNote(){
+//     return axios.post(baseURL+"/notes/{noteId}/addLabelToNotes/{lableId}/remove",{
+//         headers:{
+//             "Authorization" : localStorage.getItem("token")
+//         }
+//     })
+// },
+
+export function removeLabelFromNote(data, noteId, labelId){
+        
+    return axios.post(baseURL + `/notes/${noteId}/addLabelToNotes/${labelId}/remove`,data ,{
+        headers: {
+            Authorization: localStorage.getItem('token')
+
+        }
+    })
+}

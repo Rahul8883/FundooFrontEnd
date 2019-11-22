@@ -31,7 +31,7 @@ class ArchivedComponent extends Component {
         
         return (
             <div>
-                <Tooltip>
+                <Tooltip title="Archive">
                     <img src={require('../assets/image/Archive.svg')}
                         alt="Archive notes"
                         onClick={this.handleArchive}

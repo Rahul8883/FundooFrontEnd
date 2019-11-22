@@ -30,7 +30,7 @@ class TrashComponent extends Component {
         return (
             <div>
                 <Tooltip>
-                    <div
+                    <div className="MoreItem"
                         onClick={this.handleTrash}>Delete note</div>
                 </Tooltip>
             </div>
