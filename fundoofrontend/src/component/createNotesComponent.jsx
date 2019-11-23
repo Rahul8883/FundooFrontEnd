@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Card, Button, ClickAwayListener } from '@material-ui/core'
+import { Card, Button } from '@material-ui/core'
 import CheckBoxOutlineIcon from '@material-ui/icons/CheckBoxOutlined';
 import AddAlertOutlineIcon from '@material-ui/icons/AddAlertOutlined';
 import EditIcon from '@material-ui/icons/EditOutlined';
@@ -10,9 +10,8 @@ import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
 import ArchiveIcon from '@material-ui/icons/ArchiveOutlined';
 import UndoIcon from '@material-ui/icons/Undo';
 import RedoIcon from '@material-ui/icons/Redo';
-import { createNote, changeColor } from '../services/notesServices';
+import { createNote } from '../services/notesServices';
 import ColorComponent from '../component/ColorComponenet'
-// import {createNote} from '../services/notesServices'
 import MoreComponent from '../component/MoreComponent'
 class CreateNotesComponent extends Component {
     constructor(props) {
@@ -69,20 +68,17 @@ class CreateNotesComponent extends Component {
         console.log("description is ", this.state.description);
     }
     handleColor = (value) => {
-        const color = this.target.value
         this.setState({
             color: value
         })
     }
     handleArchive = () => {
-        const description = this.target.value
         this.setState({
             isArchived: true
         })
         console.log("archive create check..", this.state.isArchived);
     }
     handleReminder = (value) => {
-        const reminder = this.target.value
         this.setState({
             reminder: value
         })

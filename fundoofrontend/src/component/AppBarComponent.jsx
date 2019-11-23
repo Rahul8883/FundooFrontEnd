@@ -26,6 +26,13 @@ export default class AppBarComponent extends Component {
         // await this.props.transition(this.state.menu);
         console.log("state ",this.state.menu);
         }
+        searchHandle=(event)=>{
+            this.setState({
+                searchNote : event.target.value
+            })
+            // this.props.getSearchNotes(event.target.value);
+            this.props.Searchbar(this.state.searchNote);
+        }
     render() {
         return (
             <div>
@@ -69,9 +76,11 @@ export default class AppBarComponent extends Component {
                             </div>
                             <div className="inputSearchField">
                                 <InputBase
-                                     style={{width:"850px"}}
+                                     className="SearchFieldBase"
                                     placeholder="Search…"
                                     inputProps={{ 'aria-label': 'search' }}
+                                    value={this.state.searchNotes}
+                                    onChange = {this.searchHandle}
                                 />
                             </div>
                         </div>

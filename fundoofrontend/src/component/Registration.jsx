@@ -122,7 +122,8 @@ class Registration extends Component {
     }
     render() {        
         // console.log("location",this.props.location.state.con);
-        var serviceName="",status="",color="",productId="",cartId=""
+        var serviceName="",
+        status="",color="",productId="",cartId=""
         if(this.props.location.state!==undefined){
             serviceName=this.props.location.state.serviceName
             productId=this.props.location.state.productId

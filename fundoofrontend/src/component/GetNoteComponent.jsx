@@ -12,14 +12,16 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
-// import { updateNote } from "../services/notesServices";
-
 function Transition(props) {
     return <Slide direction="up" {...props} />;
+}
+ function  titleDesSearch(SearchText){
+    return function (x) {
+        return x.title.includes(SearchText) || x.description.includes(SearchText)
+    }
 }
 class GetNoteComponent extends Component {
     constructor(props) {
@@ -33,9 +35,9 @@ class GetNoteComponent extends Component {
             description: ""
         };
     }
-    handleUpdate = (title, noteId, color, description) => {
-        // console.log("note id list",noteIdList);
 
+  
+    handleUpdate = (title, noteId, color, description) => {
         this.setState({
             title: title,
             openNote: false,
@@ -47,17 +49,13 @@ class GetNoteComponent extends Component {
             noteId: this.state.noteId,
             title: this.state.title,
             description: this.state.description,
-
         }
-
         console.log("hfdzsyueasoiogfuasos", data);
-
         updateNote(data).then((result) => {
             console.log("response while heatting back-end Api", result);
             this.getAllNotes()
         }).catch((err) => {
             console.log("Error while heatting back-end Api of update note", err);
-
         })
     }
     handleTitle = (event) => {
@@ -77,7 +75,6 @@ class GetNoteComponent extends Component {
     handleClickOpen = () => {
         this.setState({ openNote: true });
     };
-
     handleClose = () => {
         this.setState({ openNote: false });
     };
@@ -87,22 +84,17 @@ class GetNoteComponent extends Component {
             noteIdList: [notesId]
         }
         console.log("response coming from color componenet", data);
-
         this.setState({
             color: col
         })
-
         changeColor(data).then((res) => {
             console.log("Response while hettinf back-end Api", res);
             this.getAllNotes();
 
         }).catch((err) => {
             console.log("error occur while hetting back-end", err);
-
         })
-
     }
-
     componentDidMount() {
         this.getAllNotes();
 
@@ -119,10 +111,8 @@ class GetNoteComponent extends Component {
                 console.log("Erroe occur while taking all notes", err);
             });
     }
-
     handleCardClick = () => {
         console.log("triggered");
-
     }
     handleRefreshArchive = () => {
         if (true) {
@@ -135,176 +125,143 @@ class GetNoteComponent extends Component {
             notes: [...this.state.notes, value]
         })
     }
-    handleDelete = ( noteId,labelId) => {
+    handleDelete = (noteId, labelId) => {
         var data = {
             "noteId": noteId,
             "labelId": labelId
-           
         }
         console.log("sukyghfaajrghfdasukghsdjgh", data);
-        
-        removeLabelFromNote( data,noteId, labelId).then((res) => {
+
+        removeLabelFromNote(data, noteId, labelId).then((res) => {
             console.log("response coming from delete label from notes from back-end", res);
             this.getAllNotes();
-            // this.props.noteId
         }).catch((err) => {
             console.log("error in note label", err);
         })
     }
-    handleRefNotesByLabel=(isTrue)=>{
-        if(isTrue){
+    handleRefNotesByLabel = (isTrue) => {
+        if (isTrue) {
             this.getAllNotes()
         }
     }
-
-// handleDelete = (labelId, noteIdToLabel) => {
-//     var data = {
-//     "labelId": labelId,
-//     "noteId": noteIdToLabel
-//     }
-//     deleteLabels(data, noteIdToLabel, labelId)
-//     // this.props.noteIdToLabel
-//     .then((response) => {
-//     // console.log("response in note label", response);
-//     this.getNotes();
-//     }).catch((err) => {
-//     console.log("error in note label", err);
-//     })
-//     }
-
-
-
-render() {
-    return (
-        !this.state.openNote ?
-            (
-                <div className="get-container"
-                >
-                    {this.state.notes.map((data) => {
-                        console.log("create note final data", data);
-
-                        return (
-                            data.isArchived === false && data.isDeleted === false &&
-                            <div className="get-Whole-Card">
-                                <div className="get-card-effect">
-                                    <Card className="get-cards1" onClick={this.handleCardClick} style={{ padding: "1em", margin: "5px", borderradius: "14px", backgroundColor: data.color }}>
-                                        <div className="get-cardDetails"
-                                            onClick={this.handleClickOpen}>
-                                            <InputBase value={data.title}
-                                                multiline
-                                                onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}
+    render() {
+        return (
+            !this.state.openNote ?
+                (
+                    <div className="get-container"
+                    >
+                        {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
+                            console.log("create note final data", data);
+                            return (
+                                data.isArchived === false && data.isDeleted === false &&
+                                <div className="get-Whole-Card">
+                                    <div className="get-card-effect">
+                                        <Card className="get-cards1" onClick={this.handleCardClick} style={{ padding: "1em", margin: "5px", borderradius: "14px", backgroundColor: data.color }}>
+                                            <div className="get-cardDetails"
+                                                onClick={this.handleClickOpen}>
+                                                <InputBase value={data.title}
+                                                    multiline
+                                                    onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}
+                                                >
+                                                </InputBase>
+                                                <InputBase value={data.description}
+                                                    multiline
+                                                    onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}
+                                                >
+                                                </InputBase>
+                                            </div>
+                                            <div>
+                                                {data.noteLabels.map(key => {
+                                                    localStorage.setItem("labelId", data.id)
+                                                    return (
+                                                        <Chip style={{ backgroundColor: "rgba(0,0,0,0.08)" }} className="chip" onDelete={() => this.handleDelete(data.id, key.id)}
+                                                            icon={<TagFacesIcon style={{ color: "black" }} />}
+                                                            label={key.label}>
+                                                        </Chip>
+                                                    );
+                                                })}
+                                            </div>
+                                            <div
+                                                style={{
+                                                    display: "flex",
+                                                    justifyContent: "space-between",
+                                                    width: "260px"
+                                                }}
                                             >
-                                            </InputBase>
-                                            <InputBase value={data.description}
-                                                multiline
-                                                onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}
-                                            >
-                                            </InputBase>
-                                        </div>
-                                        <div>
-
-
-
-
-
-                                            {data.noteLabels.map(key => {
-
-                                                localStorage.setItem("labelId", data.id)
-                                                return (
-                                                    <Chip style={{ backgroundColor: "rgba(0,0,0,0.08)" }} className="chip" onDelete={() => this.handleDelete( data.id,key.id)}
-                                                        icon={<TagFacesIcon style={{ color: "black" }} />}
-                                                        label={key.label}>
-
-                                                    </Chip>
-                                                );
-                                            })}
-                                        </div>
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                justifyContent: "space-between",
-                                                width: "260px"
-                                            }}
-                                        >
-
-                                            <div>
-                                                <AddAlertOutlineIcon className="iconEffect" />
+                                                <div>
+                                                    <AddAlertOutlineIcon className="iconEffect" />
+                                                </div>
+                                                <div>
+                                                    <PersonAddIcon className="iconEffect" />
+                                                </div>
+                                                <div>
+                                                    <ColorComponenet
+                                                        className="iconEffect"
+                                                        propsToColorPallate={this.hanNoteColor}
+                                                        notesId={data.id}
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <ImageIcon className="iconEffect" />
+                                                </div>
+                                                <div>
+                                                    <ArchivedComponent notesId={data.id}
+                                                        refreshArchive={this.handleRefreshArchive} className="iconEffect" />
+                                                </div>
+                                                <div>
+                                                    <MoreComponent notesId={data.id}
+                                                        createlabelPropsToMore={this.handleRefNotesByLabel} />
+                                                </div>
                                             </div>
-                                            <div>
-                                                <PersonAddIcon className="iconEffect" />
-                                            </div>
-                                            <div>
-                                                <ColorComponenet
-                                                    className="iconEffect"
-                                                    propsToColorPallate={this.hanNoteColor}
-                                                    notesId={data.id}
-                                                />
-                                            </div>
-                                            <div>
-                                                <ImageIcon className="iconEffect" />
-                                            </div>
-                                            <div>
-                                                <ArchivedComponent notesId={data.id}
-                                                    refreshArchive={this.handleRefreshArchive} className="iconEffect" />
-                                            </div>
-                                            <div>
-                                                <MoreComponent notesId={data.id}
-                                                createlabelPropsToMore={this.handleRefNotesByLabel}/>
-                                            </div>
-                                        </div>
 
-                                    </Card>
+                                        </Card>
+                                    </div>
                                 </div>
+                            )
+                        })}
+                    </div>
+                )
+                :
+                (
+                    <Dialog
+                        open={this.state.openNote}
+                        TransitionComponent={Transition}
+                        keepMounted
+                        onClose={this.handleClose}
+                        aria-labelledby="alert-dialog-slide-title"
+                        aria-describedby="alert-dialog-slide-description"
+                    >
+                        <DialogTitle id="alert-dialog-slide-title">
+                            {"Edit Note?"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <div>
+                                <InputBase
+                                    placeholder="Title"
+                                    multiline
+                                    spellCheck={true}
+                                    value={this.state.title}
+                                    onChange={this.handleTitle}
+                                />
                             </div>
-                        )
-                    })}
-                </div>
-            )
-            :
-            (
-
-                <Dialog
-                    open={this.state.openNote}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    onClose={this.handleClose}
-                    aria-labelledby="alert-dialog-slide-title"
-                    aria-describedby="alert-dialog-slide-description"
-
-                >
-                    <DialogTitle id="alert-dialog-slide-title">
-                        {"Edit Note?"}
-                    </DialogTitle>
-                    <DialogContent>
-                        <div>
-                            <InputBase
-                                placeholder="Title"
-                                multiline
-                                spellCheck={true}
-                                value={this.state.title}
-                                onChange={this.handleTitle}
-                            />
-                        </div>
-                        <div>
-                            <InputBase
-                                placeholder="Take a note...."
-                                multiline
-                                spellCheck={true}
-                                value={this.state.description}
-                                onChange={this.handleDescription}
-                            />
-                        </div>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.handleUpdate} color="primary">
-                            Close
+                            <div>
+                                <InputBase
+                                    placeholder="Take a note...."
+                                    multiline
+                                    spellCheck={true}
+                                    value={this.state.description}
+                                    onChange={this.handleDescription}
+                                />
+                            </div>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleUpdate} color="primary">
+                                Close
     </Button>
-                    </DialogActions>
-                </Dialog>
-            )
-
-    );
-
-}
+                        </DialogActions>
+                    </Dialog>
+                )
+        );
+    }
 }
 export default withRouter(GetNoteComponent);

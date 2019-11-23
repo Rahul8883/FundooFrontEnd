@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Paper, Popper, ClickAwayListener, InputBase, Button, List, Checkbox } from '@material-ui/core';
 import { createLabel, getLabel, noteLabels, getNote } from '../services/notesServices';
-import { borderTop } from '@material-ui/system';
 import SearchIcon from '@material-ui/icons/SearchOutlined';
 class LabelComponent extends Component {
     constructor(props) {
@@ -22,7 +21,6 @@ class LabelComponent extends Component {
         this.getLabel()
     }
     handleCreateLabel = () => {
-        var userId = localStorage.getItem('userId')
         var data = {
             isDeleted: false,
             label: this.state.labelData,
@@ -46,12 +44,31 @@ class LabelComponent extends Component {
             await this.setState({
                 allLabels: res.data.data.details
             })
-            console.log("response coming from get label Api", this.state.allLabels);
+            console.log("response coming from get all labels Api", this.state.allLabels);
 
         }).catch((err) => {
             console.log("Error occur while heatting get Label back-end Api", err);
         })
     }
+
+    // searchlabel = (allLabels, filterItem) => {
+    //     const listItem = allLabels.filterItem(label => {
+    //         //Remove label from list that do not match current filterItem//
+    //         return label.label.toLowwerCase().indexOf(filterItem.toLowwerCase()) >= 0
+    //     }).map(label => {
+    //         return (
+    //             <li key={label.labelId}></li>
+    //         )
+    //     })
+    //     return (
+    //         <div>
+    //             <ui>
+    //                 {listItem}
+    //             </ui>
+    //         </div>
+    //     )
+
+    // }
     getNotes = () => {
         getNote().then((res) => {
             console.log("response coming from get notes", res);
@@ -93,8 +110,24 @@ class LabelComponent extends Component {
         await this.setState({
             labelData: e.target.value
         })
-        console.log("satae data after setstate", this.state.labelData);
+        console.log("writing data for create Label", this.state.labelData);
+    //    const labelData = this.state.props
+       
+    //    }}
     }
+    // handlecreateWriting = (labelData) => {
+    //     this.labelData = this.props;
+        
+    //     const labelList = labelData.map(label => {
+    //         return (
+    //             <div>
+
+    //             </div>
+    //         )
+    //     })
+    // }
+
+
     render() {
         var allLabelData = this.state.allLabels.map((key) => {
             return (
@@ -119,19 +152,18 @@ class LabelComponent extends Component {
                     <Paper>
                         <div>{"Label note ?"}</div>
                         <div>
-                        <InputBase
-                            placeholder="Enter Label name"
-                            multiline
-                            spellCheck={true}
-                            // style={{ borderBottom: "1px solid", borderTop: "1px solid" }}
-                            value={this.state.labelData}
-                            onChange={this.handleChangeCreateLabel}
-                        />
-                        <SearchIcon />
+                            <InputBase
+                                placeholder="Enter Label name"
+                                multiline
+                                spellCheck={true}
+                                value={this.state.labelData}
+                                onChange={this.handleChangeCreateLabel}
+                            />
+                            <SearchIcon />
                         </div>
                         {allLabelData}
                         <div >
-                            <Button onClick={this.handleCreateLabel}><h4>+Create</h4></Button>
+                            <Button onClick={this.handleCreateLabel}><span>+Create :"{this.state.labelData}"</span></Button>
                         </div>
                     </Paper>
                 </Popper>

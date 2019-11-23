@@ -12,9 +12,8 @@ var theme = createMuiTheme({
     overrides: {
         MuiDrawer: {
             paper: {
-                width: "174px",
                 top: "65px",
-                width: " 212px",
+                width: " 220px",
                 height: "100vh"
             }
         }
@@ -68,7 +67,7 @@ export class DrawerComponent extends Component {
                                 <div >
                                     <ul type="none" style={{ borderBottom: "1px solid #ddd" }} >
                                         <li className="DrawerIcons"> <MenuItem><EmojiObjectsOutlineIcon style={{marginBottom:"7px"}} className="Icon"/></MenuItem><div className="iconName">Notes</div></li>
-                                        <li className="DrawerIcons"><MenuItem><AddAlertOutlineIcon className="Icon"/></MenuItem><div className="iconName"><a>Reminder</a></div></li>
+                                        <li className="DrawerIcons"><MenuItem><AddAlertOutlineIcon className="Icon"/></MenuItem><div className="iconName">Reminder</div></li>
                                     </ul>
                                     <ul type="none" style={{ borderBottom: "1px solid #ddd" }}>
                                         <div className="Label">LABELS</div>
