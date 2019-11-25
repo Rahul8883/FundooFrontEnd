@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ColorComponenet from '../component/ColorComponenet'
+import ColorComponenet from '../component/ColorComponenet';
 export default class colorPage extends Component {
     render() {
         return (

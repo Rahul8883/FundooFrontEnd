@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import Drawer from '../component/DrawerComponent';
-export class DrawerPage extends Component {
+import DrawerComponent from '../component/DrawerComponent'
+export class Drawer extends Component {
     render() {
         return (
             <div>
-                <Drawer props={this.props}/>
-            </div>
+                <DrawerComponent props={this.props}/>
+             </div>
         )
     }
 }
 
-export default DrawerPage
+export default Drawer

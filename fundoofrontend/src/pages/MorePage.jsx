@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MoreComponent from '../component/MoreComponent'
-class morePage extends Component {
+ class MorePage extends Component {
     render() {
         return (
             <div>
@@ -9,5 +9,4 @@ class morePage extends Component {
         )
     }
 }
-
-export default morePage
+export default MorePage

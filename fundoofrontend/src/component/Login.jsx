@@ -19,6 +19,7 @@ import IconButton from '@material-ui/core/IconButton';
 import userLogin from '../services/userServices';
 import ServiceCard from './ServiceCard'
 import Snackbar from '@material-ui/core/Snackbar';
+import { orange } from "@material-ui/core/colors";
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -26,8 +27,16 @@ class Login extends Component {
             email: "",
             password: "",
             snackbarOpen: false,
-            snackbarMsg: ""
+            snackbarMsg: "",
+            locState: false
         };
+    }
+    componentDidMount() {
+        if (this.props.location.state !== undefined) {
+            this.setState({
+                locState: this.props.location.state.status
+            })
+        }
     }
     snackbarClose = (e) => {
         this.setState({ snackbarOpen: false })
@@ -82,8 +91,8 @@ class Login extends Component {
             }
             userLogin.userLogin(data).then((res) => {
                 console.log("res in login---------", res);
-                localStorage.setItem('email',res.data.id)
-                localStorage.setItem("userId",res.data.userId)
+                localStorage.setItem('email', res.data.id)
+                localStorage.setItem("userId", res.data.userId)
                 this.props.history.push('/dashboard');
                 // this.setState({
                 //     snackbarOpen: true,
@@ -95,6 +104,15 @@ class Login extends Component {
         }
     }
     render() {
+        console.log("props in login render", this.props);
+        console.log("render state",this.state.locState);
+        
+        var color = '', cartId = '', status = '';
+        if (this.props.location.state !== undefined) {
+            color = "orange"
+            cartId = this.props.location.state.cartId
+            status = 'Selected'
+        }
         return (
             <div className="login-container">
 
@@ -171,17 +189,23 @@ class Login extends Component {
                         </div>
                     </div>
                 </Card>
-                <Card className="login-card" style={{background:"grey"}}>
-                    <div>service</div>
-                    <ServiceCard
-                
-                        cartProps={true}
-                         status={localStorage.getItem('cartId')}
-                         propsColor={localStorage.getItem('status')}
-                        // propsProductId={localStorage.getItem('pId')}
-                    />
-                    
-                </Card>
+                {
+                    this.state.locState === "Selected" ?
+                        <Card className="login-card_with_service" style={{padding: "0px 0px 0px 25px", background: "lightgrey", width:"30em", height:"457px" }}>
+                            <div>service</div>
+                            <ServiceCard
+
+                                cartProps={true}
+                                status={status}
+                                color={color}
+                                cartId={cartId}
+                            //  status={localStorage.getItem('status')}
+                            //  propsColor={localStorage.getItem('color')}
+                            // propsProductId={localStorage.getItem('pId')}
+                            />
+
+                        </Card> : null
+                }
                 <Snackbar
                     anchorOrigin={{
                         vertical: 'bottom',

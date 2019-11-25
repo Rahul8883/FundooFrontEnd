@@ -25,12 +25,22 @@
 }
 
 .login-card {
-  width: 30%;
+  /* width: 36%;
   text-align: center;
   justify-content: center;
   align-content: center;
   padding: 30px;
   height: 70%;
+  margin-top: -8%; */
+
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  height: auto;
+    min-height: 458px;
+    min-width: 20em;
+    width: auto;
+    padding: 0px 30px 0px 30px;
 }
 
 .heading {
@@ -39,10 +49,24 @@
 }
 
 .login-container {
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+
+.card_with_service{
+  background: lightgrey;
+    /* height: auto;
+    min-height: 458px;
+    min-width: 20em;
+    width: auto;
+    padding: 0px 30px 0px 30px; */
+    /* width: 30em;
+    height: 457px; */
 }
 
 .login-contents>div {
@@ -59,11 +83,11 @@
   justify-content: center;
   align-content: center;
   padding: 30px;
-  height: 600px;
+  height: 100%;
 }
 
 .registration-container {
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -230,26 +254,31 @@
 } */
 
 .Card_Note {
-  background-color: rgb(255, 255, 255);
-  font-family: 'Roboto', Arial, sans-serif;
-  /* margin-bottom: 10%; */
-  place-content: stretch center;
-  align-items: stretch;
-  flex-direction: row;
-  box-sizing: border-box;
   display: flex;
+  justify-content: center;
+  font-family: 'Roboto', Arial, sans-serif;
   font-size: 25px;
-  padding: 34px 0px 0px 0px;
+  margin-top: 20px;
 }
 
 .service-cards {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 5%;
+  flex-wrap: wrap; */
+
+  /* margin-top: 10%; */
+  display: flex;
+  justify-content: space-around;
+  margin-top: 71px;
+}
+@media only screen and (max-width: 500px) {
+.service-cards{
+  flex-direction: column;
+  align-items: center;
 }
 
+}
 .serviceCard_selector {
   /* padding: 0px 19px;(we can use this also..) */
   font-size: 18px;
@@ -262,14 +291,11 @@
 .serviceCard_LoginButton {
   color: #0606f8;
   cursor: pointer;
-  /* margin: 123px 0px 0px 0px; */
-  place-content: stretch center;
-  align-items: stretch;
-  flex-direction: row;
-  box-sizing: border-box;
   display: flex;
+  justify-content: center;
   font-family: monospace;
-  /* margin: 8%; */
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 .Innercard {
@@ -282,9 +308,10 @@
 }
 
 .outercard {
-  width: 17%;
-  height: 281px;
+  width: 200px;
+  height: 270px;
   font-family: monospace;
+  margin: 30px;
 }
 
 .serviceCard-Contant {
