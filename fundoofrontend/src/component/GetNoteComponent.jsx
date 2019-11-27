@@ -15,10 +15,11 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
+import ReminderComponent from '../component/ReminderComponent'
 function Transition(props) {
     return <Slide direction="up" {...props} />;
 }
- function  titleDesSearch(SearchText){
+function titleDesSearch(SearchText) {
     return function (x) {
         return x.title.includes(SearchText) || x.description.includes(SearchText)
     }
@@ -36,7 +37,7 @@ class GetNoteComponent extends Component {
         };
     }
 
-  
+
     handleUpdate = (title, noteId, color, description) => {
         this.setState({
             title: title,
@@ -145,6 +146,7 @@ class GetNoteComponent extends Component {
         }
     }
     render() {
+        var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
         return (
             !this.state.openNote ?
                 (
@@ -152,11 +154,18 @@ class GetNoteComponent extends Component {
                     >
                         {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
                             console.log("create note final data", data);
+
                             return (
                                 data.isArchived === false && data.isDeleted === false &&
                                 <div className="get-Whole-Card">
                                     <div className="get-card-effect">
-                                        <Card className="get-cards1" onClick={this.handleCardClick} style={{ padding: "1em", margin: "5px", borderradius: "14px", backgroundColor: data.color }}>
+                                        <Card className="get-cards1" onClick={this.handleCardClick}
+                                            style={{
+                                                boxShadow: "3px 2px 9px 2px rgba(0,0,0,0.2), 1px 1px 2px 1px rgba(0,0,0,0.14), 3px 2px 3px 2px rgba(0,0,0,0.12)", borderRadius: "15px", padding: "1em", margin: "5px", borderradius: "14px", backgroundColor: data.color
+
+                                                , transform: (this.props.shiftDrawer) ? "translate(80px,0)" : (null)
+                                            }}>
+
                                             <div className="get-cardDetails"
                                                 onClick={this.handleClickOpen}>
                                                 <InputBase value={data.title}
@@ -181,15 +190,17 @@ class GetNoteComponent extends Component {
                                                     );
                                                 })}
                                             </div>
-                                            <div
+                                            <div className="get_Note_Icon"
                                                 style={{
-                                                    display: "flex",
-                                                    justifyContent: "space-between",
-                                                    width: "260px"
+                                                    // display: "flex",
+                                                    // justifyContent: "space-between",
+                                                    // width: "260px",
+                                                    // visibility: "hidden"
                                                 }}
                                             >
                                                 <div>
-                                                    <AddAlertOutlineIcon className="iconEffect" />
+                                                    <ReminderComponent className="iconEffect" 
+                                                     reminderNoteId={data.id}/>
                                                 </div>
                                                 <div>
                                                     <PersonAddIcon className="iconEffect" />

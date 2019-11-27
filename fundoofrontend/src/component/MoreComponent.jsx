@@ -32,9 +32,7 @@ class moreComponent extends Component {
         this.props.createlabelPropsToMore(isTrue)
     }
     render() {
-        console.log('vfcghhh--===-=',this.props.createlabelPropsToMore);
-        
-        return (
+       return (
             <div>
                 <ClickAwayListener onClickAway={this.handleClose}>
                     <MoreVertIcon

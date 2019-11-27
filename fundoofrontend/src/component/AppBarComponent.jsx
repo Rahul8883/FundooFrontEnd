@@ -22,8 +22,9 @@ export default class AppBarComponent extends Component {
     handleMenu = async () => {
         await this.setState({
         menu: !this.state.menu
+        
         })
-        // await this.props.transition(this.state.menu);
+         this.props.transition(this.state.menu);
         console.log("state ",this.state.menu);
         }
         searchHandle=(event)=>{
@@ -86,6 +87,7 @@ export default class AppBarComponent extends Component {
                         </div>
                         </div>
                         <div />
+
                         <div className="applogo">
                           <div className="Cart_referece_dashboard_logo">
                             <IconButton

@@ -7,7 +7,6 @@ class TrashComponent extends Component {
         super(props);
         this.state = {
             isDeleted: false,
-            
         }
     }
     handleTrash = () => {
@@ -25,8 +24,6 @@ class TrashComponent extends Component {
         })
     }
     render() {
-        console.log("props in archive",this.props.notesId);
-        
         return (
             <div>
                 <Tooltip>

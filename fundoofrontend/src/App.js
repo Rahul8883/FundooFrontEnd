@@ -13,7 +13,9 @@ import GetCreatedNote from './pages/GetNotePage'
 import colorPage from './pages/colorPage';
 import ArchivePage from './pages/ArchivePage';
 // import morePage from './pages/MorePage'
-import MorePage from './pages/MorePage'
+import MorePage from './pages/MorePage';
+import profileImgPage from './pages/profileImgPage';
+import ReminderPage from "./pages/ReminderPage";
 class App extends Component {
   render() {
     return (
@@ -31,6 +33,8 @@ class App extends Component {
           <Route path='/colorPage' component={colorPage}></Route>
           <Route path='/archive' component={ArchivePage}></Route>
           <Route path='/morePage' component={MorePage}></Route>
+          <Route path ='/profile' component={profileImgPage}></Route>
+          <Route path='/reminder' component={ReminderPage} ></Route>
         </Switch>
       </Router>
     );

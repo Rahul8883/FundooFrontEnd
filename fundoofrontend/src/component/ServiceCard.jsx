@@ -70,8 +70,7 @@ class ServiceCard extends Component {
         })
     }
     render() {
-
-
+        console.log("props",this.props);
         const mouseColor = this.state.mouseState ? "orange" : "gray"
         const serviceMap = this.state.serviceArr.map(key => {
             return (

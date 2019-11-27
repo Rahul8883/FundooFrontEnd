@@ -66,7 +66,7 @@ export function TrashNotes(data) {
 }
 /*-------------------------Reminder services-----------------------*/
 
-export function addReminder(data) {
+export function UpdateReminder(data) {
     console.log("data in trash note service", data);
     return axios.post(baseURL + "/notes/addUpdateReminderNotes", data, {
         headers: {

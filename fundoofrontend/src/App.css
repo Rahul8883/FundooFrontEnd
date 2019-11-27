@@ -321,11 +321,16 @@
 /* -------------------------------------createNotes----------------------------------------- */
 
 .createNote_container {
-  display: flex;
-  justify-content: center;
-  /* padding-top: 8%; */
-  /* padding-bottom: 3%; */
-  padding: 7% 4% 3% 2%;
+  margin-top: 85px;
+  margin-bottom: 36px;
+  flex: 1 1 500px;
+  box-sizing: border-box;
+  max-width: 500px;
+  min-width: 500px;
+  border-radius: 7px;
+}
+.createNote_input_base{
+  padding: 10px;
 }
 
 .CreateNote_Card1 {
@@ -360,7 +365,8 @@
 .SecondCard_createNotes {
   display: flex;
   justify-content: center;
-  padding: 100px;
+  margin-top: 85px;
+  margin-bottom: 36px;
 }
 
 .input_field {
@@ -392,14 +398,25 @@
 }
 
 .get-container {
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  flex-wrap: wrap;
   display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
+
+
+
   /* justify-content: space-around; */
   /* width: 58%; */
   /* flex-wrap: wrap; */
-  display: grid;
+
+
+
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0px;
+  grid-gap: 0px; */
 }
 
 .get-cardDetails>div {
@@ -424,19 +441,27 @@
   flex-wrap: wrap; */
   /* padding: 0 16px; */
 }
-
-.get-Whole-Card {
-  float: left;
-  width: 30%;
-  padding: 0 10px;
+.get-Whole-Card:hover .get_Note_Icon {
+  visibility: visible;
+}
+.get_Note_Icon{
+  display: flex;
+  justify-Content: space-between;
+  width: 260px;
+  visibility: hidden;
 }
 
 .getNotesMainDiv {
+  width: 100%;
+  padding-bottom: 5%;
+}
+.get_Note_comp{
+  width: 93%;
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-bottom: 5%;
+  margin-left: 5%;
 }
+
 
 /* -----------------------------------AppBar-------------------------------------------- */
 
@@ -451,7 +476,7 @@
 }
 
 .searchEngine {
-  width: 100%;
+  width: 75%;
   border-radius: 8px;
   background: #f1f3f4;
   border: 1px solid transparent;
@@ -475,7 +500,8 @@
   height: 48px; */
   display: flex;
   height: 48px;
-  margin-left: 72px;
+  width: 100%;
+  margin-left: 10%;
 }
 
 @media only screen and (max-width: 900px) {
@@ -575,4 +601,12 @@
   font-size: .875rem;
   font-weight: 400;
   line-height: 1.25rem;
+}
+
+/* ----------------------------------drawer-Shift--------------------------------- */
+#transition-left{
+  margin-left: 5%;
+}
+#transition-right{
+  margin-left: 5%;
 }

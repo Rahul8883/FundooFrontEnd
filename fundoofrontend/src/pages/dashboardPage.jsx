@@ -8,7 +8,8 @@ class DashboardPage extends Component {
         super(props)
 
         this.state = {
-            searchText: ""
+            searchText: "",
+            value:""
         }
         this.createReff = React.createRef()
     }
@@ -21,20 +22,35 @@ class DashboardPage extends Component {
             searchText: searchNote
         })
     }
+    handleShiftDrwer = (value) => {
+
+        this.setState({
+            value: value
+        })
+    }
     render() {
         return (
-            <div>
-                <AppBarComponent props={this.props} Searchbar={this.handlesearch} />
-                <div className="mainDivCreate">
-                    <CreateNotesComponent addNotesProps={this.handleAddNoteRef} />
+            <div style={{ backgroundColor: "#e8e8e8" }}>
+                <div>
+                    <AppBarComponent props={this.props} Searchbar={this.handlesearch} transition={this.handleShiftDrwer} />
                 </div>
                 <div className="getNotesMainDiv">
-                    <GetNoteComponent
-                        wrappedComponentRef={this.createReff}
-                        props={this.props} 
-                        SearchText={this.state.searchText}/>
+                    <div className="mainDivCreate">
+                        <CreateNotesComponent addNotesProps={this.handleAddNoteRef}
+                        
+                        />
+                    </div>
+                    <div className="get_Note_comp">
+
+                        <GetNoteComponent
+                            // transition={this.props.transition ? transition-left:transition-right } 
+                            wrappedComponentRef={this.createReff}
+                            props={this.props}
+                            SearchText={this.state.searchText}
+                            shiftDrawer={this.state.value} />
+                    </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }
