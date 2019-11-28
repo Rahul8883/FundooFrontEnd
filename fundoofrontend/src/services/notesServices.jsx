@@ -19,7 +19,7 @@ export function createNote(data) {
 export function getNote() {
     return axios.get(baseURL + "/notes/getNotesList", {
         headers: {
-            "Authorization": localStorage.getItem("token")
+            Authorization: localStorage.getItem("token")
         }
     })
 }
@@ -39,6 +39,14 @@ export function archiveNotes(data) {
     console.log("archive data in service", data);
 
     return axios.post(baseURL + "/notes/archiveNotes", data, {
+        headers: {
+            "Authorization": localStorage.getItem("token")
+        }
+    })
+}
+
+export function getArchiveNotes() {
+    return axios.post(baseURL + "/notes/getArchiveNotesList", {
         headers: {
             "Authorization": localStorage.getItem("token")
         }

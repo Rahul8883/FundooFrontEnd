@@ -91,7 +91,7 @@ class Login extends Component {
             }
             userLogin.userLogin(data).then((res) => {
                 console.log("res in login---------", res);
-                localStorage.setItem('email', res.data.id)
+                localStorage.setItem('token', res.data.id)
                 localStorage.setItem("userId", res.data.userId)
                 this.props.history.push('/dashboard');
                 // this.setState({

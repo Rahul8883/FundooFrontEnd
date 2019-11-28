@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Paper, Popper, ClickAwayListener, MenuItem, Button } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { Logout } from '../services/userProfile';
 export class ProfileImgComponenet extends Component {
     constructor(props) {
         super(props)
@@ -30,7 +31,10 @@ export class ProfileImgComponenet extends Component {
             trashNotesId: this.props.notesId
         });
     }
-
+    handleLogout=()=>{
+      localStorage.clear()
+      this.props.history.push('/login')
+    }
     render() {
         return (
             <div>
@@ -41,7 +45,7 @@ export class ProfileImgComponenet extends Component {
                 <Popper open={this.state.anchorEl} anchorEl={this.state.anchorEl} style={{ zIndex: "9999" }}>
                     <Paper className="">
                     kfjdkfjskdfdfdjsfkdfdjfdj
-                        <Button>Sign out</Button>
+                        <Button onClick={this.handleLogout}>Sign out</Button>
                     </Paper>
                 </Popper>
             </div>

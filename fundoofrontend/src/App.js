@@ -16,6 +16,7 @@ import ArchivePage from './pages/ArchivePage';
 import MorePage from './pages/MorePage';
 import profileImgPage from './pages/profileImgPage';
 import ReminderPage from "./pages/ReminderPage";
+import getArchivePage from './pages/getArchivePage'
 class App extends Component {
   render() {
     return (
@@ -35,6 +36,7 @@ class App extends Component {
           <Route path='/morePage' component={MorePage}></Route>
           <Route path ='/profile' component={profileImgPage}></Route>
           <Route path='/reminder' component={ReminderPage} ></Route>
+          <Route path='/getArchive' component={getArchivePage} ></Route>
         </Switch>
       </Router>
     );

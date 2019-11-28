@@ -145,7 +145,7 @@ class CreateNotesComponent extends Component {
                     <div className="createNote_container"
                         onClick={this.handleOpenNotes}>
                         <Card className="CreateNote_Card1">
-                            <div classname="createNote_input_base" style={{padding:"10px"}}>
+                            <div classname="createNote_input_base" style={{padding:"4px"}}>
                                 <InputBase
                                     className="CreateNote_TextField"
                                     placeholder="Take a note..."

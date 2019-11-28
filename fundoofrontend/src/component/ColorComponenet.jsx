@@ -2,33 +2,7 @@ import React, { Component } from 'react'
 import { IconButton, Tooltip, } from '@material-ui/core';
 import { Popper, Paper, ClickAwayListener } from '@material-ui/core';
 import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
-// const thm = createMuiTheme({
-//     overrides: {
-//         Muipaper: {
-//             root: {
-//                 MuiPaper: {
-//                     elevation1: {
-//                         colorPalleteCard: {
-//                             MuiPaper: {
-//                                 rounded: {
-//                                     width: "112px",
-//                                     justifycontent: "center",
-//                                     opacity: "0.91",
-//                                     boxshadow: "0 1px 4px rgba(0,0,0,0.2)",
-//                                     padding: "5px 7px 3px",
-//                                     zindex: "4011",
-//                                     position: "absolute"
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// });
 const hexdaDecimalCodeWithName = [
-
     { name: "Gray", color: "#808080" },
     { color: "#d7aefb" },
     { color: "#fdcfe8" },

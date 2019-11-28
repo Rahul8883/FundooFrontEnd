@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Card, InputBase, Chip, Tooltip } from "@material-ui/core";
-import AddAlertOutlineIcon from "@material-ui/icons/AddAlertOutlined";
 import ImageIcon from "@material-ui/icons/ImageOutlined";
 import PersonAddIcon from "@material-ui/icons/PersonAddOutlined";
 import { getNote, changeColor, updateNote, removeLabelFromNote } from "../services/notesServices";
@@ -24,7 +23,7 @@ function titleDesSearch(SearchText) {
         return x.title.includes(SearchText) || x.description.includes(SearchText)
     }
 }
-class GetNoteComponent extends Component {
+class getArchiveComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -146,17 +145,17 @@ class GetNoteComponent extends Component {
         }
     }
     render() {
-        var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
+        // var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
         return (
-            !this.state.openNote ?
+            // this.state.openNote ?
                 (
                     <div className="get-container"
                     >
-                        {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
+                        {this.state.notes.map((data) => {
                             console.log("create note final data", data);
 
                             return (
-                                data.isArchived === false && data.isDeleted === false &&
+                                data.isArchived === true&& data.isDeleted === false && 
                                 <div className="get-Whole-Card">
                                     <div className="get-card-effect">
                                         <Card className="get-cards1" onClick={this.handleCardClick}
@@ -174,7 +173,8 @@ class GetNoteComponent extends Component {
                                                     onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}
                                                 >
                                                 </InputBase>
-                                                <InputBase value={data.description}
+                                                <InputBase
+                                                 value={data.description}
                                                     multiline
                                                     onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}
                                                 >
@@ -249,47 +249,47 @@ class GetNoteComponent extends Component {
                         })}
                     </div>
                 )
-                :
-                (
-                    <Dialog
-                        open={this.state.openNote}
-                        TransitionComponent={Transition}
-                        keepMounted
-                        onClose={this.handleClose}
-                        aria-labelledby="alert-dialog-slide-title"
-                        aria-describedby="alert-dialog-slide-description"
-                    >
-                        <DialogTitle id="alert-dialog-slide-title">
-                            {"Edit Note?"}
-                        </DialogTitle>
-                        <DialogContent>
-                            <div>
-                                <InputBase
-                                    placeholder="Title"
-                                    multiline
-                                    spellCheck={true}
-                                    value={this.state.title}
-                                    onChange={this.handleTitle}
-                                />
-                            </div>
-                            <div>
-                                <InputBase
-                                    placeholder="Take a note...."
-                                    multiline
-                                    spellCheck={true}
-                                    value={this.state.description}
-                                    onChange={this.handleDescription}
-                                />
-                            </div>
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={this.handleUpdate} color="primary">
-                                Close
-                         </Button>
-                        </DialogActions>
-                    </Dialog>
-                )
+                // :
+                // (
+                //     <Dialog
+                //         open={this.state.openNote}
+                //         TransitionComponent={Transition}
+                //         keepMounted
+                //         onClose={this.handleClose}
+                //         aria-labelledby="alert-dialog-slide-title"
+                //         aria-describedby="alert-dialog-slide-description"
+                //     >
+                //         <DialogTitle id="alert-dialog-slide-title">
+                //             {"Edit Note?"}
+                //         </DialogTitle>
+                //         <DialogContent>
+                //             <div>
+                //                 <InputBase
+                //                     placeholder="Title"
+                //                     multiline
+                //                     spellCheck={true}
+                //                     value={this.state.title}
+                //                     onChange={this.handleTitle}
+                //                 />
+                //             </div>
+                //             <div>
+                //                 <InputBase
+                //                     placeholder="Take a note...."
+                //                     multiline
+                //                     spellCheck={true}
+                //                     value={this.state.description}
+                //                     onChange={this.handleDescription}
+                //                 />
+                //             </div>
+                //         </DialogContent>
+                //         <DialogActions>
+                //             <Button onClick={this.handleUpdate} color="primary">
+                //                 Close
+                //          </Button>
+                //         </DialogActions>
+                //     </Dialog>
+                // )
         );
     }
 }
-export default withRouter(GetNoteComponent);
+export default withRouter(getArchiveComponent);

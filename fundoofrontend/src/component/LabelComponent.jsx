@@ -34,7 +34,6 @@ class LabelComponent extends Component {
             console.log("final result while heatting create label back-end", this.state.createdLabel);
         }).catch((err) => {
             console.log("Error occur While hratting Create Label back-end Api", err);
-
         })
     }
     getLabel = () => {
@@ -50,29 +49,9 @@ class LabelComponent extends Component {
             console.log("Error occur while heatting get Label back-end Api", err);
         })
     }
-
-    // searchlabel = (allLabels, filterItem) => {
-    //     const listItem = allLabels.filterItem(label => {
-    //         //Remove label from list that do not match current filterItem//
-    //         return label.label.toLowwerCase().indexOf(filterItem.toLowwerCase()) >= 0
-    //     }).map(label => {
-    //         return (
-    //             <li key={label.labelId}></li>
-    //         )
-    //     })
-    //     return (
-    //         <div>
-    //             <ui>
-    //                 {listItem}
-    //             </ui>
-    //         </div>
-    //     )
-
-    // }
     getNotes = () => {
         getNote().then((res) => {
             console.log("response coming from get notes", res);
-
         })
     }
     handleAddLabel = (e) => {
@@ -111,23 +90,7 @@ class LabelComponent extends Component {
             labelData: e.target.value
         })
         console.log("writing data for create Label", this.state.labelData);
-    //    const labelData = this.state.props
-       
-    //    }}
     }
-    // handlecreateWriting = (labelData) => {
-    //     this.labelData = this.props;
-        
-    //     const labelList = labelData.map(label => {
-    //         return (
-    //             <div>
-
-    //             </div>
-    //         )
-    //     })
-    // }
-
-
     render() {
         var allLabelData = this.state.allLabels.map((key) => {
             return (

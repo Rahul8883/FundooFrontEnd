@@ -9,43 +9,41 @@ class moreComponent extends Component {
         super(props);
         this.state = {
             open: false,
-            anchorEl:null,
-            trashNotesId:""
+            anchorEl: null,
+            trashNotesId: ""
         }
     }
-    handleMore =(e) => {
-        console.log("notes id is ",this.props.notesId);
-        
+    handleMore = (e) => {
+        console.log("notes id is ", this.props.notesId);
+
         this.setState({
             anchorEl: this.state.anchorEl ? false : e.target,
             open: true,
-            trashNotesId:this.props.notesId
-            });
-        }
-    
+            trashNotesId: this.props.notesId
+        });
+    }
+
     handleClose = () => {
         this.setState({
             open: false
         })
     }
-    handleLabelProps=(isTrue)=>{
+    handleLabelProps = (isTrue) => {
         this.props.createlabelPropsToMore(isTrue)
     }
     render() {
-       return (
+        return (
             <div>
                 <ClickAwayListener onClickAway={this.handleClose}>
                     <MoreVertIcon
-                        onClick={(e)=>this.handleMore(e)}
+                        onClick={(e) => this.handleMore(e)}
                     />
                 </ClickAwayListener>
-
-                <Popper   open={this.state.anchorEl} anchorEl={this.state.anchorEl} style={{zIndex:"9999"}}>
+                <Popper open={this.state.anchorEl} anchorEl={this.state.anchorEl} style={{ zIndex: "9999" }}>
                     <Paper className="moreOption">
-                   <MenuItem><TrashComponent noteIdToTrash={this.state.trashNotesId}/></MenuItem>
-                   <MenuItem><LabelComponent notesIdToLabel={this.props.notesId} createlabelPropsToMore={this.handleLabelProps}/></MenuItem>
-                       
-                </Paper>
+                        <MenuItem><TrashComponent noteIdToTrash={this.state.trashNotesId} /></MenuItem>
+                        <MenuItem><LabelComponent notesIdToLabel={this.props.notesId} createlabelPropsToMore={this.handleLabelProps} /></MenuItem>
+                    </Paper>
                 </Popper>
             </div>
 

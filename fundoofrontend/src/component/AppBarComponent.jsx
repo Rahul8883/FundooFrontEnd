@@ -11,35 +11,37 @@ import RefreshIcon from '@material-ui/icons/Refresh';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
 import DashboardIcon from '@material-ui/icons/DashboardOutlined';
 import DrawerComponent from '../component/DrawerComponent';
+import ProfileImgComponenet from '../component/ProfileImgComponenet'
+
 export default class AppBarComponent extends Component {
-    
-    constructor(){
+
+    constructor() {
         super();
-        this.state={
-            menu:false
+        this.state = {
+            menu: false
         }
     }
     handleMenu = async () => {
         await this.setState({
-        menu: !this.state.menu
-        
+            menu: !this.state.menu
+
         })
-         this.props.transition(this.state.menu);
-        console.log("state ",this.state.menu);
-        }
-        searchHandle=(event)=>{
-            this.setState({
-                searchNote : event.target.value
-            })
-            // this.props.getSearchNotes(event.target.value);
-            this.props.Searchbar(this.state.searchNote);
-        }
+        this.props.transition(this.state.menu);
+        console.log("state ", this.state.menu);
+    }
+    searchHandle = (event) => {
+        this.setState({
+            searchNote: event.target.value
+        })
+        // this.props.getSearchNotes(event.target.value);
+        this.props.Searchbar(this.state.searchNote);
+    }
     render() {
         return (
             <div>
-              
-                <AppBar  style={{maxWidth:"100%"}} position="fixed">
-                    <Toolbar style={{ backgroundColor: "white",width: "100%" }}>
+
+                <AppBar style={{ maxWidth: "100%" }} position="fixed">
+                    <Toolbar style={{ backgroundColor: "white", width: "100%" }}>
                         <div className="appbar_div_1">
                             <IconButton
                                 edge="start"
@@ -50,9 +52,9 @@ export default class AppBarComponent extends Component {
 
                                 <MenuIcon />
                             </IconButton>
-                            <DrawerComponent menuSelect={this.state.menu}/>
+                            <DrawerComponent menuSelect={this.state.menu} />
                             <div className="imageTag">
-                                <img style={{ width: "60px", height: "63px", display: "flex" }} src={require('../assets/image/keep-512.png')} alt="img"/>
+                                <img style={{ width: "60px", height: "63px", display: "flex" }} src={require('../assets/image/keep-512.png')} alt="img" />
                             </div>
                             <Typography >
                                 <div>
@@ -71,65 +73,68 @@ export default class AppBarComponent extends Component {
                             </Typography>
                         </div>
                         <div className="IconWithSearch">
-                        <div className="searchEngine">
-                            <div className="searchIcon">
-                                <SearchIcon />
+                            <div className="searchEngine">
+                                <div className="searchIcon">
+                                <img src={require('../assets/image/searchIcon.svg')}
+                                alt="search icon" style={{    width: "23px"}}/>
+        {/*  <SearchIcon />*/}
+                                </div>
+                                <div className="inputSearchField">
+                                    <InputBase
+                                        className="SearchFieldBase"
+                                        placeholder="Search…"
+                                        inputProps={{ 'aria-label': 'search' }}
+                                        value={this.state.searchNotes}
+                                        onChange={this.searchHandle}
+                                    />
+                                </div>
                             </div>
-                            <div className="inputSearchField">
-                                <InputBase
-                                     className="SearchFieldBase"
-                                    placeholder="Search…"
-                                    inputProps={{ 'aria-label': 'search' }}
-                                    value={this.state.searchNotes}
-                                    onChange = {this.searchHandle}
-                                />
-                            </div>
-                        </div>
                         </div>
                         <div />
 
                         <div className="applogo">
-                          <div className="Cart_referece_dashboard_logo">
-                            <IconButton
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-haspopup="true"
-                                color="inherit"
-                            >
-                                <RefreshIcon />
-                            </IconButton>
-                            <IconButton
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-haspopup="true"
-                                color="inherit"
-                            >
-                                <ShoppingCartIcon />
-                            </IconButton>
-                            <IconButton
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-haspopup="true"
-                                color="inherit"
-                            >
-                                <DashboardIcon />
-                            </IconButton>
+                            <div className="Cart_referece_dashboard_logo">
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <RefreshIcon />
+                                </IconButton>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <ShoppingCartIcon />
+                                </IconButton>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <DashboardIcon />
+                                </IconButton>
                             </div>
-                          <div className="AccountCircle">
-                            <IconButton
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-haspopup="true"
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton>
+                            <div className="AccountCircle">
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                <ProfileImgComponenet/>
+                                    {/*<AccountCircle />*/}
+                                </IconButton>
                             </div>
                         </div>
                     </Toolbar>
 
                 </AppBar>
-              
+
             </div>
         )
     }

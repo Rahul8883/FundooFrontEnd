@@ -8,6 +8,7 @@ import AddAlertOutlineIcon from '@material-ui/icons/AddAlertOutlined';
 import ArchiveOutlineIcon from '@material-ui/icons/ArchiveOutlined';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import EditOutlineIcon from '@material-ui/icons/EditOutlined';
+import { getArchiveNotes } from '../services/notesServices';
 var theme = createMuiTheme({
     overrides: {
         MuiDrawer: {
@@ -28,6 +29,7 @@ export class DrawerComponent extends Component {
             labelArr: []
         }
     }
+  
     handledrawer = () => {
         this.setState({
             open: true

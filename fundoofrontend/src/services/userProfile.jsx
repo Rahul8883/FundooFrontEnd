@@ -13,3 +13,10 @@ export function uploadProfile(data) {
         }
     })
 }
+export function Logout(){
+    return axios.post(baseURL+'/user/logout',{
+        headers:{
+            "Authorization" :localStorage.getItem("token")
+        }
+    })
+}
