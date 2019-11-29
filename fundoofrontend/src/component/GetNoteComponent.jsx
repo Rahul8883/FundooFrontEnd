@@ -145,12 +145,17 @@ class GetNoteComponent extends Component {
             this.getAllNotes()
         }
     }
+   
     render() {
         var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
+        var iconList=this.props.iconChoose? "GridViewCss":"listViewCss"
+        console.log("-----------------------",this.props.iconChoose);
+        
         return (
             !this.state.openNote ?
                 (
-                    <div className="get-container"
+                    // get-container
+                    <div className={iconList}
                     >
                         {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
                             console.log("create note final data", data);
@@ -173,6 +178,7 @@ class GetNoteComponent extends Component {
                                                     multiline
                                                     onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}
                                                 >
+                                                <br></br>
                                                 </InputBase>
                                                 <InputBase value={data.description}
                                                     multiline

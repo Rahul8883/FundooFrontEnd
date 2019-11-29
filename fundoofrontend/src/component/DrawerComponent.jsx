@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Drawer from '@material-ui/core/Drawer'
-// import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { MenuItem, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import EmojiObjectsOutlineIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import AddAlertOutlineIcon from '@material-ui/icons/AddAlertOutlined';
@@ -16,7 +16,7 @@ var theme = createMuiTheme({
                 top: "65px",
                 width: " 220px",
                 height: "100vh"
-            }
+            },
         }
     }
 })
@@ -29,7 +29,7 @@ export class DrawerComponent extends Component {
             labelArr: []
         }
     }
-  
+
     handledrawer = () => {
         this.setState({
             open: true
@@ -50,11 +50,15 @@ export class DrawerComponent extends Component {
             open: false
         })
     }
+    handleArchive=()=>{
+        console.log("triggered");
+        this.props.history.push("/getArchive")
+    }
+
     render() {
         console.log("open ", this.state.open);
         return (
             <div>
-                {/* <Button onClick={this.handleDraweropen}>Menu</Button> */}
                 <MuiThemeProvider theme={theme}>
                     <div>
                         <Drawer
@@ -64,31 +68,22 @@ export class DrawerComponent extends Component {
                             onClose={this.handleDrawerClose}
                             drawerWidth={10}
                         >
-
                             <div className="mainDrawerIcon">
                                 <div >
-                                    <ul type="none" style={{ borderBottom: "1px solid #ddd" }} >
-                                        <li className="DrawerIcons"> <MenuItem><EmojiObjectsOutlineIcon style={{marginBottom:"7px"}} className="Icon"/></MenuItem><div className="iconName">Notes</div></li>
-                                        <li className="DrawerIcons"><MenuItem><AddAlertOutlineIcon className="Icon"/></MenuItem><div className="iconName">Reminder</div></li>
+                                    <ul type="none" style={{ borderBottom: "1px solid #ddd", margin: 0, padding: 0 }} >
+                                        <li    className="DrawerIcons"> <MenuItem style={{ backgroundColor: "transparent" }}><EmojiObjectsOutlineIcon style={{ marginBottom: "7px" }} className="Icon" /><div className="iconName">Notes</div></MenuItem></li>
+                                        <li className="DrawerIcons"><MenuItem style={{ backgroundColor: "transparent" }}><AddAlertOutlineIcon className="Icon" /><div className="iconName">Reminder</div></MenuItem></li>
                                     </ul>
-                                    <ul type="none" style={{ borderBottom: "1px solid #ddd" }}>
+                                    <ul type="none" style={{ borderBottom: "1px solid #ddd", margin: 0, padding: 0 }}>
                                         <div className="Label">LABELS</div>
-                                        <li className="DrawerIcons"> <MenuItem><EditOutlineIcon className="Icon"/></MenuItem><div className="iconName">Edit Label</div></li>
+                                        <li className="DrawerIcons"> <MenuItem style={{ backgroundColor: "transparent" }}><EditOutlineIcon className="Icon" /><div className="iconName">Edit Label</div></MenuItem></li>
                                     </ul>
-                                    <ul type="none">
-                                        <li className="DrawerIcons"> <MenuItem><ArchiveOutlineIcon className="Icon"/></MenuItem><div className="iconName">Archive</div></li>
-                                        <li className="DrawerIcons"><MenuItem><DeleteOutlineIcon className="Icon"/></MenuItem><div className="iconName">Trash</div></li>
+                                    <ul type="none" style={{ margin: 0, padding: 0 }}>
+                                        <li className="DrawerIcons"> <MenuItem style={{ backgroundColor: "transparent" }} onClick={this.handleArchive}><ArchiveOutlineIcon className="Icon"  /><div className="iconName">Archive</div></MenuItem></li>
+                                        <li className="DrawerIcons"><MenuItem style={{ backgroundColor: "transparent" }}><DeleteOutlineIcon className="Icon" /><div className="iconName">Trash</div></MenuItem></li>
                                     </ul>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
                         </Drawer>
 
                     </div>
@@ -98,5 +93,5 @@ export class DrawerComponent extends Component {
     }
 }
 
-export default DrawerComponent
+export default withRouter(DrawerComponent)
 

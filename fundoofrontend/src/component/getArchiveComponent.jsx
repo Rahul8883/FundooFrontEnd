@@ -151,7 +151,7 @@ class getArchiveComponent extends Component {
                 (
                     <div className="get-container"
                     >
-                        {this.state.notes.map((data) => {
+                        {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
                             console.log("create note final data", data);
 
                             return (

@@ -11,20 +11,20 @@ import RefreshIcon from '@material-ui/icons/Refresh';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
 import DashboardIcon from '@material-ui/icons/DashboardOutlined';
 import DrawerComponent from '../component/DrawerComponent';
-import ProfileImgComponenet from '../component/ProfileImgComponenet'
+import ProfileImgComponenet from '../component/ProfileImgComponenet';
+import ViewStreamSharpIcon from '@material-ui/icons/ViewStreamSharp';
 
 export default class AppBarComponent extends Component {
-
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            menu: false
+            menu: false,
+            icon: false
         }
     }
     handleMenu = async () => {
         await this.setState({
             menu: !this.state.menu
-
         })
         this.props.transition(this.state.menu);
         console.log("state ", this.state.menu);
@@ -35,6 +35,12 @@ export default class AppBarComponent extends Component {
         })
         // this.props.getSearchNotes(event.target.value);
         this.props.Searchbar(this.state.searchNote);
+    }
+    handleIcons_Grid = () => {
+        this.setState({
+            icon: !this.state.icon
+        })
+        this.props.iconSelect(this.state.icon);
     }
     render() {
         return (
@@ -75,9 +81,9 @@ export default class AppBarComponent extends Component {
                         <div className="IconWithSearch">
                             <div className="searchEngine">
                                 <div className="searchIcon">
-                                <img src={require('../assets/image/searchIcon.svg')}
-                                alt="search icon" style={{    width: "23px"}}/>
-        {/*  <SearchIcon />*/}
+                                    <img src={require('../assets/image/searchIcon.svg')}
+                                        alt="search icon" style={{ width: "23px" }} />
+                                    {/*  <SearchIcon />*/}
                                 </div>
                                 <div className="inputSearchField">
                                     <InputBase
@@ -110,14 +116,26 @@ export default class AppBarComponent extends Component {
                                 >
                                     <ShoppingCartIcon />
                                 </IconButton>
+
+
                                 <IconButton
                                     edge="end"
                                     aria-label="account of current user"
                                     aria-haspopup="true"
                                     color="inherit"
                                 >
-                                    <DashboardIcon />
+
+                                    {this.state.icon ?
+                                        <DashboardIcon
+                                            onClick={this.handleIcons_Grid} />
+                                        :
+                                        <ViewStreamSharpIcon
+                                        // iconSelect={isTrueList}
+                                        onClick={this.handleIcons_Grid} />
+                                    }
                                 </IconButton>
+
+
                             </div>
                             <div className="AccountCircle">
                                 <IconButton
@@ -126,7 +144,7 @@ export default class AppBarComponent extends Component {
                                     aria-haspopup="true"
                                     color="inherit"
                                 >
-                                <ProfileImgComponenet/>
+                                    <ProfileImgComponenet />
                                     {/*<AccountCircle />*/}
                                 </IconButton>
                             </div>

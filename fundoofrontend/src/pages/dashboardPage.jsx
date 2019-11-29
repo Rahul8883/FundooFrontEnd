@@ -9,7 +9,8 @@ class DashboardPage extends Component {
 
         this.state = {
             searchText: "",
-            value:""
+            value:"",
+            iconList:""
         }
         this.createReff = React.createRef()
     }
@@ -22,6 +23,11 @@ class DashboardPage extends Component {
             searchText: searchNote
         })
     }
+    handleIconSelect=(iconList)=>{
+        this.setState({
+            iconList:iconList    
+        })
+    }
     handleShiftDrwer = (value) => {
 
         this.setState({
@@ -29,10 +35,13 @@ class DashboardPage extends Component {
         })
     }
     render() {
+        
         return (
             <div style={{ backgroundColor: "#e8e8e8" }}>
                 <div>
-                    <AppBarComponent props={this.props} Searchbar={this.handlesearch} transition={this.handleShiftDrwer} />
+                    <AppBarComponent props={this.props} Searchbar={this.handlesearch} transition={this.handleShiftDrwer}
+                    iconSelect={this.handleIconSelect}
+                    />
                 </div>
                 <div className="getNotesMainDiv">
                     <div className="mainDivCreate">
@@ -47,7 +56,10 @@ class DashboardPage extends Component {
                             wrappedComponentRef={this.createReff}
                             props={this.props}
                             SearchText={this.state.searchText}
-                            shiftDrawer={this.state.value} />
+                            shiftDrawer={this.state.value}
+                            iconChoose={this.state.iconList}
+                             />
+
                     </div>
                 </div>
             </div >

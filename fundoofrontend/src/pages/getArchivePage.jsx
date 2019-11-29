@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom'
 class getArchivePage extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             searchText: "",
             value:""
@@ -37,11 +36,15 @@ class getArchivePage extends Component {
             <div className="getNotesMainDiv">
                 <div className="mainDivCreate">
                     <CreateNotesComponent addNotesProps={this.handleAddNoteRef}
-                    
                     />
                 </div>
                 <div className="get_Note_comp">
-                <GetArchiveComponent props={this.props}/>
+                <GetArchiveComponent 
+                wrappedComponentRef={this.createReff}
+                SearchText={this.state.searchText}
+                shiftDrawer={this.state.value}
+                iconChoose={this.state.iconList}
+                />
                 </div>
             </div>
         </div >

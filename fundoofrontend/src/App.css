@@ -236,8 +236,8 @@
   font-Size: 30px;
   justify-Content: center;
   align-Items: center;
-  margin-left: 100px;
-  padding: 1em;
+  /* margin-left: 100px;
+  padding: 1em; */
 }
 
 .serviceCard_header {
@@ -296,6 +296,7 @@
   font-family: monospace;
   font-size: 18px;
   margin-top: 10px;
+  margin-bottom: 40px;
 }
 
 .Innercard {
@@ -397,27 +398,18 @@
   height: auto;
 }
 
-.get-container {
+.GridViewCss{
   position: relative;
   z-index: 1;
   justify-content: center;
   flex-wrap: wrap;
   display: flex;
-  /* display: flex;
-  align-items: center; */
-
-
-
-  /* justify-content: space-around; */
-  /* width: 58%; */
-  /* flex-wrap: wrap; */
-
-
-
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0px; */
 }
+/* .listViewCss{
+  width: 600px;
+  margin-right: 214px;
+  min-width: 600px;
+} */
 
 .get-cardDetails>div {
   margin: 0.6em 0;
@@ -575,8 +567,11 @@
   display: flex;
   align-items: center;
   margin-bottom: 7px;
+  border-radius: 26px;
 }
-
+.DrawerIcons:hover{
+  background-color: #feefc3;
+}
 .mainDrawerIcon {}
 
 .iconName {
@@ -609,4 +604,17 @@
 }
 #transition-right{
   margin-left: 5%;
+}
+/* ------------------------------------profile_logout------------------------------- */
+.profile_logout{
+  /* height: 108px;
+  width: 245px;
+  margin-left: -188px;
+  padding: 15px;
+  margin-top: 24px; */
+}
+.signOut{
+  /* margin-left: 158px;
+    margin-top: 77px;
+    background-color: lightgrey; */
 }

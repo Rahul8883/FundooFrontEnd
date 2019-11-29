@@ -8,7 +8,7 @@
  ******************************************************************************************/
 import React, { Component } from "react";
 import TextField from '@material-ui/core/TextField';
-import { Button, Card } from '@material-ui/core/';
+import { Button, Card, Input } from '@material-ui/core/';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
@@ -18,8 +18,11 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import userLogin from '../services/userServices';
 import ServiceCard from './ServiceCard'
+import Visibility from '@material-ui/icons/Visibility'
+import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import Snackbar from '@material-ui/core/Snackbar';
 import { orange } from "@material-ui/core/colors";
+import InputAdornment from '@material-ui/core/InputAdornment'
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -48,6 +51,11 @@ class Login extends Component {
             email: email
         })
     }
+    handleVisibility = () => {
+        this.setState({
+            visible: !this.state.visible
+        });
+    };
     handlePasswordChange = (event) => {
         console.log("-------------->event");
         const password = event.target.value;
@@ -105,8 +113,8 @@ class Login extends Component {
     }
     render() {
         console.log("props in login render", this.props);
-        console.log("render state",this.state.locState);
-        
+        console.log("render state", this.state.locState);
+
         var color = '', cartId = '', status = '';
         if (this.props.location.state !== undefined) {
             color = "orange"
@@ -137,22 +145,32 @@ class Login extends Component {
                                 placeholder="Email"
                                 id="standard-basic"
                                 label="Email id*"
+                             
                                 fullWidth
                                 value={this.state.email}
                                 onChange={this.handleEmailChange}
                             />
                         </div>
                         <div>
-                            <TextField
-                                type="password"
+                            <Input
+                                type={!this.state.visible ? "password" : "text"}
                                 name="password"
-                                placeholder="password"
+                                placeholder="Password*"
                                 id="standard-basic"
                                 label="Password*"
                                 margin="normal"
                                 fullWidth
+                             
                                 value={this.state.password}
                                 onChange={this.handlePasswordChange}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton onClick={this.handleVisibility}>
+                                            {!this.state.visible ? <Visibility /> : <VisibilityOff />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+
                             />
                             <FormControlLabel
                                 control={<Checkbox value="remember" color="primary" />}
@@ -191,7 +209,7 @@ class Login extends Component {
                 </Card>
                 {
                     this.state.locState === "Selected" ?
-                        <Card className="login-card_with_service" style={{padding: "0px 0px 0px 25px", background: "lightgrey", width:"30em", height:"457px" }}>
+                        <Card className="login-card_with_service" style={{ padding: "0px 0px 0px 25px", background: "lightgrey", width: "30em", height: "457px" }}>
                             <div>service</div>
                             <ServiceCard
 
