@@ -37,7 +37,9 @@ class DashboardPage extends Component {
     render() {
         
         return (
-            <div style={{ backgroundColor: "#e8e8e8" }}>
+            <div
+            //  style={{ backgroundColor: "#e8e8e8" }}
+             >
                 <div>
                     <AppBarComponent props={this.props} Searchbar={this.handlesearch} transition={this.handleShiftDrwer}
                     iconSelect={this.handleIconSelect}

@@ -30,7 +30,7 @@ export class ProfileImgComponenet extends Component {
         console.log("Handle_Profilre_Pic", this.state.selectFile);
         const formData = new formData();
         formData.append('file', event.target.file[0])
-        // uploadProfile
+      
 
         profilePicUpload(formData).then((res) => {
             console.log("--------------------", res);

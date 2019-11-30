@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import GetArchiveComponent from '../component/getArchiveComponent'
+import GetTrashComponent from '../component/getTrashComponent'
 import AppBarComponent from '../component/AppBarComponent';
 import CreateNotesComponent from '../component/createNotesComponent';
 import { withRouter } from 'react-router-dom'
-class getArchivePage extends Component {
+export class getTrashPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -29,9 +29,7 @@ class getArchivePage extends Component {
     }
     render() {
         return (
-            <div 
-            // style={{ backgroundColor: "#e8e8e8" }}
-            >
+            <div style={{ backgroundColor: "#e8e8e8" }}>
             <div>
                 <AppBarComponent props={this.props} Searchbar={this.handlesearch} transition={this.handleShiftDrwer} />
             </div>
@@ -41,7 +39,7 @@ class getArchivePage extends Component {
                     />
                 </div>
                 <div className="get_Note_comp">
-                <GetArchiveComponent 
+                <GetTrashComponent 
                 wrappedComponentRef={this.createReff}
                 SearchText={this.state.searchText}
                 shiftDrawer={this.state.value}
@@ -54,6 +52,4 @@ class getArchivePage extends Component {
     }
 }
 
-export default withRouter(getArchivePage);
-
-
+export default withRouter(getTrashPage)

@@ -9,6 +9,7 @@ import ArchiveOutlineIcon from '@material-ui/icons/ArchiveOutlined';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import EditOutlineIcon from '@material-ui/icons/EditOutlined';
 import { getArchiveNotes } from '../services/notesServices';
+import getTrashComponent from './getTrashComponent'
 var theme = createMuiTheme({
     overrides: {
         MuiDrawer: {
@@ -54,7 +55,14 @@ export class DrawerComponent extends Component {
         console.log("triggered");
         this.props.history.push("/getArchive")
     }
-
+    handleNotes=()=>{
+        console.log("triggered");
+        this.props.history.push("/dashboard")
+    }
+    handleTrash=()=>{
+        console.log("triggered");
+        this.props.history.push("/getTrash")
+    }
     render() {
         console.log("open ", this.state.open);
         return (
@@ -71,7 +79,7 @@ export class DrawerComponent extends Component {
                             <div className="mainDrawerIcon">
                                 <div >
                                     <ul type="none" style={{ borderBottom: "1px solid #ddd", margin: 0, padding: 0 }} >
-                                        <li    className="DrawerIcons"> <MenuItem style={{ backgroundColor: "transparent" }}><EmojiObjectsOutlineIcon style={{ marginBottom: "7px" }} className="Icon" /><div className="iconName">Notes</div></MenuItem></li>
+                                        <li    className="DrawerIcons"> <MenuItem style={{ backgroundColor: "transparent" }} onClick={this.handleNotes}><EmojiObjectsOutlineIcon style={{ marginBottom: "7px" }} className="Icon" /><div className="iconName">Notes</div></MenuItem></li>
                                         <li className="DrawerIcons"><MenuItem style={{ backgroundColor: "transparent" }}><AddAlertOutlineIcon className="Icon" /><div className="iconName">Reminder</div></MenuItem></li>
                                     </ul>
                                     <ul type="none" style={{ borderBottom: "1px solid #ddd", margin: 0, padding: 0 }}>
@@ -80,7 +88,7 @@ export class DrawerComponent extends Component {
                                     </ul>
                                     <ul type="none" style={{ margin: 0, padding: 0 }}>
                                         <li className="DrawerIcons"> <MenuItem style={{ backgroundColor: "transparent" }} onClick={this.handleArchive}><ArchiveOutlineIcon className="Icon"  /><div className="iconName">Archive</div></MenuItem></li>
-                                        <li className="DrawerIcons"><MenuItem style={{ backgroundColor: "transparent" }}><DeleteOutlineIcon className="Icon" /><div className="iconName">Trash</div></MenuItem></li>
+                                        <li className="DrawerIcons"><MenuItem style={{ backgroundColor: "transparent" }} onClick={this.handleTrash}  ><DeleteOutlineIcon className="Icon" /><div className="iconName">Trash</div></MenuItem></li>
                                     </ul>
                                 </div>
                             </div>

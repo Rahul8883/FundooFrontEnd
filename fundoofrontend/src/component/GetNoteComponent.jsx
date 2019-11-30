@@ -161,7 +161,7 @@ class GetNoteComponent extends Component {
                             console.log("create note final data", data);
 
                             return (
-                                data.isArchived === false && data.isDeleted === false &&
+                                data.isArchived === false && data.isDeleted === false && 
                                 <div className="get-Whole-Card">
                                     <div className="get-card-effect">
                                         <Card className="get-cards1" onClick={this.handleCardClick}

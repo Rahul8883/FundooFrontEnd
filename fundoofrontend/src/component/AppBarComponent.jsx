@@ -70,11 +70,11 @@ export default class AppBarComponent extends Component {
                                     <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>d</span>
                                     <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
                                     <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                                    <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>n</span>
+                                    {/*  <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>n</span>
                                     <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
                                     <span style={{ color: 'orange', fontFamily: 'TimesNewRoman', fontSize: 25 }}>t</span>
                                     <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>e</span>
-                                    <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>s</span>
+                                    <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>s</span>*/}
                                 </div>
                             </Typography>
                         </div>
@@ -87,6 +87,7 @@ export default class AppBarComponent extends Component {
                                 </div>
                                 <div className="inputSearchField">
                                     <InputBase
+                                    fullWidth
                                         className="SearchFieldBase"
                                         placeholder="Search…"
                                         inputProps={{ 'aria-label': 'search' }}
@@ -130,8 +131,8 @@ export default class AppBarComponent extends Component {
                                             onClick={this.handleIcons_Grid} />
                                         :
                                         <ViewStreamSharpIcon
-                                        // iconSelect={isTrueList}
-                                        onClick={this.handleIcons_Grid} />
+                                            // iconSelect={isTrueList}
+                                            onClick={this.handleIcons_Grid} />
                                     }
                                 </IconButton>
 
