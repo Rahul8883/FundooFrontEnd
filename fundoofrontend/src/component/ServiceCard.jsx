@@ -59,18 +59,18 @@ class ServiceCard extends Component {
     handleMouseEnter = (id) => {
         console.log("log id in mouse enter", id);
 
-     this.setState({
+        this.setState({
             mouseState: true,
             cartHoverId: id
         })
     }
-    handleMouseLeave=(id)=> {
+    handleMouseLeave = (id) => {
         this.setState({
             mouseState: false
         })
     }
     render() {
-        console.log("props",this.props);
+        console.log("props", this.props);
         const mouseColor = this.state.mouseState ? "orange" : "gray"
         const serviceMap = this.state.serviceArr.map(key => {
             return (
@@ -83,12 +83,12 @@ class ServiceCard extends Component {
                         position: "relative",
                         overflow: "visible"
                     }}>
-                    <Card className="Innercard" onMouseEnter={this.props.cartProps ? null :()=>
+                    <Card className="Innercard" onMouseEnter={this.props.cartProps ? null : () =>
 
-                        this.handleMouseEnter(key.id)} onClick={this.props.cartProps? null :()=>
+                        this.handleMouseEnter(key.id)} onClick={this.props.cartProps ? null : () =>
 
-                            this.handleRegister(key.id)} onMouseLeave={this.props.idProps === key.id ? null : ()=>
-                                
+                            this.handleRegister(key.id)} onMouseLeave={this.props.idProps === key.id ? null : () =>
+
                                 this.handleMouseLeave(key.id)}>
                         <div className="serviceCard-Contant" style={{ padding: "3vh 2vh" }}>
                             <div style={{ fontFamily: "TimesNewRoman", fontSize: "25px" }}> price: ${key.price}per month</div>
@@ -98,40 +98,44 @@ class ServiceCard extends Component {
                                 <li>{key.description}</li>
                             </div>
                         </div>
-                        
+
                     </Card>
                     <div className="serviceCard_selector"> {key.id === this.props.propsProductId ? this.props.status : "ADD TO CART"}</div>
                 </Card>
             )
         })
         return (
+
             this.props.cartProps !== true ?
                 <div className="serviceCard-container">
                     <div className="serviceCard_header">
                         <div className="serviceCard_HeaderTitle">
-                        <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>F</span>
-                        <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>u</span>
-                        <span style={{ color: 'black', fontFamily: 'TimesNewRoman', fontSize: 25 }}>n</span>
-                        <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>d</span>
-                        <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                        <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                        <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>n</span>
-                        <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                        <span style={{ color: 'seagreen', fontFamily: 'TimesNewRoman', fontSize: 25 }}>t</span>
-                        <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>e</span>
-                        <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>s</span>  
+                            <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>F</span>
+                            <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>u</span>
+                            <span style={{ color: 'black', fontFamily: 'TimesNewRoman', fontSize: 25 }}>n</span>
+                            <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>d</span>
+                            <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
+                            <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
+                            <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>n</span>
+                            <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
+                            <span style={{ color: 'seagreen', fontFamily: 'TimesNewRoman', fontSize: 25 }}>t</span>
+                            <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>e</span>
+                            <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>s</span>
                         </div>
                     </div>
+                    <div className="harHar">
+                        <div className="serviceCard_Notes">
+                            <div className="Card_Note" >FundooNotes offered. Choose below service to Register.</div>
 
-                    <div className="serviceCard_Notes">
-                        <div className="Card_Note" >FundooNotes offered. Choose below service to Register.</div>
+                            <div className="service-cards">
+                                {serviceMap}
+                            </div>
 
-                        <div className="service-cards">
-                            {serviceMap}
                         </div>
-
+                        <div>
+                            <span className="serviceCard_LoginButton" onClick={this.handleLogin} >SignIn</span>
+                        </div>
                     </div>
-                    <span className="serviceCard_LoginButton" onClick={this.handleLogin} >SignIn</span>
                 </div>
                 :
                 <div className="service-cards">

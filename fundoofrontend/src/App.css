@@ -47,7 +47,12 @@
   color: rgb(72, 39, 28);
   font-size: 23px;
 }
-
+.loginPage{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .login-container {
   height: 100%;
   display: flex;

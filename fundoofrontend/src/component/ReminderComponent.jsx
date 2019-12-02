@@ -70,7 +70,7 @@ class TrashComponent extends Component {
     }
     setnextWeek = () => {
         try {
-            var d = new Date();
+            let d = new Date();
             d.setDate(d.getDate() + (1 + 7 - d.getDay()) % 7);
             let reminder = d.setHours(8, 0, 0);
             let data = {

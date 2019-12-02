@@ -155,8 +155,7 @@ class GetNoteComponent extends Component {
             !this.state.openNote ?
                 (
                     // get-container
-                    <div className={iconList}
-                    >
+                    <div className={iconList}>
                         {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
                             console.log("create note final data", data);
 

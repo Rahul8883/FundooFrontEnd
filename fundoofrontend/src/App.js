@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from './pages/LoginPage'
+import Login from './pages/LoginPage';
+// import {} from './component/'
 import ServiceCardPage from './pages/ServiceCardPage';
 import Registration from './pages/RegistrationPage';
 // import Forgot from './pages/ForgotPage';
-import AppBar from './pages/AppBarPage';
+import AppBarComponent from './component/AppBarComponent'
 import Drawer from './pages/DrawerPage';
 import dashboardPage from './pages/dashboardPage'
 import createNotes from './pages/createNotesPage';
@@ -28,7 +29,7 @@ class App extends Component {
           <Route path='/register' component={Registration}></Route>
           <Route path='/' exact component={ServiceCardPage}></Route>
           {/*<Route path='/forgot' component={Forgot}></Route>*/}
-          <Route path='/appBar' component={AppBar}></Route>
+          <Route path='/appBar' component={AppBarComponent}></Route>
           <Route path='/drawer' component={Drawer}></Route>
           <Route path='/dashboard' component={dashboardPage}></Route>
           <Route path='/createNotes' component={createNotes}></Route>

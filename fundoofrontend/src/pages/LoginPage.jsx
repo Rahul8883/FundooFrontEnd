@@ -12,7 +12,7 @@ import Login from '../component/Login';
  class LoginPage extends Component {
     render() {
         return (
-            <div>
+            <div className="loginPage">
                 <Login/>
             </div>
         )

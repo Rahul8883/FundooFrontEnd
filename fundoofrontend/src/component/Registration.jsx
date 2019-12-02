@@ -71,7 +71,12 @@ class Registration extends Component {
             "color": localStorage.getItem('color')
         }
         this.props.history.push('/login',data)
+        console.log("handleLogin",  localStorage.getItem('cartId'));
+        console.log("handleLogin",  localStorage.getItem('status'));
+        console.log("handleLogin",  localStorage.getItem('color'));
     }
+    
+    
     handleSubmit = () => {
         if (this.state.firstName === "") {
             this.setState({

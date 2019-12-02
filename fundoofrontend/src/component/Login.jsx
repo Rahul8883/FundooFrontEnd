@@ -31,7 +31,7 @@ class Login extends Component {
             password: "",
             snackbarOpen: false,
             snackbarMsg: "",
-            locState: false
+            locState: ""
         };
     }
     componentDidMount() {
@@ -112,14 +112,14 @@ class Login extends Component {
         }
     }
     render() {
-        console.log("props in login render", this.props);
+        console.log("props in login render", this.props.location.state);
         console.log("render state", this.state.locState);
 
         var color = '', cartId = '', status = '';
         if (this.props.location.state !== undefined) {
-            color = "orange"
+            color = this.props.location.state.color
             cartId = this.props.location.state.cartId
-            status = 'Selected'
+            status = this.props.location.state.stus
         }
         return (
             <div className="login-container">
@@ -145,7 +145,7 @@ class Login extends Component {
                                 placeholder="Email"
                                 id="standard-basic"
                                 label="Email id*"
-                             
+
                                 fullWidth
                                 value={this.state.email}
                                 onChange={this.handleEmailChange}
@@ -160,7 +160,7 @@ class Login extends Component {
                                 label="Password*"
                                 margin="normal"
                                 fullWidth
-                             
+
                                 value={this.state.password}
                                 onChange={this.handlePasswordChange}
                                 endAdornment={
@@ -209,17 +209,25 @@ class Login extends Component {
                 </Card>
                 {
                     this.state.locState === "Selected" ?
-                        <Card className="login-card_with_service" style={{ padding: "0px 0px 0px 25px", background: "lightgrey", width: "30em", height: "457px" }}>
+                        <Card className="login-card"
+                        style={{backgroundColor
+                        :"hsl(189, 24%, 61%)"}}
+                        >
                             <div>service</div>
+                            {console.log("ughfdasugfhusghasjgh", this.state.locState)}
                             <ServiceCard
 
-                                cartProps={true}
-                                status={status}
-                                color={color}
+                                // cartProps={true}
+                                // status={this.state.locState}
+                                // color={color}
                                 cartId={cartId}
-                            //  status={localStorage.getItem('status')}
-                            //  propsColor={localStorage.getItem('color')}
-                            // propsProductId={localStorage.getItem('pId')}
+                                cartProps={true}
+                                // status={status}
+                                // propsColor={color}
+                                // propsProductId={productId}
+                                status={localStorage.getItem('status')}
+                                propsColor={localStorage.getItem('color')}
+                                propsProductId={localStorage.getItem('pId')}
                             />
 
                         </Card> : null
