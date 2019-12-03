@@ -418,7 +418,7 @@
 } */
 
 .get-cardDetails>div {
-  margin: 0.6em 0;
+  margin: 0.1em 0;
 }
 
 .column {
@@ -454,7 +454,7 @@
   padding-bottom: 5%;
 }
 .get_Note_comp{
-  width: 93%;
+  width: 87%;
   display: flex;
   justify-content: center;
   margin-left: 5%;
@@ -633,4 +633,11 @@
   /* margin-left: 158px;
     margin-top: 77px;
     background-color: lightgrey; */
+}
+/* --------------------------------------------Collaborator------------------------------------------------ */
+.userList_collab{
+  display:flex;
+}
+.InputForAddEmail{
+  padding: 6px;
 }
