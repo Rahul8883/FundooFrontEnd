@@ -641,3 +641,19 @@
 .InputForAddEmail{
   padding: 6px;
 }
+.colabUserData{
+  width: 20em;
+}
+.colabName{
+  display:flex;
+  justify-content: space-between;
+  width: 170px;
+  padding: 10px;
+}
+.collabUserData{
+  display: flex;
+
+}
+.colabEmail{
+  margin-left: 10px;
+}

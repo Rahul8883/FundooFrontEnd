@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Card, InputBase, Chip, Tooltip } from "@material-ui/core";
-import AddAlertOutlineIcon from "@material-ui/icons/AddAlertOutlined";
 import ImageIcon from "@material-ui/icons/ImageOutlined";
-import PersonAddIcon from "@material-ui/icons/PersonAddOutlined";
 import { getNote, changeColor, updateNote, removeLabelFromNote } from "../services/notesServices";
 import ColorComponenet from '../component/ColorComponenet'
 import ArchivedComponent from "./ArchivedComponent";
@@ -37,8 +35,6 @@ class GetNoteComponent extends Component {
             description: ""
         };
     }
-
-
     handleUpdate = (title, noteId, color, description) => {
         this.setState({
             title: title,
@@ -133,7 +129,6 @@ class GetNoteComponent extends Component {
             "labelId": labelId
         }
         console.log("sukyghfaajrghfdasukghsdjgh", data);
-
         removeLabelFromNote(data, noteId, labelId).then((res) => {
             console.log("response coming from delete label from notes from back-end", res);
             this.getAllNotes();
@@ -146,12 +141,10 @@ class GetNoteComponent extends Component {
             this.getAllNotes()
         }
     }
-   
     render() {
         var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
         var iconList=this.props.iconChoose? "GridViewCss":"listViewCss"
         console.log("-----------------------",this.props.iconChoose);
-        
         return (
             !this.state.openNote ?
                 (
@@ -159,7 +152,6 @@ class GetNoteComponent extends Component {
                     <div className={iconList}>
                         {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
                             console.log("create note final data", data);
-
                             return (
                                 data.isArchived === false && data.isDeleted === false && 
                                 <div className="get-Whole-Card">
@@ -168,23 +160,18 @@ class GetNoteComponent extends Component {
                                             style={{
                                                 width:"240px",
                                                 boxShadow: "3px 2px 9px 2px rgba(0,0,0,0.2), 1px 1px 2px 1px rgba(0,0,0,0.14), 3px 2px 3px 2px rgba(0,0,0,0.12)", borderRadius: "15px", padding: "1em", margin: "5px", borderradius: "14px", backgroundColor: data.color
-
-                                                , transform: (this.props.shiftDrawer) ? "translate(80px,0)" : (null)
-                                            }}>
-
+                                                , transform: (this.props.shiftDrawer) ? "translate(80px,0)" : (null)}}>
                                             <div className="get-cardDetails"
                                                 onClick={this.handleClickOpen}>
                                                 <InputBase
                                                  value={data.title}
                                                     multiline
-                                                    onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}
-                                                >
+                                                    onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}>
                                                 <br></br>
                                                 </InputBase>
                                                 <InputBase value={data.description}
                                                     multiline
-                                                    onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}
-                                                >
+                                                    onClick={() => this.handleUpdate(data.title, data.id, data.color, data.description)}>
                                                 </InputBase>
                                             </div>
                                             <div>
@@ -194,7 +181,7 @@ class GetNoteComponent extends Component {
                                                     localStorage.setItem("labelId", data.id)
                                                     return (
                                                         <Tooltip title="Label">
-                                                            <Chip style={{ backgroundColor: "rgba(0,0,0,0.08)" }} className="chip" onDelete={() => this.handleDelete(data.id, key.id)}
+                                                            <Chip style={{ backgroundColor: "rgba(0,0,0,0.08)",    margin: "5px" }} className="chip" onDelete={() => this.handleDelete(data.id, key.id)}
                                                                 icon={<TagFacesIcon style={{ color: "black" }} />}
                                                                 label={key.label}>
                                                             </Chip>
@@ -202,22 +189,39 @@ class GetNoteComponent extends Component {
                                                     );
                                                 })}
                                             </div>
+                                                <div style={{display:"flex"}}>
+                                                {data.collaborators.map(data=>{
+                                                    console.log("data maping of collaborator on notes =====>",data);
+                                                    // localStorage.setItem('collab', data.id)
+                                                    return(
+
+                                                        <Tooltip title={data.email}>
+                                                        <Card style={{
+                                                            borderRadius: "50%", display: "flex", alignItems: "center",
+                                                            width: "40px", justifyContent: "center", boxShadow: "3px 3px 3px grey",
+                                                            height: "40px", margin:"4px"
+                                                            }} onDelete={() => this.handleDelete(data.id, data.id)}
+                                                            icon={<TagFacesIcon style={{ color: "black" }} />}
+                                                            >
+                                                            {data.firstName.toUpperCase().charAt(0)}
+                                                            </Card>
+                                                    </Tooltip>
+                                                    )
+                                                })}
+                                                
+                                                
+                                                </div>  
                                             <div>
                                                 {console.log("data in get note comp------", data.reminder)}
-
                                                 {data.reminder.map(key => {
                                                     console.log("reminder_data---------", key);
                                                     return (
                                                         <Tooltip title="Reminder">
                                                             <Chip style={{ backgroundColor: "rgba(0,0,0,0.08)" }} className="chip"
                                                                 
-                                                                label={data.reminder}
-                                                            >
+                                                                label={data.reminder} >
                                                             </Chip>
-
                                                         </Tooltip>
-
-
                                                     )
                                                 })}
                                             </div>
@@ -227,19 +231,19 @@ class GetNoteComponent extends Component {
                                                         reminderNoteId={data.id} />
                                                 </div>
                                                 <div>
+                                                <Tooltip title="collaborator">
                                                 <CollaboratorComponent 
                                                 
                                                 NoteID={data.id}
-                                                collaborators={data.collaborators}
-                                                />
+                                                collaborators={data.collaborators}/>
                                             { /* <PersonAddIcon className="iconEffect" />*/}
+                                            </Tooltip>
                                                 </div>
                                                 <div>
                                                     <ColorComponenet
                                                         className="iconEffect"
                                                         propsToColorPallate={this.hanNoteColor}
-                                                        notesId={data.id}
-                                                    />
+                                                        notesId={data.id}/>
                                                 </div>
                                                 <div>
                                                     <ImageIcon className="iconEffect" />
@@ -269,8 +273,7 @@ class GetNoteComponent extends Component {
                         keepMounted
                         onClose={this.handleClose}
                         aria-labelledby="alert-dialog-slide-title"
-                        aria-describedby="alert-dialog-slide-description"
-                    >
+                        aria-describedby="alert-dialog-slide-description" >
                         <DialogTitle id="alert-dialog-slide-title">
                             {"Edit Note?"}
                         </DialogTitle>
@@ -281,8 +284,7 @@ class GetNoteComponent extends Component {
                                     multiline
                                     spellCheck={true}
                                     value={this.state.title}
-                                    onChange={this.handleTitle}
-                                />
+                                    onChange={this.handleTitle}  />
                             </div>
                             <div>
                                 <InputBase
@@ -290,8 +292,7 @@ class GetNoteComponent extends Component {
                                     multiline
                                     spellCheck={true}
                                     value={this.state.description}
-                                    onChange={this.handleDescription}
-                                />
+                                    onChange={this.handleDescription} />
                             </div>
                         </DialogContent>
                         <DialogActions>

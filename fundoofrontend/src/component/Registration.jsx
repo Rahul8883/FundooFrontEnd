@@ -143,7 +143,8 @@ class Registration extends Component {
             localStorage.setItem('cartId', cartId);
             localStorage.setItem('status', status);
             localStorage.setItem('color', color);
-            localStorage.setItem('pId', productId)
+            localStorage.setItem('pId', productId);
+            
 
         }
         return (

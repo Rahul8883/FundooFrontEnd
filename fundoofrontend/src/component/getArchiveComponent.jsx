@@ -7,17 +7,12 @@ import { getNote, changeColor, updateNote, removeLabelFromNote } from "../servic
 import ColorComponenet from '../component/ColorComponenet'
 import ArchivedComponent from "./ArchivedComponent";
 import MoreComponent from "./MoreComponent";
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
+// import Slide from '@material-ui/core/Slide';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
 import ReminderComponent from '../component/ReminderComponent'
-function Transition(props) {
-    return <Slide direction="up" {...props} />;
-}
+// function Transition(props) {
+//     return <Slide direction="up" {...props} />;
+// }
 function titleDesSearch(SearchText) {
     return function (x) {
         return x.title.includes(SearchText) || x.description.includes(SearchText)

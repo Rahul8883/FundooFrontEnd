@@ -21,7 +21,6 @@ import ServiceCard from './ServiceCard'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import Snackbar from '@material-ui/core/Snackbar';
-import { orange } from "@material-ui/core/colors";
 import InputAdornment from '@material-ui/core/InputAdornment'
 class Login extends Component {
     constructor(props) {
@@ -98,7 +97,11 @@ class Login extends Component {
                 'password': this.state.password
             }
             userLogin.userLogin(data).then((res) => {
-                console.log("res in login---------", res);
+                console.log("res in login---------", res.data);
+                localStorage.setItem('firstName', res.data.firstName);
+                localStorage.setItem('lastName', res.data.lastName);
+                localStorage.setItem('email', res.data.email)
+                // localStorage.setItem('email', res.data.imageUrl)
                 localStorage.setItem('token', res.data.id)
                 localStorage.setItem("userId", res.data.userId)
                 this.props.history.push('/dashboard');
@@ -210,8 +213,10 @@ class Login extends Component {
                 {
                     this.state.locState === "Selected" ?
                         <Card className="login-card"
-                        style={{backgroundColor
-                        :"hsl(189, 24%, 61%)"}}
+                            style={{
+                                backgroundColor
+                                    : "hsl(189, 24%, 61%)"
+                            }}
                         >
                             <div>service</div>
                             {console.log("ughfdasugfhusghasjgh", this.state.locState)}

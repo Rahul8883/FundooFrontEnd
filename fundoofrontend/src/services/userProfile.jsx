@@ -5,7 +5,7 @@ import axios from 'axios';
 const baseURL = "http://fundoonotes.incubation.bridgelabz.com/api"
 /*-------------------------create note services-----------------------*/
 
-export function profilePicUpload(data) {
+export  function profilePicUpload(data) {
     console.log("data in create notes", data);
     return axios.post(baseURL + "/user/uploadProfileImage", data, {
         headers: {

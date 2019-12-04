@@ -8,8 +8,8 @@ import AddAlertOutlineIcon from '@material-ui/icons/AddAlertOutlined';
 import ArchiveOutlineIcon from '@material-ui/icons/ArchiveOutlined';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import EditOutlineIcon from '@material-ui/icons/EditOutlined';
-import { getArchiveNotes } from '../services/notesServices';
-import getTrashComponent from './getTrashComponent'
+// import { getArchiveNotes } from '../services/notesServices';
+// import getTrashComponent from './getTrashComponent'
 var theme = createMuiTheme({
     overrides: {
         MuiDrawer: {
