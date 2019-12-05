@@ -30,10 +30,11 @@ class TrashComponent extends Component {
     setLaterToday = () => {
         try {
             var date = new Date();
-            let reminder = date.setHours(20, 0, 0);
+            date.setUTCHours(20, 0, 0)
+            // let reminder = date.setHours(20, 0, 0);
             let data = {
                 noteIdList: [this.props.reminderNoteId],
-                reminder: reminder
+                reminder: date.toString()
             }
      
             
@@ -55,7 +56,7 @@ class TrashComponent extends Component {
             let reminder = nextDay.setHours(8, 0, 0);
             let data = {
                 noteIdList: [this.props.reminderNoteId],
-                reminder: reminder
+                reminder: reminder.toString()
             }
             console.log("Reminder_data ", this.state.noteIdList);
 

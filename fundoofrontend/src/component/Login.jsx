@@ -22,6 +22,8 @@ import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import Snackbar from '@material-ui/core/Snackbar';
 import InputAdornment from '@material-ui/core/InputAdornment'
+const url = "http://fundoonotes.incubation.bridgelabz.com/"
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -97,11 +99,11 @@ class Login extends Component {
                 'password': this.state.password
             }
             userLogin.userLogin(data).then((res) => {
-                console.log("res in login---------", res.data);
+                console.log("res in login---------", res);
                 localStorage.setItem('firstName', res.data.firstName);
                 localStorage.setItem('lastName', res.data.lastName);
                 localStorage.setItem('email', res.data.email)
-                // localStorage.setItem('email', res.data.imageUrl)
+                 localStorage.setItem('imageUrl',url+ res.data.imageUrl)
                 localStorage.setItem('token', res.data.id)
                 localStorage.setItem("userId", res.data.userId)
                 this.props.history.push('/dashboard');
@@ -146,7 +148,7 @@ class Login extends Component {
                                 type="email"
                                 name="email"
                                 placeholder="Email"
-                                id="standard-basic"
+                                id="email"
                                 label="Email id*"
 
                                 fullWidth
@@ -159,7 +161,7 @@ class Login extends Component {
                                 type={!this.state.visible ? "password" : "text"}
                                 name="password"
                                 placeholder="Password*"
-                                id="standard-basic"
+                                id="password"
                                 label="Password*"
                                 margin="normal"
                                 fullWidth

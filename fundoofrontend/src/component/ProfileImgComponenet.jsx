@@ -4,7 +4,7 @@ import { Paper, Popper, Button } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import { profilePicUpload } from '../services/userProfile';
 import Fade from '@material-ui/core/Fade';
-const url = "http://fundoonotes.incubation.bridgelabz.com/api"
+const url = "http://fundoonotes.incubation.bridgelabz.com/"
 export class ProfileImgComponenet extends Component {
     constructor(props) {
         super(props)
@@ -12,7 +12,8 @@ export class ProfileImgComponenet extends Component {
             anchorEl: null,
             open: false,
             placement: null,
-            profilePic: "",
+            profilePic: localStorage.getItem('imageUrl'),
+            openAvtar: false
         };
     }
     handleClick = placement => event => {
@@ -29,20 +30,19 @@ export class ProfileImgComponenet extends Component {
         //     })
         // }
     }
-    handleProfile = async(event) => {
-//   this.setState({
-//             selectFile: event.target.value
-//         })
-        console.log("Handle_Profilre_Pic",event.target.files[0]);
-        let imageData=event.target.files[0]
+    handleProfile = async (event) => {
+        console.log("Handle_Profilre_Pic", event.target.files[0]);
+        let imageData = event.target.files[0]
         const formData = new FormData()
         formData.append('file', imageData)
-await  profilePicUpload(formData).then((res) => {
+        await profilePicUpload(formData).then((res) => {
             console.log("--------------------", this.state.res);
             console.log("res coming while hitting back-end Api", res.data.status.imageUrl);
             this.setState({
-                profilePic: url + res.data.status.imageUrl
+                profilePic: url + res.data.status.imageUrl,
+                openAvtar:false
             })
+            localStorage.setItem("imageUrl",this.state.profilePic);
             console.log("finially upload profile pic", this.state.profilePic);
         }).catch((err) => {
             console.log("Error Occur while hetting upload profile pic back-end Api", err);
@@ -69,6 +69,13 @@ await  profilePicUpload(formData).then((res) => {
         localStorage.clear()
         this.props.history.push('/login')
     }
+
+
+    handleAvtarOpen=()=>{
+        this.setState({
+            openAvtar:true
+        })
+    }
     render() {
         const { anchorEl, open, placement } = this.state;
 
@@ -79,9 +86,30 @@ await  profilePicUpload(formData).then((res) => {
                         <Fade {...TransitionProps} timeout={350}>
                             <Paper>
                                 <div className='img_name_email'>
-                                    <div>
-                                        <input type='file' alt="Remy Sharp" onChange={(event)=>this.handleProfile(event)} src={this.state.profilePic} className='profile_Big_Avatar' />
-                                    </div>
+
+                                    {!this.state.openAvtar ?
+                                        (
+                                            <div onClick={this.handleAvtarOpen}>
+                                               {/* <Avatar>
+                                                <div className="colabImage"> <b>{localStorage.getItem('imageUrl')}</b></div>
+                                                </Avatar>*/}
+
+                                                <Avatar alt="Remy Sharp" src={   this.state.profilePic} />
+
+                                            </div>
+                                        )
+                                        :
+                                        (
+
+                                            <div>
+                                                <input type='file' alt="Remy Sharp" onChange={(event) => this.handleProfile(event)} src={this.state.profilePic} className='profile_Big_Avatar' />
+                                            </div>
+                                        )
+
+
+
+                                    }
+
                                     <div>
                                         <div className="colabName">
                                             <div className="colabfirstName"> <b>{localStorage.getItem('firstName')}</b></div>
@@ -101,7 +129,7 @@ await  profilePicUpload(formData).then((res) => {
                         </Fade>
                     )}
                 </Popper>
-                <Avatar alt="Remy Sharp" src={this.state.profilePic} onClick={this.handleClick('bottom')} />
+                <Avatar alt="Remy Sharp" src={   this.state.profilePic} onClick={this.handleClick('bottom')} />
             </div>
         )
     }

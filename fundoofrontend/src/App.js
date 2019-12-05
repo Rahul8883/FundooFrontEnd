@@ -19,7 +19,8 @@ import profileImgPage from './pages/profileImgPage';
 import ReminderPage from "./pages/ReminderPage";
 import getArchivePage from './pages/getArchivePage'
 // import getTrashComponent from './component/getTrashComponent'
-import {getTrashPage} from './pages/getTrashPage'
+import {getTrashPage} from './pages/getTrashPage';
+import QuesAnsComponent from "./component/QuesAnsComponent";
 class App extends Component {
   render() {
     return (
@@ -41,6 +42,7 @@ class App extends Component {
           <Route path='/reminder' component={ReminderPage} ></Route>
           <Route path='/getArchive' component={getArchivePage} ></Route>
           <Route path='/getTrash' component ={getTrashPage}></Route>
+          <Route path ='/queAns' component = {QuesAnsComponent}></Route>
         </Switch>
       </Router>
     );

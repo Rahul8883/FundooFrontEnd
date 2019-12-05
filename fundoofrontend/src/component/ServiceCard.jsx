@@ -64,7 +64,7 @@ class ServiceCard extends Component {
             cartHoverId: id
         })
     }
-    handleMouseLeave = (id) => {
+    handleMouseLeave = () => {
         this.setState({
             mouseState: false
         })
