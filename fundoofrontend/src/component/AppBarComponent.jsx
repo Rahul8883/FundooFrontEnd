@@ -5,8 +5,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircleOutlined';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
 import DashboardIcon from '@material-ui/icons/DashboardOutlined';
@@ -22,6 +20,7 @@ export default class AppBarComponent extends Component {
             icon: false
         }
     }
+
     handleMenu = async () => {
         await this.setState({
             menu: !this.state.menu
@@ -29,23 +28,24 @@ export default class AppBarComponent extends Component {
         this.props.transition(this.state.menu);
         console.log("state ", this.state.menu);
     }
+
     searchHandle = (event) => {
         this.setState({
             searchNote: event.target.value
         })
-        // this.props.getSearchNotes(event.target.value);
         this.props.Searchbar(this.state.searchNote);
     }
+
     handleIcons_Grid = () => {
         this.setState({
             icon: !this.state.icon
         })
         this.props.iconSelect(this.state.icon);
     }
+
     render() {
         return (
             <div>
-
                 <AppBar style={{ maxWidth: "100%" }} position="fixed">
                     <Toolbar style={{ backgroundColor: "white", width: "100%" }}>
                         <div className="appbar_div_1">
@@ -53,9 +53,7 @@ export default class AppBarComponent extends Component {
                                 edge="start"
                                 color="inherit"
                                 aria-label="open drawer"
-                                onClick={this.handleMenu}
-                            >
-
+                                onClick={this.handleMenu}>
                                 <MenuIcon />
                             </IconButton>
                             <DrawerComponent menuSelect={this.state.menu} />
@@ -64,17 +62,17 @@ export default class AppBarComponent extends Component {
                             </div>
                             <Typography >
                                 <div>
-                                    <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>F</span>
-                                    <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>u</span>
-                                    <span style={{ color: 'orange', fontFamily: 'TimesNewRoman', fontSize: 25 }}>n</span>
-                                    <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>d</span>
-                                    <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                                    <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                                    {/*  <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>n</span>
-                                    <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                                    <span style={{ color: 'orange', fontFamily: 'TimesNewRoman', fontSize: 25 }}>t</span>
-                                    <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>e</span>
-                                    <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>s</span>*/}
+                                    <span className="F">F</span>
+                                    <span className="u">u</span>
+                                    <span className="n">n</span>
+                                    <span className="d">d</span>
+                                    <span className="o" >o</span>
+                                    <span className="oo" >o</span>
+                                    <span className="N" >n</span>
+                                    <span className="o">o</span>
+                                    <span className="t">t</span>
+                                    <span className="e" >e</span>
+                                    <span className="s">s</span>
                                 </div>
                             </Typography>
                         </div>
@@ -83,80 +81,60 @@ export default class AppBarComponent extends Component {
                                 <div className="searchIcon">
                                     <img src={require('../assets/image/searchIcon.svg')}
                                         alt="search icon" style={{ width: "23px" }} />
-                                    {/*  <SearchIcon />*/}
                                 </div>
                                 <div className="inputSearchField">
                                     <InputBase
-                                    fullWidth
+                                        fullWidth
                                         className="SearchFieldBase"
                                         placeholder="Search…"
                                         inputProps={{ 'aria-label': 'search' }}
                                         value={this.state.searchNotes}
-                                        onChange={this.searchHandle}
-                                    />
+                                        onChange={this.searchHandle} />
                                 </div>
                             </div>
                         </div>
                         <div />
-
                         <div className="applogo">
                             <div className="Cart_referece_dashboard_logo">
                                 <IconButton
                                     edge="end"
                                     aria-label="account of current user"
                                     aria-haspopup="true"
-                                    color="inherit"
-                                >
+                                    color="inherit" >
                                     <RefreshIcon />
                                 </IconButton>
                                 <IconButton
                                     edge="end"
                                     aria-label="account of current user"
                                     aria-haspopup="true"
-                                    color="inherit"
-                                >
+                                    color="inherit">
                                     <ShoppingCartIcon />
                                 </IconButton>
-
-
                                 <IconButton
                                     edge="end"
                                     aria-label="account of current user"
                                     aria-haspopup="true"
-                                    color="inherit"
-                                >
-
+                                    color="inherit">
                                     {this.state.icon ?
                                         <DashboardIcon
-                                            onClick={this.handleIcons_Grid} />
-                                        :
-                                        <ViewStreamSharpIcon
-                                            // iconSelect={isTrueList}
-                                            onClick={this.handleIcons_Grid} />
+                                            onClick={this.handleIcons_Grid} /> 
+                                            : <ViewStreamSharpIcon onClick={this.handleIcons_Grid} />
                                     }
                                 </IconButton>
-
-
                             </div>
                             <div className="AccountCircle">
                                 <IconButton
                                     edge="end"
                                     aria-label="account of current user"
                                     aria-haspopup="true"
-                                    color="inherit"
-                                >
+                                    color="inherit">
                                     <ProfileImgComponenet />
-                                    {/*<AccountCircle />*/}
                                 </IconButton>
                             </div>
                         </div>
                     </Toolbar>
-
                 </AppBar>
-
             </div>
         )
     }
 }
-
-

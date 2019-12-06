@@ -9,7 +9,8 @@ import ArchivedComponent from "./ArchivedComponent";
 import MoreComponent from "./MoreComponent";
 // import Slide from '@material-ui/core/Slide';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
-import ReminderComponent from '../component/ReminderComponent'
+// import ReminderComponent from '../component/ReminderComponent';
+import Reminder from "../component/Reminder";
 // function Transition(props) {
 //     return <Slide direction="up" {...props} />;
 // }
@@ -203,7 +204,7 @@ export class getTrashComponent extends Component {
                                         </div>
                                         <div className="get_Note_Icon">
                                             <div>
-                                                <ReminderComponent className="iconEffect"
+                                                <Reminder className="iconEffect"
                                                     reminderNoteId={data.id} />
                                             </div>
                                             <div>

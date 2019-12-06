@@ -110,17 +110,17 @@ class ServiceCard extends Component {
                 <div className="serviceCard-container">
                     <div className="serviceCard_header">
                         <div className="serviceCard_HeaderTitle">
-                            <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>F</span>
-                            <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>u</span>
-                            <span style={{ color: 'black', fontFamily: 'TimesNewRoman', fontSize: 25 }}>n</span>
-                            <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>d</span>
-                            <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                            <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                            <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 30 }}>n</span>
-                            <span style={{ color: 'red', fontFamily: 'TimesNewRoman', fontSize: 25 }}>o</span>
-                            <span style={{ color: 'seagreen', fontFamily: 'TimesNewRoman', fontSize: 25 }}>t</span>
-                            <span style={{ color: 'blue', fontFamily: 'TimesNewRoman', fontSize: 25 }}>e</span>
-                            <span style={{ color: 'green', fontFamily: 'TimesNewRoman', fontSize: 25 }}>s</span>
+                        <span className="F">F</span>
+                        <span className="u">u</span>
+                        <span className="n">n</span>
+                        <span className="d">d</span>
+                        <span className="o" >o</span>
+                        <span className="oo" >o</span>
+                        <span className="N" >n</span>
+                        <span className="o">o</span>
+                        <span className="t">t</span>
+                        <span className="e" >e</span>
+                        <span className="s">s</span>
                         </div>
                     </div>
                     <div className="harHar">

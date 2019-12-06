@@ -4,13 +4,15 @@ import { Paper, Popper, ClickAwayListener, MenuItem } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVertOutlined';
 import TrashComponent from '../component/TrashComponent';
 import LabelComponent from '../component/LabelComponent'
+
 class moreComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             open: false,
             anchorEl: null,
-            trashNotesId: ""
+            trashNotesId: "",
+            quesNotesId:"",
         }
     }
     handleMore = (e) => {
@@ -43,6 +45,8 @@ class moreComponent extends Component {
                     <Paper className="moreOption">
                         <MenuItem><TrashComponent noteIdToTrash={this.state.trashNotesId} /></MenuItem>
                         <MenuItem><LabelComponent notesIdToLabel={this.props.notesId} createlabelPropsToMore={this.handleLabelProps} /></MenuItem>
+                        
+
                     </Paper>
                 </Popper>
             </div>

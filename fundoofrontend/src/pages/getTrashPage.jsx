@@ -34,10 +34,10 @@ export class getTrashPage extends Component {
                 <AppBarComponent props={this.props} Searchbar={this.handlesearch} transition={this.handleShiftDrwer} />
             </div>
             <div className="getNotesMainDiv">
-                <div className="mainDivCreate">
+               {/* <div className="mainDivCreate">
                     <CreateNotesComponent addNotesProps={this.handleAddNoteRef}
                     />
-                </div>
+        </div>*/}
                 <div className="get_Note_comp">
                 <GetTrashComponent 
                 wrappedComponentRef={this.createReff}

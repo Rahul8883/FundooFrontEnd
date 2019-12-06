@@ -13,6 +13,8 @@ import RedoIcon from '@material-ui/icons/Redo';
 import { createNote } from '../services/notesServices';
 import ColorComponent from '../component/ColorComponenet'
 import MoreComponent from '../component/MoreComponent'
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+
 class CreateNotesComponent extends Component {
     constructor(props) {
         super(props);
@@ -172,8 +174,8 @@ class CreateNotesComponent extends Component {
                 )
                 :
                 (
-                    <div className="SecondCard_createNotes">
-                {/*<ClickAwayListener onClickAway={this.handleListener}>*/}
+                    <div className="createNote_container">
+                <ClickAwayListener onClickAway={this.handleListener}>
                             <Card className="CreateNote_Card1" style={{ backgroundColor: this.state.color }}>
                                 <div>
                                     <div className="input_field">
@@ -244,7 +246,7 @@ class CreateNotesComponent extends Component {
                                         </div>
                                         <div className="closeButton">
                                             <Button
-                                                //  style={{display:"flex", justifyContent:"space-between", width :"129%"}}
+                                               
                                                 style={{ margin: "spacing.unit" }}
                                                 onClick={this.handleClose}
                                                 // onClick={this.handleListener}
@@ -254,8 +256,9 @@ class CreateNotesComponent extends Component {
                                     </div>
                                 </div>
                             </Card>
-                                        { /*  </ClickAwayListener>*/}
+                                          </ClickAwayListener>
                     </div>
+
                 )
         )
     }

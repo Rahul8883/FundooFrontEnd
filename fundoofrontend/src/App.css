@@ -657,3 +657,70 @@
 .colabEmail{
   margin-left: 10px;
 }
+/* --------------------------------------FundooNotes----------------------------------------------- */
+.F{
+  color: blue;
+   font-family: TimesNewRoman;
+    font-size: 30px;
+}
+.u{
+  color: red;
+   font-Family: TimesNewRoman;
+    font-Size: 25px;
+}
+.n{
+  color:darkcyan;
+   font-Family: TimesNewRoman;
+    font-Size: 25px; 
+}
+.d{
+  color: blue;
+   font-Family: TimesNewRoman;
+    font-Size: 25px;
+}
+.o{
+  color: green;
+   font-Family: TimesNewRoman;
+    font-Size: 25px; 
+}
+.oo{
+  color: red;
+   font-Family: TimesNewRoman;
+    font-Size: 25px;
+}
+.N{
+  color: blue;
+   font-Family: TimesNewRoman;
+    font-Size: 30px;
+}
+.t{
+  color: orange;
+   font-Family: TimesNewRoman;
+   font-Size: 25px;
+}
+.e{
+  color: blue;
+   font-Family: TimesNewRoman;
+   font-Size: 25px;
+}
+.s{
+  color: green; 
+  font-Family: TimesNewRoman;
+   font-Size: 25px;
+}
+
+/* ------------------------------------Question_Answer------------------------------------- */
+.Ask_Que{
+  margin-left: 12%;
+    margin-bottom: 8px;
+    color:#ca2222;
+    margin-top: 5px;
+}
+.ask{
+  width: 88%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    color: seagreen;
+    cursor: pointer;
+}
