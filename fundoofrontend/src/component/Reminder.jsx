@@ -93,35 +93,35 @@ export default class Reminder extends Component {
 
 
                     
-                <div>
+                <div >
                     {this.state.open ?
                     <Popper  {...bindPopper(popupState)} transition style={{zIndex:"9999"}} >                   
                              <ClickAwayListener onClickAway={() => this.closePopper()}>
                             
-                                <Paper>
+                                <Paper >
                                     <Card>
-                                <div >
+                                <div className="reminder">
                                     <div className="rem">
                                         Reminder:
                                     </div>
-                                    <div onClick={this.handleRemindToday}>
-                                        <div className="rem">
+                                    <div className="rem" onClick={this.handleRemindToday}>
+                                        <div >
                                             Later today
                                        </div>
                                         <div>
                                             7:00 PM
                                        </div>
                                     </div>
-                                    <div  onClick={this.handleRemindTomorrow}>
-                                        <div className="rem">
+                                    <div className="rem" onClick={this.handleRemindTomorrow}>
+                                        <div >
                                             Tomorrow
                                        </div>
                                         <div>
                                             7:00 AM
                                        </div>
                                     </div>
-                                    <div  onClick={this.handleRemindNextWeek}>
-                                        <div className="rem">
+                                    <div className="rem" onClick={this.handleRemindNextWeek}>
+                                        <div >
                                             Next Week
                                        </div>
                                         <div>

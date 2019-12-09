@@ -20,7 +20,8 @@ import getArchivePage from './pages/getArchivePage'
 // import getTrashComponent from './component/getTrashComponent'
 import {getTrashPage} from './pages/getTrashPage';
 import QuesAnsComponent from "./component/QuesAnsComponent";
-import Reminder from './component/Reminder'
+import Reminder from './component/Reminder';
+import imageUpload from './component/imageUpload'
 class App extends Component {
   render() {
     return (
@@ -43,6 +44,7 @@ class App extends Component {
           <Route path='/getTrash' component ={getTrashPage}></Route>
           <Route path ='/queAns' component = {QuesAnsComponent}></Route>
           <Route path ='/Reminder' component = {Reminder} ></Route>
+          <Route path= '/imageUpload' component={imageUpload}></Route>
         </Switch>
       </Router>
     );

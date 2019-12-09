@@ -1,7 +1,6 @@
 .card {
   width: 160px;
   height: 160px;
-  /* box-shadow: 20px 20px grey; */
   border: 1px solid black;
   margin: 2em;
   padding: 1em;
@@ -25,14 +24,6 @@
 }
 
 .login-card {
-  /* width: 36%;
-  text-align: center;
-  justify-content: center;
-  align-content: center;
-  padding: 30px;
-  height: 70%;
-  margin-top: -8%; */
-
   text-align: center;
   justify-content: center;
   align-content: center;
@@ -65,13 +56,6 @@
 
 .card_with_service{
   background: lightgrey;
-    /* height: auto;
-    min-height: 458px;
-    min-width: 20em;
-    width: auto;
-    padding: 0px 30px 0px 30px; */
-    /* width: 30em;
-    height: 457px; */
 }
 
 .login-contents>div {
@@ -210,9 +194,7 @@
 }
 
 .appbar_div_1 {
-  /* min-width: 232px; */
   height: 48px;
-  /* width: 100%; */
   vertical-align: middle;
   align-items: center;
   display: flex;
@@ -220,10 +202,7 @@
 }
 
 .applogo {
-  min-width: 232px;
-  height: 48px;
-  -webkit-box-align: center;
-  vertical-align: middle;
+
   white-space: nowrap;
   align-items: center;
   display: flex;
@@ -231,9 +210,14 @@
 }
 
 .AccountCircle {
-  display: flex;
+  /* display: flex;
     justify-content: space-around;
-    width: 100%;
+    width: 100%; */
+}
+.Cart_referece_dashboard_logo{
+  display: flex;
+  justify-content: space-around;
+  width: 138px;
 }
 
 /* --------------------------------------service card--------------------------------------- */
@@ -243,8 +227,7 @@
   font-Size: 30px;
   justify-Content: center;
   align-Items: center;
-  /* margin-left: 100px;
-  padding: 1em; */
+  
 }
 
 .serviceCard_header {
@@ -256,9 +239,7 @@
   justify-content: space-between;
 }
 
-/* .serviceCard_Notes {
- 
-} */
+
 
 .Card_Note {
   display: flex;
@@ -269,25 +250,12 @@
 }
 
 .service-cards {
-  /* display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap; */
-
-  /* margin-top: 10%; */
   display: flex;
   justify-content: space-around;
   margin-top: 71px;
 }
-@media only screen and (max-width: 500px) {
-.service-cards{
-  flex-direction: column;
-  align-items: center;
-}
 
-}
 .serviceCard_selector {
-  /* padding: 0px 19px;(we can use this also..) */
   font-size: 18px;
   font-size: 18px;
   display: flex;
@@ -334,7 +302,7 @@
   flex: 1 1 500px;
   box-sizing: border-box;
   max-width: 500px;
-  min-width: 500px;
+  width: 500px;
   border-radius: 7px;
 }
 .createNote_input_base{
@@ -348,7 +316,6 @@
 }
 
 .CreateNote_TextField {
-  /* margin-Left: 8; */
   flex: 1;
   width: 70%;
   height: 50px;
@@ -356,8 +323,6 @@
 }
 
 .first_Card_icons {
-  /* padding: 0px 0px 0px 250px;
-  align-items: center; */
   display: flex;
   justify-content: space-around;
   width: 24%;
@@ -386,10 +351,6 @@
   justify-content: center;
 }
 
-/* .closeButton {
- 
-} */
-
 .iconEffect {
   color: #202124;
   opacity: 0.71;
@@ -399,7 +360,6 @@
 
 .get-cards1 {
   width: 258px;
-  /* width:auto; */
   min-height: 100px;
   height: auto;
 }
@@ -411,11 +371,13 @@
   flex-wrap: wrap;
   display: flex;
 }
-/* .listViewCss{
-  width: 600px;
-  margin-right: 214px;
-  min-width: 600px;
-} */
+.GridView{
+
+   width: 240px;
+}
+.listView{
+  width: 37em; 
+}
 
 .get-cardDetails>div {
   margin: 0.1em 0;
@@ -433,19 +395,13 @@
   clear: both;
 }
 
-.get-card-effect {
-  /* float: right;
-  width: 75%;
-  flex-wrap: wrap; */
-  /* padding: 0 16px; */
-}
 .get-Whole-Card:hover .get_Note_Icon {
   visibility: visible;
 }
 .get_Note_Icon{
   display: flex;
   justify-Content: space-between;
-  width: 260px;
+  width: 251px;
   visibility: hidden;
 }
 
@@ -462,10 +418,6 @@
 
 
 /* -----------------------------------AppBar-------------------------------------------- */
-/* .SearchFieldBase{
-  position: absolute;
-    width: 100%;
-} */
 .searchIcon {
   display: flex;
   align-items: center;
@@ -477,46 +429,38 @@
 }
 
 .searchEngine {
-  width: 75%;
+
   border-radius: 8px;
   background: #f1f3f4;
   border: 1px solid transparent;
-  max-width: 720px;
-  color: black;
+
+  
   display: flex;
-  direction: ltr;
-  font: 13px/27px Roboto, RobotoDraft, Arial, sans-serif;
+
   position: relative;
   height: 45px;
   align-items: center;
-  transition: background 100ms ease-in, width 100ms ease-out;
+ 
 }
 
 .IconWithSearch {
-  /* padding-right: 30px;
-  max-width: 100%;
-  padding-left: 10px;
-  flex: 1 1 auto;
-  width: 100%;
-  height: 48px; */
   display: flex;
+  justify-content: center;
   height: 48px;
   width: 100%;
-  margin-left: 10%;
+ 
 }
-
+/* --------------------------------------------Appbar media queries------------------------------ */
 @media only screen and (max-width: 900px) {
   .searchEngine {
-    /* width: 100%; */
     height: 46px;
-    /* margin-left: 51%; */
+    width: 14em;
   }
   .appbar_div_1 {
     margin: 0px;
     width: 0px;
   }
   .IconWithSearch {
-    /* width: 25%; */
     margin-left: 37%;
   }
   .CreateNote_Card1 {
@@ -524,27 +468,91 @@
     justify-content: space-between;
     align-items: center;
   }
+
 }
 
-@media only screen and (max-width:600) {
-  .first_Card_icons {
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
-    width: 24%;
-    padding: 0px 0px 0px 0px;
-  }
+
+
+@media only screen and (max-width: 600px) {
+
   .searchEngine {
-    margin-left: 0%;
-  }
+    height: 46px;
+    width: 10em;
+}
 }
 
-/* -----------------------------------Drawer-------------------------------------------- */
+  @media only screen and (max-width: 500px) {
+   
+  
+  .createNote_container {
+    margin-top: 85px;
+    margin-bottom: 36px;
+    box-sizing: border-box;
+    max-width: 400px;
+    min-width: 0px;
+    border-radius: 7px;
+  }
 
-/* .DrawerAllIcon{
-  padding-left: 24px;
-  letter-spacing: .01785714em;
-} */
+  .img{
+    visibility: hidden;
+  }
+  .referesh{
+    visibility: hidden;
+  }
+  .fundoo{
+    margin-left: -54px;
+  }
+  .applogo{
+    margin-left: -49px;
+  }
+
+  .searchEngine {
+    height: 46px;
+    width: 13em;
+    margin-left: -48px;
+}
+    }
+
+
+    @media only screen and (max-width: 400px) {
+   
+  
+      .createNote_container {
+        margin-top: 85px;
+        margin-bottom: 36px;
+        box-sizing: border-box;
+        max-width: 300px;
+        min-width: 0px;
+        border-radius: 7px;
+      }
+      /* .inputSearchField{
+        visibility: hidden;
+      } */
+        
+        }
+
+        @media only screen and (max-width: 300px) {
+   
+  
+          .createNote_container {
+            margin-top: 85px;
+            margin-bottom: 36px;
+            box-sizing: border-box;
+            max-width: 250px;
+            min-width: 0px;
+            border-radius: 7px;
+          }
+          .first_Card_icons {
+            display: flex;
+            justify-content: space-around;
+            width: 43%;
+        }
+        /* .inputSearchField{
+          visibility: hidden;
+        } */
+            }
+    
+/* -----------------------------------Drawer-------------------------------------------- */
 
 .DrawerSubIcon {
   border-radius: 0 25px 25px 0;
@@ -657,6 +665,21 @@
 .colabEmail{
   margin-left: 10px;
 }
+
+
+/* -----------------------------------------profileUpload--------------------------------------------- */
+.profilebutton{
+  display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 114px;
+}
+.profileUpload{
+  display: flex;
+    justify-content: center;
+    margin-bottom: 7px;
+}
+
 /* --------------------------------------FundooNotes----------------------------------------------- */
 .F{
   color: blue;
@@ -694,7 +717,7 @@
     font-Size: 30px;
 }
 .t{
-  color: orange;
+  color:darkorchid;
    font-Family: TimesNewRoman;
    font-Size: 25px;
 }
@@ -723,4 +746,17 @@
     margin-top: 8px;
     color: seagreen;
     cursor: pointer;
+}
+/* ----------------------------------------------Reminder---------------------------------------------- */
+.reminder{
+  height: 28vh;
+  width: 15em;
+  z-index: 999;
+  padding: 10px;
+}
+.rem{
+  display: flex;
+  justify-content: space-between;
+margin-top: 20px;  
+cursor: pointer;
 }

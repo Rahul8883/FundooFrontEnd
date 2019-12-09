@@ -80,50 +80,37 @@ export class ProfileImgComponenet extends Component {
         const { anchorEl, open, placement } = this.state;
 
         return (
-            <div className="profile_Root">
-                <Popper open={open} anchorEl={anchorEl} placement={placement} transition>
+            <div className="profile_Root" >
+                <Popper open={open} anchorEl={anchorEl} placement={placement} transition  style={{marginTop :"16px" , zIndex:"999", marginLeft: "16px"}}>
                     {({ TransitionProps }) => (
-                        <Fade {...TransitionProps} timeout={350}>
-                            <Paper>
+                        <Fade {...TransitionProps} timeout={350} >
+                            <Paper  style={{height:"35vh", width:"12em", padding:"5px"}}>
                                 <div className='img_name_email'>
-
-                                    {!this.state.openAvtar ?
-                                        (
-                                            <div onClick={this.handleAvtarOpen}>
-                                               {/* <Avatar>
-                                                <div className="colabImage"> <b>{localStorage.getItem('imageUrl')}</b></div>
-                                                </Avatar>*/}
-
+                                    {!this.state.openAvtar ?(
+                                            <div onClick={this.handleAvtarOpen} className="profileUpload">
                                                 <Avatar alt="Remy Sharp" src={   this.state.profilePic} />
-
                                             </div>
-                                        )
-                                        :
-                                        (
-
+                                        ) : (
                                             <div>
                                                 <input type='file' alt="Remy Sharp" onChange={(event) => this.handleProfile(event)} src={this.state.profilePic} className='profile_Big_Avatar' />
                                             </div>
                                         )
-
-
-
                                     }
 
                                     <div>
                                         <div className="colabName">
-                                            <div className="colabfirstName"> <b>{localStorage.getItem('firstName')}</b></div>
-                                            <div className="colablastName"><b>{localStorage.getItem('lastName')}</b> <b style={{ fontStyle: "italic" }}> ( Owner ) </b> </div>
+                                            <div  className="colabfirstName"> <b>{localStorage.getItem('firstName')}</b></div>
+                                            <div style={{ borderBottom: "1px solid #ddd"}}  className="colablastName"><b>{localStorage.getItem('lastName')}</b> <b style={{ fontStyle: "italic" }}> ( Owner ) </b> </div>
                                         </div>
                                         <div className="colabEmail" >
                                             {localStorage.getItem('email')}
                                         </div>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="profilebutton">
                                     <Button
                                         onClick={this.handleSubmitSignOut}
-                                        color='primary' style={{ fontSize: 18, fontFamily: 'TimesNewRoman' }} variant="outlined">SignOut</Button>
+                                        color='primary' style={{ fontSize: 10, fontFamily: 'TimesNewRoman' }} variant="outlined">SignOut</Button>
                                 </div>
                             </Paper>
                         </Fade>

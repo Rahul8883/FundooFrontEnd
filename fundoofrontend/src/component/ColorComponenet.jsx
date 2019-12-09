@@ -32,7 +32,8 @@ export default class ColorComponenet extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false
+            open: false,
+            anchorEl: null,
         }
     }
     closePopper = () => {
@@ -57,8 +58,18 @@ export default class ColorComponenet extends Component {
             console.log("Error occur while heatting back-end", err);
         }
     }
-    handleToggle = (evt) => {
-        this.setState({ open: !this.state.open })
+    // handleToggle = (evt) => {
+    //     this.setState({ open: !this.state.open })
+    // }
+
+    handleToggle = (e) => {
+         console.log("notes id is ", this.props.notesId);
+
+        this.setState({
+            anchorEl: this.state.anchorEl ? false : e.target,
+            open: true,
+             colorNotesId: this.props.notesId
+        });
     }
     render() {
         const changeColor = hexdaDecimalCodeWithName.map((colorkey) =>
@@ -87,7 +98,7 @@ export default class ColorComponenet extends Component {
                             <Popper  {...bindPopper(popupState)} transition className="colorPopper" style={{ zIndex: "9999" }}>
                                 {this.state.open ?
                                     <Paper
-                                        className="colorPalleteCard" style={{width:"32%"}}
+                                        className="colorPalleteCard" style={{width:"25%", padding:"7px"}}
                                     >
                                         {changeColor}
                                     </Paper>

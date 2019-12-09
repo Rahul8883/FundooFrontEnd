@@ -15,7 +15,7 @@ import Slide from '@material-ui/core/Slide';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
 import Reminder from '../component/Reminder'
 import CollaboratorComponent from '../component/collaboratorComponent'
-
+import ImageUpload from '../component/imageUpload'
 function Transition(props) {
     return <Slide direction="up" {...props} />;
 }
@@ -193,9 +193,20 @@ class GetNoteComponent extends Component {
         }
     }
 
+     sendImageProps(value){
+        console.log("get value from image upoad",value);
+        
+        var file=value.toString();
+       this.setState({
+       imageUrl:file
+       })
+       console.log("sendimage props value in getnotes",this.state.imageUrl);
+       
+   }
     render() {
         var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
         var iconList = this.props.iconChoose ?  "listViewCss": "GridViewCss" 
+        var ListView = this.props.iconChoose ?  "listView": "GridView"  
         console.log("-----------------------icon choose", this.props.iconChoose);
         return (
             !this.state.openNote ? (
@@ -206,9 +217,9 @@ class GetNoteComponent extends Component {
                             data.isArchived === false && data.isDeleted === false &&
                             <div className="get-Whole-Card">
                                 <div className="get-card-effect">
-                                    <Card className="get-cards1" onClick={this.handleCardClick}
+                                    <Card className={ListView} onClick={this.handleCardClick}
                                         style={{
-                                            width: "240px",
+                                            // width: "240px",
                                             boxShadow: "3px 2px 9px 2px rgba(0,0,0,0.2), 1px 1px 2px 1px rgba(0,0,0,0.14), 3px 2px 3px 2px rgba(0,0,0,0.12)", borderRadius: "15px", padding: "1em", margin: "5px", borderradius: "14px", backgroundColor: data.color
                                             , transform: (this.props.shiftDrawer) ? "translate(80px,0)" : (null)
                                         }}>
@@ -290,8 +301,21 @@ class GetNoteComponent extends Component {
                                                     propsToColorPallate={this.hanNoteColor}
                                                     notesId={data.id} />
                                             </div>
+                                          
+                                          
                                             <div>
-                                                <ImageIcon className="iconEffect" />
+                                          { /* <Tooltip title="addImage">
+                                            <imageUpload  sendImageProps={this.sendImageProps}/>
+                                         
+                                        </Tooltip>*/}
+
+
+                                        {/*<ImageIcon className="iconEffect" />*/}
+
+                                        <ImageUpload
+                                        sendImageProps={this.sendImageProps}
+                                        className="iconEffect"
+                                        />
                                             </div>
                                             <div>
                                                 <ArchivedComponent notesId={data.id}
