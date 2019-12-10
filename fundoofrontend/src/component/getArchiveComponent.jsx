@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { Card, InputBase, Chip, Tooltip } from "@material-ui/core";
 import ImageIcon from "@material-ui/icons/ImageOutlined";
 import PersonAddIcon from "@material-ui/icons/PersonAddOutlined";
-import { getNote, changeColor, updateNote, removeLabelFromNote } from "../services/notesServices";
+import { getNote, changeColor, updateNote, removeLabelFromNote, archiveNotes } from "../services/notesServices";
 import ColorComponenet from '../component/ColorComponenet'
 import ArchivedComponent from "./ArchivedComponent";
 import MoreComponent from "./MoreComponent";
@@ -24,7 +24,7 @@ class getArchiveComponent extends Component {
         this.state = {
             noteId: "",
             color: "",
-            notes: [],
+            notesId: [],
             openNote: false,
             title: "",
             description: ""
@@ -98,9 +98,9 @@ class getArchiveComponent extends Component {
         getNote()
             .then(result => {
                 this.setState({
-                    notes: result.data.data.data
+                    notesId: result.data.data.data
                 });
-                console.log("all notes data ", this.state.notes);
+                console.log("all notes data ", this.state.notesId);
             })
             .catch(err => {
                 console.log("Erroe occur while taking all notes", err);
@@ -139,10 +139,28 @@ class getArchiveComponent extends Component {
             this.getAllNotes()
         }
     }
+
+
+    // handleUnArchive = () => {
+    //     var data = {
+    //         noteIdList: [notesId],
+    //         isArchived: false
+    
+    //     }
+
+    //    archiveNotes(data).then((res) => {
+    //         console.log("response from archive", res);
+    //         this.props.refreshArchive(true)
+    //         console.log("Response of archived data", this.state.note);
+
+    //     }).catch((err) => {
+    //         console.log("Error occure while hitting archive Api ", err);
+
+    //     })
+    // }
     render() {
         // var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
         return (
-            // this.state.openNote ?
                 (
                     <div className="get-container"
                     >

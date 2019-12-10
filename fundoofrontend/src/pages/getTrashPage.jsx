@@ -20,12 +20,12 @@ export class getTrashPage extends Component {
     }
     render() {
         return (
-            <div style={{ backgroundColor: "#e8e8e8" }}>
+            <div>
                 <div>
                     <AppBarComponent props={this.props} Searchbar={this.handlesearch} transition={this.handleShiftDrwer} />
                 </div>
-                <div style={{display:"flex", justifyContent:"center", width:"100%"}}>
-                    <div className="get_Trash_Note_comp" style={{ marginTop: "95px", display:"flex", justifyContent:"center", width:"80%", flexWrap:"wrap"}}>
+                <div>
+                    <div >
                         <GetTrashComponent
                             wrappedComponentRef={this.createReff}
                             shiftDrawer={this.state.value}

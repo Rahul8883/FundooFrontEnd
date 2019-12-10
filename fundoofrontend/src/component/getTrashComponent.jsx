@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Card, InputBase} from '@material-ui/core';
-import { getNote} from '../services/notesServices';
+import { Card, InputBase } from '@material-ui/core';
+import { getNote, TrashNotesForever, TrashNotes } from '../services/notesServices';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import RestoreFromTrashIcon from '@material-ui/icons/RestoreFromTrash';
 
@@ -14,7 +14,8 @@ export class getTrashComponent extends Component {
 			notes: [],
 			openNote: false,
 			title: '',
-			description: ''
+			description: '',
+			isDeleted: true
 		};
 	}
 	handleTitle = (event) => {
@@ -46,8 +47,8 @@ export class getTrashComponent extends Component {
 			.catch((err) => {
 				console.log('Erroe occur while taking all notes', err);
 			});
-    }
-    
+	}
+
 	handleCardClick = () => {
 		console.log('triggered');
 	}
@@ -55,20 +56,49 @@ export class getTrashComponent extends Component {
 	displayRef = (value) => {
 		console.log('ref value in getnote', value);
 		this.setState({
-			notes: [ ...this.state.notes, value ]
+			notes: [...this.state.notes, value]
 		});
+	}
+
+	hanleDeleteforever = (noteId) => {
+		let data = {
+			noteIdList: [noteId],
+			isDeleted: this.state.isDeleted
+		}
+		TrashNotesForever(data).then(result => {
+			console.log("response commimg from delete forever api", result);
+
+		}).catch((err) => {
+			console.log("error occur while hitting back-end delete forever note api", err);
+
+		})
+	}
+
+	handleTrash = (noteId) => {
+		console.log("props.note id in trash component", this.props.noteIdToTrash);
+		var data = {
+			noteIdList: [noteId],
+			isDeleted: false
+		}
+		TrashNotes(data).then((res) => {
+			console.log("response from Restore notes", res);
+			this.props.refreshTrash(true)
+		}).catch((err) => {
+			console.log("Error occure while hitting restore notes Api ", err);
+
+		})
 	}
 
 	render() {
 		return (
-			<div className="get-container">
+			<div className="Trash_container">
+
 				{this.state.notes.map((data) => {
 					console.log('create note final data', data);
 					return (
 						data.isArchived === false &&
 						data.isDeleted === true && (
-							<div className="get-Whole-Card">
-								<div className="get-card-effect">
+								<div className="Trash">
 									<Card
 										className="get-cards1"
 										onClick={this.handleCardClick}
@@ -81,7 +111,8 @@ export class getTrashComponent extends Component {
 											borderradius: '14px',
 											backgroundColor: data.color,
 
-											transform: this.props.shiftDrawer ? 'translate(80px,0)' : null}}>
+											transform: this.props.shiftDrawer ? 'translate(80px,0)' : null
+										}}>
 										<div className="get-cardDetails" onClick={this.handleClickOpen}>
 											<InputBase
 												value={data.title}
@@ -108,16 +139,18 @@ export class getTrashComponent extends Component {
 										</div>
 										<div className="get_Note_Icon">
 											<div>
-												<DeleteForeverIcon className="iconEffect" />
+												<DeleteForeverIcon className="iconEffect"
+													onClick={() => this.hanleDeleteforever(data.id)} />
 											</div>
 											<div>
-												<RestoreFromTrashIcon className="iconEffect" />
+												<RestoreFromTrashIcon className="iconEffect"
+													onClick={() => this.handleTrash(data.id)} />
 											</div>
-                                        </div>
-                                        
+										</div>
+
 									</Card>
 								</div>
-							</div>
+						
 						)
 					);
 				})}

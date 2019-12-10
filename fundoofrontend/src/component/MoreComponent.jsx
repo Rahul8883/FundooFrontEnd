@@ -33,6 +33,10 @@ class moreComponent extends Component {
     handleLabelProps = (isTrue) => {
         this.props.createlabelPropsToMore(isTrue)
     }
+
+    handleEditor=()=>{
+        this.props.propsToEditor()
+    }
     render() {
         return (
             <div>
@@ -45,7 +49,8 @@ class moreComponent extends Component {
                     <Paper className="moreOption">
                         <MenuItem><TrashComponent noteIdToTrash={this.state.trashNotesId} /></MenuItem>
                         <MenuItem><LabelComponent notesIdToLabel={this.props.notesId} createlabelPropsToMore={this.handleLabelProps} /></MenuItem>
-                        
+                        <MenuItem onClick={this.handleEditor}> Ask a question</MenuItem>
+
 
                     </Paper>
                 </Popper>

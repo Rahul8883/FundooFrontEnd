@@ -203,6 +203,10 @@ class GetNoteComponent extends Component {
        console.log("sendimage props value in getnotes",this.state.imageUrl);
        
    }
+
+   HandleEditor=(noteId)=>{
+this.props.history.push('/queAns', noteId)
+   }
     render() {
         var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
         var iconList = this.props.iconChoose ?  "listViewCss": "GridViewCss" 
@@ -214,7 +218,7 @@ class GetNoteComponent extends Component {
                     {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
                         console.log("create note final data", data);
                         return (
-                            data.isArchived === false && data.isDeleted === false &&
+                            data.isArchived === false && data.isDeleted === false && 
                             <div className="get-Whole-Card">
                                 <div className="get-card-effect">
                                     <Card className={ListView} onClick={this.handleCardClick}
@@ -323,7 +327,9 @@ class GetNoteComponent extends Component {
                                             </div>
                                             <div>
                                                 <MoreComponent notesId={data.id}
-                                                    createlabelPropsToMore={this.handleRefNotesByLabel} />
+                                                    createlabelPropsToMore={this.handleRefNotesByLabel}
+                                                    propsToEditor={()=>{ this.HandleEditor(data.id)}}
+                                                    />
                                             </div>
                                         </div>
                                     </Card>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import GetArchiveComponent from '../component/getArchiveComponent'
 import AppBarComponent from '../component/AppBarComponent';
-import CreateNotesComponent from '../component/createNotesComponent';
 import { withRouter } from 'react-router-dom'
 class getArchivePage extends Component {
     constructor(props) {
@@ -29,17 +28,12 @@ class getArchivePage extends Component {
     }
     render() {
         return (
-            <div 
-            // style={{ backgroundColor: "#e8e8e8" }}
-            >
+            <div>
             <div>
                 <AppBarComponent props={this.props} Searchbar={this.handlesearch} transition={this.handleShiftDrwer} />
             </div>
             <div className="getNotesMainDiv">
-                <div className="mainDivCreate">
-                    <CreateNotesComponent addNotesProps={this.handleAddNoteRef}
-                    />
-                </div>
+               
                 <div className="get_Note_comp">
                 <GetArchiveComponent 
                 wrappedComponentRef={this.createReff}

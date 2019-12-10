@@ -760,3 +760,12 @@
 margin-top: 20px;  
 cursor: pointer;
 }
+
+/* --------------------------------------getTrashNotes-------------------------------- */
+.Trash_container{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  width: 73em;
+  flex-wrap: wrap;
+}

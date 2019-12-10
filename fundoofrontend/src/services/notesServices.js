@@ -72,6 +72,17 @@ export function TrashNotes(data) {
         }
     })
 }
+
+export function TrashNotesForever(data) {
+    console.log("data in trash notes services", data);
+
+    return axios.post(baseURL + "/notes/deleteForeverNotes", data, {
+        headers: {
+            "Authorization": localStorage.getItem("token")
+        }
+    })
+}
+
 /*-------------------------Reminder services-----------------------*/
 
 export function UpdateReminder(data) {

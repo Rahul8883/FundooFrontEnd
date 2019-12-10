@@ -86,6 +86,9 @@ export default class CollaboratorComponent extends Component {
         var data = {
             "searchWord": value
         }
+        const search=new Promise(function(reject, resolve){
+            
+        })
         searchUserList(data)
             .then((response) => {
                 console.log("response from search list....", response);
