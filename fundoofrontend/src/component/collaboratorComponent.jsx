@@ -48,7 +48,7 @@ export default class CollaboratorComponent extends Component {
                 this.setState({
                     AllUsers: UserList
                 })
-                 console.log("all list", this.state.AllUsers);
+                //  console.log("all list", this.state.AllUsers);
             })
             .catch(err => {
                 console.log("error in collab", err);
@@ -142,7 +142,7 @@ export default class CollaboratorComponent extends Component {
             })
     }
     render() {
-        console.log(this.state.getAllCollab);
+        // console.log(this.state.getAllCollab);
         return (
             <div>
                 <div onClick={this.handleOpen}>

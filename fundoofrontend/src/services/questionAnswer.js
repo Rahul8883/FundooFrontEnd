@@ -21,7 +21,7 @@ export function getSelectNotes(data) {
 export function getQuestionAnswer(data) {
     console.log("data in create notes", data);
 
-    return axios.post(baseURL + "POST /questionAndAnswerNotes/addQuestionAndAnswer", data, {
+    return axios.post(baseURL + "/questionAndAnswerNotes/addQuestionAndAnswer", data, {
         headers: {
             "Authorization": localStorage.getItem("token")
         }

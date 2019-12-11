@@ -28,22 +28,24 @@
   justify-content: center;
   align-content: center;
   height: auto;
-    min-height: 458px;
-    min-width: 20em;
-    width: auto;
-    padding: 0px 30px 0px 30px;
+  min-height: 458px;
+  min-width: 20em;
+  width: auto;
+  padding: 0px 30px 0px 30px;
 }
 
 .heading {
   color: rgb(72, 39, 28);
   font-size: 23px;
 }
-.loginPage{
+
+.loginPage {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .login-container {
   height: 100%;
   display: flex;
@@ -53,8 +55,7 @@
   flex-wrap: wrap;
 }
 
-
-.card_with_service{
+.card_with_service {
   background: lightgrey;
 }
 
@@ -202,7 +203,6 @@
 }
 
 .applogo {
-
   white-space: nowrap;
   align-items: center;
   display: flex;
@@ -214,7 +214,8 @@
     justify-content: space-around;
     width: 100%; */
 }
-.Cart_referece_dashboard_logo{
+
+.Cart_referece_dashboard_logo {
   display: flex;
   justify-content: space-around;
   width: 138px;
@@ -227,7 +228,6 @@
   font-Size: 30px;
   justify-Content: center;
   align-Items: center;
-  
 }
 
 .serviceCard_header {
@@ -238,8 +238,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
-
 
 .Card_Note {
   display: flex;
@@ -305,7 +303,8 @@
   width: 500px;
   border-radius: 7px;
 }
-.createNote_input_base{
+
+.createNote_input_base {
   padding: 10px;
 }
 
@@ -364,19 +363,20 @@
   height: auto;
 }
 
-.GridViewCss{
+.GridViewCss {
   position: relative;
   z-index: 1;
   justify-content: center;
   flex-wrap: wrap;
   display: flex;
 }
-.GridView{
 
-   width: 240px;
+.GridView {
+  width: 240px;
 }
-.listView{
-  width: 37em; 
+
+.listView {
+  width: 37em;
 }
 
 .get-cardDetails>div {
@@ -398,7 +398,8 @@
 .get-Whole-Card:hover .get_Note_Icon {
   visibility: visible;
 }
-.get_Note_Icon{
+
+.get_Note_Icon {
   display: flex;
   justify-Content: space-between;
   width: 251px;
@@ -409,15 +410,16 @@
   width: 100%;
   padding-bottom: 5%;
 }
-.get_Note_comp{
+
+.get_Note_comp {
   width: 87%;
   display: flex;
   justify-content: center;
   margin-left: 5%;
 }
 
-
 /* -----------------------------------AppBar-------------------------------------------- */
+
 .searchIcon {
   display: flex;
   align-items: center;
@@ -429,18 +431,13 @@
 }
 
 .searchEngine {
-
   border-radius: 8px;
   background: #f1f3f4;
   border: 1px solid transparent;
-
-  
   display: flex;
-
   position: relative;
   height: 45px;
   align-items: center;
- 
 }
 
 .IconWithSearch {
@@ -448,9 +445,10 @@
   justify-content: center;
   height: 48px;
   width: 100%;
- 
 }
+
 /* --------------------------------------------Appbar media queries------------------------------ */
+
 @media only screen and (max-width: 900px) {
   .searchEngine {
     height: 46px;
@@ -468,22 +466,16 @@
     justify-content: space-between;
     align-items: center;
   }
-
 }
 
-
-
 @media only screen and (max-width: 600px) {
-
   .searchEngine {
     height: 46px;
     width: 10em;
-}
+  }
 }
 
-  @media only screen and (max-width: 500px) {
-   
-  
+@media only screen and (max-width: 500px) {
   .createNote_container {
     margin-top: 85px;
     margin-bottom: 36px;
@@ -492,66 +484,58 @@
     min-width: 0px;
     border-radius: 7px;
   }
-
-  .img{
+  .img {
     visibility: hidden;
   }
-  .referesh{
+  .referesh {
     visibility: hidden;
   }
-  .fundoo{
+  .fundoo {
     margin-left: -54px;
   }
-  .applogo{
+  .applogo {
     margin-left: -49px;
   }
-
   .searchEngine {
     height: 46px;
     width: 13em;
     margin-left: -48px;
+  }
 }
-    }
 
-
-    @media only screen and (max-width: 400px) {
-   
-  
-      .createNote_container {
-        margin-top: 85px;
-        margin-bottom: 36px;
-        box-sizing: border-box;
-        max-width: 300px;
-        min-width: 0px;
-        border-radius: 7px;
-      }
-      /* .inputSearchField{
+@media only screen and (max-width: 400px) {
+  .createNote_container {
+    margin-top: 85px;
+    margin-bottom: 36px;
+    box-sizing: border-box;
+    max-width: 300px;
+    min-width: 0px;
+    border-radius: 7px;
+  }
+  /* .inputSearchField{
         visibility: hidden;
       } */
-        
-        }
+}
 
-        @media only screen and (max-width: 300px) {
-   
-  
-          .createNote_container {
-            margin-top: 85px;
-            margin-bottom: 36px;
-            box-sizing: border-box;
-            max-width: 250px;
-            min-width: 0px;
-            border-radius: 7px;
-          }
-          .first_Card_icons {
-            display: flex;
-            justify-content: space-around;
-            width: 43%;
-        }
-        /* .inputSearchField{
+@media only screen and (max-width: 300px) {
+  .createNote_container {
+    margin-top: 85px;
+    margin-bottom: 36px;
+    box-sizing: border-box;
+    max-width: 250px;
+    min-width: 0px;
+    border-radius: 7px;
+  }
+  .first_Card_icons {
+    display: flex;
+    justify-content: space-around;
+    width: 43%;
+  }
+  /* .inputSearchField{
           visibility: hidden;
         } */
-            }
-    
+}
+
 /* -----------------------------------Drawer-------------------------------------------- */
 
 .DrawerSubIcon {
@@ -593,9 +577,11 @@
   margin-bottom: 7px;
   border-radius: 26px;
 }
-.DrawerIcons:hover{
+
+.DrawerIcons:hover {
   background-color: #feefc3;
 }
+
 .mainDrawerIcon {}
 
 .iconName {
@@ -623,149 +609,193 @@
 }
 
 /* ----------------------------------drawer-Shift--------------------------------- */
-#transition-left{
+
+#transition-left {
   margin-left: 5%;
 }
-#transition-right{
+
+#transition-right {
   margin-left: 5%;
 }
+
 /* ------------------------------------profile_logout------------------------------- */
-.profile_logout{
+
+.profile_logout {
   /* height: 108px;
   width: 245px;
   margin-left: -188px;
   padding: 15px;
   margin-top: 24px; */
 }
-.signOut{
+
+.signOut {
   /* margin-left: 158px;
     margin-top: 77px;
     background-color: lightgrey; */
 }
+
 /* --------------------------------------------Collaborator------------------------------------------------ */
-.userList_collab{
-  display:flex;
+
+.userList_collab {
+  display: flex;
 }
-.InputForAddEmail{
+
+.InputForAddEmail {
   padding: 6px;
 }
-.colabUserData{
+
+.colabUserData {
   width: 20em;
 }
-.colabName{
-  display:flex;
+
+.colabName {
+  display: flex;
   justify-content: space-between;
   width: 170px;
   padding: 10px;
 }
-.collabUserData{
-  display: flex;
 
+.collabUserData {
+  display: flex;
 }
-.colabEmail{
+
+.colabEmail {
   margin-left: 10px;
 }
 
-
 /* -----------------------------------------profileUpload--------------------------------------------- */
-.profilebutton{
+
+.profilebutton {
   display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 114px;
+  justify-content: center;
+  align-items: flex-end;
+  height: 114px;
 }
-.profileUpload{
+
+.profileUpload {
   display: flex;
-    justify-content: center;
-    margin-bottom: 7px;
+  justify-content: center;
+  margin-bottom: 7px;
 }
 
 /* --------------------------------------FundooNotes----------------------------------------------- */
-.F{
+
+.F {
   color: blue;
-   font-family: TimesNewRoman;
-    font-size: 30px;
+  font-family: TimesNewRoman;
+  font-size: 30px;
 }
-.u{
+
+.u {
   color: red;
-   font-Family: TimesNewRoman;
-    font-Size: 25px;
-}
-.n{
-  color:darkcyan;
-   font-Family: TimesNewRoman;
-    font-Size: 25px; 
-}
-.d{
-  color: blue;
-   font-Family: TimesNewRoman;
-    font-Size: 25px;
-}
-.o{
-  color: green;
-   font-Family: TimesNewRoman;
-    font-Size: 25px; 
-}
-.oo{
-  color: red;
-   font-Family: TimesNewRoman;
-    font-Size: 25px;
-}
-.N{
-  color: blue;
-   font-Family: TimesNewRoman;
-    font-Size: 30px;
-}
-.t{
-  color:darkorchid;
-   font-Family: TimesNewRoman;
-   font-Size: 25px;
-}
-.e{
-  color: blue;
-   font-Family: TimesNewRoman;
-   font-Size: 25px;
-}
-.s{
-  color: green; 
   font-Family: TimesNewRoman;
-   font-Size: 25px;
+  font-Size: 25px;
+}
+
+.n {
+  color: darkcyan;
+  font-Family: TimesNewRoman;
+  font-Size: 25px;
+}
+
+.d {
+  color: blue;
+  font-Family: TimesNewRoman;
+  font-Size: 25px;
+}
+
+.o {
+  color: green;
+  font-Family: TimesNewRoman;
+  font-Size: 25px;
+}
+
+.oo {
+  color: red;
+  font-Family: TimesNewRoman;
+  font-Size: 25px;
+}
+
+.N {
+  color: blue;
+  font-Family: TimesNewRoman;
+  font-Size: 30px;
+}
+
+.t {
+  color: darkorchid;
+  font-Family: TimesNewRoman;
+  font-Size: 25px;
+}
+
+.e {
+  color: blue;
+  font-Family: TimesNewRoman;
+  font-Size: 25px;
+}
+
+.s {
+  color: green;
+  font-Family: TimesNewRoman;
+  font-Size: 25px;
 }
 
 /* ------------------------------------Question_Answer------------------------------------- */
-.Ask_Que{
+
+.Ask_Que {
   margin-left: 12%;
-    margin-bottom: 8px;
-    color:#ca2222;
-    margin-top: 5px;
+  margin-bottom: 8px;
+  color: #ca2222;
+  margin-top: 5px;
 }
-.ask{
+
+.ask {
   width: 88%;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 8px;
-    color: seagreen;
-    cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  color: seagreen;
+  cursor: pointer;
+}
+
+.readTit_Des {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid;
+  width: 40em;
+  border-radius: 13px;
+  padding: 20px;
+  margin-left: 20em;
+  background-color: #e8f5ee;
+  box-shadow: 14px 5px 23px -10px;
+}
+.close{
+  cursor: pointer;
 }
 /* ----------------------------------------------Reminder---------------------------------------------- */
-.reminder{
+
+.reminder {
   height: 28vh;
   width: 15em;
   z-index: 999;
   padding: 10px;
 }
-.rem{
+
+.rem {
   display: flex;
   justify-content: space-between;
-margin-top: 20px;  
-cursor: pointer;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
 /* --------------------------------------getTrashNotes-------------------------------- */
-.Trash_container{
+
+.Trash_container {
   margin-top: 100px;
   display: flex;
   justify-content: center;
   width: 73em;
   flex-wrap: wrap;
+  margin-left: 63px;
 }

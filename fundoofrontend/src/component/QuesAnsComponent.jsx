@@ -5,7 +5,7 @@ import { Editor } from "react-draft-wysiwyg"
 import { Card } from '@material-ui/core';
 import AppBarComponent from '../component/AppBarComponent'
 import { height } from '@material-ui/system';
-import { getSelectNotes } from '../services/questionAnswer';
+import { getSelectNotes, getQuestionAnswer } from '../services/questionAnswer';
 import { getNote } from '../services/notesServices';
 
 
@@ -37,62 +37,106 @@ class QuesAnsComponent extends Component {
     this.state = {
       editorState: EditorState.createEmpty(),
       noteId: "",
-      notes :[]
+      notes: [],
+      readArrDetail: [],
+      messg: [],
+      body: "",
+      noteId :""
     };
   }
 
   componentDidMount() {
     this.getAllNotes();
-}
-getAllNotes = () => {
-  getNote()
-        .then(result => {
-            this.setState({
-              notes: result.data.data.data
-            });
-            console.log("all notes data ", this.state.notes);
-        })
-        .catch(err => {
-            console.log("Erroe occur while taking all notes", err);
+  }
+  getAllNotes = () => {
+    getNote()
+      .then(result => {
+        this.setState({
+          notes: result.data.data.data
         });
-}
+        console.log("all notes data ", this.state.notes);
+      })
+      .catch(err => {
+        console.log("Erroe occur while taking all notes", err);
+      });
+  }
+  handleNoteDetails = () => {
+    var data = {
+      noteId: this.props.noteId
+    }
 
+    getSelectNotes(data).then((res) => {
+      console.log("response comming from getSelect note Api", res);
 
+    }).catch((err) => {
+      console.log("Error occur while hitting getSelected note back-end Api", err);
 
-  // handleAskQuestion= () => {
-   
-  // }
-  onEditorStateChange = (editorState) => {
-    // console.log(editorState)
+    })
+
+  }
+  handleChangeEditorBody = (e) => {
+    const Body = e.target.value
     this.setState({
-      editorState,
-    });
+      Body: Body
+    })
+    console.log("input Base", this.state.body);
+  }
+  submitQuestion = (data) => {
+
+    var data = {
+      messg: this.state.body,
+      noteId: data
+    }
+    console.log("data occur while htiing back-end ask question Api", data);
+    getQuestionAnswer(data).then(res => {
+      console.log("response comming from que ans component ", res);
+    }).catch(err => {
+      console.log('err occur while htiing back-end ask question Api', err);
+    })
+  }
+  onEditorStateChange = (e) => {
+    let question = e.blocks[0].text;
+    this.setState({
+      body: question
+    })
+    console.log("editor value in input base ", this.state.body);
   };
 
   handleSelectNotes = () => {
     this.props.history.push('/dashboard')
   }
   render() {
+    var title = "", description = "", noteId= ""
+    this.state.readArrDetail = this.props.location.state
+    if (this.props.location.state !== undefined) {
+      title = this.props.location.state.title
+      description = this.props.location.state.description
+      noteId=this.props.location.state.id
+    }
 
     const { editorState } = this.state;
     return (<div className='editor_Main_Div'>
+
       <div>
         <AppBarComponent />
       </div>
+
       <div>
         <Card className="Editor_Card" style={{ height: "100vh" }}>
 
 
           <div className="Container" style={{ marginTop: "6%" }}>
-            <div style={{ display: "flex", justifyContent: "center", width: "397px" }}>
-              <div className="Tit_Des_Main">
-                <div>
-                  <div>Title</div>
-                  <div>Description</div>
-                </div>
-                <div onClick={this.handleSelectNotes}>Close</div>
+            <div className="readTit_Des">
 
+              <div>
+                <div>{title}</div>
+                <div>{description}</div>
               </div>
+
+              <div className="close"
+                onClick={this.handleSelectNotes}> Close
+                </div>
+
             </div>
             <div className="Ask_Que">Ask a Question...?</div>
 
@@ -103,8 +147,7 @@ getAllNotes = () => {
                 boxShadow: "0px 1px 7px 1px"
               }}>
                 <Editor
-                  editorState={editorState}
-                  onEditorStateChange={this.onEditorStateChange}
+                  onChange={(event) => this.onEditorStateChange(event)}
                   toolbar={{
                     inline: { inDropdown: true },
                     list: { inDropdown: true },
@@ -116,10 +159,12 @@ getAllNotes = () => {
                 />
               </Card>
             </div>
-            <div className="ask">ASK ?</div>
+            <div onClick={()=>this.submitQuestion(noteId)} className="ask">ASK ?</div>
           </div>
         </Card>
       </div>
+
+
     </div>
     )
   }

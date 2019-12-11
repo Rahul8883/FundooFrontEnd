@@ -204,8 +204,12 @@ class GetNoteComponent extends Component {
        
    }
 
-   HandleEditor=(noteId)=>{
-this.props.history.push('/queAns', noteId)
+   HandleEditor=(data)=>{
+    console.log('====================================');
+    console.log("data in more component for que-ans",data);
+    console.log('====================================');
+this.props.history.push('/queAns', data)
+
    }
     render() {
         var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
@@ -328,7 +332,7 @@ this.props.history.push('/queAns', noteId)
                                             <div>
                                                 <MoreComponent notesId={data.id}
                                                     createlabelPropsToMore={this.handleRefNotesByLabel}
-                                                    propsToEditor={()=>{ this.HandleEditor(data.id)}}
+                                                    propsToEditor={()=>{ this.HandleEditor(data)}}
                                                     />
                                             </div>
                                         </div>
