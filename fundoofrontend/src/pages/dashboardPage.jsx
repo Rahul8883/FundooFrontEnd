@@ -9,8 +9,8 @@ class DashboardPage extends Component {
 
         this.state = {
             searchText: "",
-            value:"",
-            iconList:""
+            value: "",
+            iconList: ""
         }
         this.createReff = React.createRef()
     }
@@ -23,9 +23,9 @@ class DashboardPage extends Component {
             searchText: searchNote
         })
     }
-    handleIconSelect=(iconList)=>{
+    handleIconSelect = (iconList) => {
         this.setState({
-            iconList:iconList    
+            iconList: iconList
         })
     }
     handleShiftDrwer = (value) => {
@@ -35,20 +35,27 @@ class DashboardPage extends Component {
         })
     }
     render() {
-        
+        let mssg="", noteIdQues =""
+        if (this.props.location.state !== undefined) {
+            mssg = this.props.location.state.data1
+            noteIdQues= this.props.location.state.data2
+        }
+        console.log('====================================');
+        console.log("==================>",noteIdQues);
+        console.log('====================================');
         return (
             <div
             //  style={{ backgroundColor: "#e8e8e8" }}
-             >
+            >
                 <div>
                     <AppBarComponent props={this.props} Searchbar={this.handlesearch} transition={this.handleShiftDrwer}
-                    iconSelect={this.handleIconSelect}
+                        iconSelect={this.handleIconSelect}
                     />
                 </div>
                 <div className="getNotesMainDiv">
                     <div className="mainDivCreate">
                         <CreateNotesComponent addNotesProps={this.handleAddNoteRef}
-                        
+
                         />
                     </div>
                     <div className="get_Note_comp">
@@ -60,7 +67,9 @@ class DashboardPage extends Component {
                             SearchText={this.state.searchText}
                             shiftDrawer={this.state.value}
                             iconChoose={this.state.iconList}
-                             />
+                           mssgProps ={mssg}
+                           noteIdQuesProps={noteIdQues}
+                        />
 
                     </div>
                 </div>

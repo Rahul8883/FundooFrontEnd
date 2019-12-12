@@ -754,7 +754,7 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 8px;
-  color: seagreen;
+  color: red;
   cursor: pointer;
 }
 
@@ -773,6 +773,23 @@
 .close{
   cursor: pointer;
 }
+
+.askedQue{
+  border: 1px solid;
+    width: 40em;
+    border-radius: 13px;
+    padding: 20px;
+    margin-left: 20em;
+    background-color: #e8f5ee;
+    box-shadow: 14px 5px 23px -10px;
+    margin-top: 18px;
+}
+.Title_Asked{
+  color: red;
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+}
+
 /* ----------------------------------------------Reminder---------------------------------------------- */
 
 .reminder {

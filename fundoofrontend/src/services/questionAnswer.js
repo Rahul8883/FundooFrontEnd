@@ -27,3 +27,15 @@ export function getQuestionAnswer(data) {
         }
     })
 }
+
+
+
+export function getReply(data, parentId) {
+    console.log("data in create notes", data);
+
+    return axios.post(baseURL + `/questionAndAnswerNotes/reply/${parentId}`, data, {
+        headers: {
+            "Authorization": localStorage.getItem("token")
+        }
+    })
+}

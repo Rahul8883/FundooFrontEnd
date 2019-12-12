@@ -336,6 +336,8 @@ this.props.history.push('/queAns', data)
                                                     />
                                             </div>
                                         </div>
+
+                                        <div>{this.props.noteIdQuesProps===data.id?(<div><div>Ask Question</div>{this.props.mssgProps}</div>):null}</div>
                                     </Card>
                                 </div>
                             </div>

@@ -68,10 +68,7 @@ export default class AppBarComponent extends Component {
     render() {
         return (
             <div>
-                {/**
-          
-           
-            */}
+               
 
                 <MuiThemeProvider theme={theme}  position="fixed">
 
