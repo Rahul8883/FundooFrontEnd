@@ -749,7 +749,7 @@
   margin-top: 5px;
 }
 
-.ask {
+.Ask {
   width: 88%;
   display: flex;
   justify-content: flex-end;
@@ -789,6 +789,44 @@
     border-bottom: 1px solid;
     margin-bottom: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Ansque{
+  margin-top: 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid;
+  width: 40em;
+  border-radius: 13px;
+  padding: 20px;
+  margin-left: 20em;
+  background-color: #e8f5ee;
+  box-shadow: 14px 5px 23px -10px;
+}
+
+.QueAns_Main{
+  overflow-y: scroll;
+    background: linear-gradient(-45deg, rgb(230, 63, 11), rgb(255, 8, 42), rgba(35, 166, 213, 0.74)) 0% 0% / 400% 400%;
+    position: relative;
+    animation: 10s ease-in-out 0s infinite normal none running change;
+    height: 100vh;
+}
+
 
 /* ----------------------------------------------Reminder---------------------------------------------- */
 

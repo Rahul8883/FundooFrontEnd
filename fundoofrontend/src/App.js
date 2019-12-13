@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from './pages/LoginPage';
-// import {} from './component/'
 import ServiceCardPage from './pages/ServiceCardPage';
 import Registration from './pages/RegistrationPage';
-// import Forgot from './pages/ForgotPage';
 import AppBarComponent from './component/AppBarComponent'
 import Drawer from './pages/DrawerPage';
 import dashboardPage from './pages/dashboardPage'
@@ -13,15 +11,14 @@ import createNotes from './pages/createNotesPage';
 import GetCreatedNote from './pages/GetNotePage'
 import colorPage from './pages/colorPage';
 import ArchivePage from './pages/ArchivePage';
-// import morePage from './pages/MorePage'
 import MorePage from './pages/MorePage';
 import profileImgPage from './pages/profileImgPage';
 import getArchivePage from './pages/getArchivePage'
-// import getTrashComponent from './component/getTrashComponent'
 import {getTrashPage} from './pages/getTrashPage';
 import QuesAnsComponent from "./component/QuesAnsComponent";
 import Reminder from './component/Reminder';
 import imageUpload from './component/imageUpload'
+import Ask from './component/Ask'
 class App extends Component {
   render() {
     return (
@@ -30,7 +27,6 @@ class App extends Component {
           <Route path='/login' component={Login}></Route>
           <Route path='/register' component={Registration}></Route>
           <Route path='/' exact component={ServiceCardPage}></Route>
-          {/*<Route path='/forgot' component={Forgot}></Route>*/}
           <Route path='/appBar' component={AppBarComponent}></Route>
           <Route path='/drawer' component={Drawer}></Route>
           <Route path='/dashboard' component={dashboardPage}></Route>
@@ -45,6 +41,7 @@ class App extends Component {
           <Route path ='/queAns' component = {QuesAnsComponent}></Route>
           <Route path ='/Reminder' component = {Reminder} ></Route>
           <Route path= '/imageUpload' component={imageUpload}></Route>
+          <Route path= '/ask' component={Ask}></Route>
         </Switch>
       </Router>
     );

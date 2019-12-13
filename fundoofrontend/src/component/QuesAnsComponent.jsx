@@ -78,6 +78,9 @@ class QuesAnsComponent extends Component {
       console.log("Error occur while hitting getSelected note back-end Api", err);
     })
   }
+
+
+
   handleChangeEditorBody = (e) => {
     const Body = e.target.value
     this.setState({
@@ -85,6 +88,9 @@ class QuesAnsComponent extends Component {
     })
     console.log("input Base", this.state.body);
   }
+
+
+  
   submitQuestion = (data) => {
     var data = {
       message: this.state.body,

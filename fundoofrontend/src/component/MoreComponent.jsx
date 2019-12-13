@@ -13,6 +13,7 @@ class moreComponent extends Component {
             anchorEl: null,
             trashNotesId: "",
             quesNotesId:"",
+            notesId :this.props.notesId
         }
     }
     handleMore = (e) => {
@@ -21,7 +22,8 @@ class moreComponent extends Component {
         this.setState({
             anchorEl: this.state.anchorEl ? false : e.target,
             open: true,
-            trashNotesId: this.props.notesId
+            trashNotesId: this.props.notesId,
+           
         });
     }
 
@@ -36,8 +38,11 @@ class moreComponent extends Component {
 
     handleEditor=()=>{
         this.props.propsToEditor()
+        
     }
     render() {
+        console.log("qqqqqqqqqqqqqqqqq==========>", this.state.notesId);
+        
         return (
             <div>
                 <ClickAwayListener onClickAway={this.handleClose}>
@@ -49,7 +54,7 @@ class moreComponent extends Component {
                     <Paper className="moreOption">
                         <MenuItem><TrashComponent noteIdToTrash={this.state.trashNotesId} /></MenuItem>
                         <MenuItem><LabelComponent notesIdToLabel={this.props.notesId} createlabelPropsToMore={this.handleLabelProps} /></MenuItem>
-                        <MenuItem onClick={this.handleEditor}> Ask a question</MenuItem>
+                        <MenuItem onClick={this.handleEditor}  askId={this.state.notesId}> Ask a question</MenuItem>
 
 
                     </Paper>

@@ -16,6 +16,8 @@ import TagFacesIcon from '@material-ui/icons/TagFaces';
 import Reminder from '../component/Reminder'
 import CollaboratorComponent from '../component/collaboratorComponent'
 import ImageUpload from '../component/imageUpload'
+import {  CardContent } from '@material-ui/core';
+
 function Transition(props) {
     return <Slide direction="up" {...props} />;
 }
@@ -204,11 +206,13 @@ class GetNoteComponent extends Component {
        
    }
 
-   HandleEditor=(data)=>{
-    console.log('====================================');
-    console.log("data in more component for que-ans",data);
-    console.log('====================================');
-this.props.history.push('/queAns', data)
+RedirectToQuePage=(noteId)=>{
+    this.props.history.push('/QueDisplay',noteId)
+}
+
+   HandleEditor=(noteId)=>{
+       console.log("ABBBBB======>",noteId);
+this.props.history.push('/ask', noteId)
 
    }
     render() {
@@ -332,12 +336,34 @@ this.props.history.push('/queAns', data)
                                             <div>
                                                 <MoreComponent notesId={data.id}
                                                     createlabelPropsToMore={this.handleRefNotesByLabel}
-                                                    propsToEditor={()=>{ this.HandleEditor(data)}}
+                                                    notesId={data.id}
+                                                    propsToEditor={()=>this.HandleEditor(data.id)}
                                                     />
                                             </div>
                                         </div>
 
-                                        <div>{this.props.noteIdQuesProps===data.id?(<div><div>Ask Question</div>{this.props.mssgProps}</div>):null}</div>
+                                        <CardContent>
+                                                    {
+                                                        <div style={{display:"flex", flexDirection:"column-reverse" }}>
+                                                        {(data.questionAndAnswerNotes.length > 0) &&
+                                                        <div className="que-display" onClick={()=>this.RedirectToQuePage(data.id)}  style={{ borderTop:"1px solid", padding: "5px" }}>
+                                                           
+                                                            <b className="quehead">
+                                                                Question Asked
+                                                            </b>
+                                                        
+                                                            <div className="quehead" 
+                                                          
+                                                             
+dangerouslySetInnerHTML={{ __html:data.questionAndAnswerNotes[data.questionAndAnswerNotes.length-1].message.toString()}}>
+                                                               
+                                                             </div>
+                                                           
+                                                        </div>}
+                                                        </div>
+                                                    }
+                                            </CardContent>
+                                
                                     </Card>
                                 </div>
                             </div>
