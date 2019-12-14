@@ -1,35 +1,14 @@
 import { Button, Card, CardContent, Avatar } from '@material-ui/core';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { getNotes } from '../services/noteServices';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
-import { likeQueAns } from '../services/queansServices';
+import { likeQueAns } from '../services/questionAnswer';
 import { getNote } from '../services/notesServices';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import UndoIcon from '@material-ui/icons/Undo';
 const url = "http://34.213.106.173/"
-const theme = createMuiTheme({
-    overrides: {
-        MuiCard: {
-            root: {
-                "overflow": "hidden",
-                "width": "900px",
-                "margin-left": "389px",
-                // "margin-top": "50px",
-            }
-        },
-        MuiButton: {
-            root: {
-                "min-width": "139px",
-                "box-sizing": "border-box",
-                "font-weight": "500",
-                "line-height": "1.75",
-                "border-radius": "4px",
-                "letter-spacing": "0.02857em",
-                "text-transform": "uppercase",
-                "background-color": "lightgray",
-            }
-        }
-    }
-})
+
 class queDisplayComponent extends Component {
     constructor(props) {
         super(props);
@@ -59,8 +38,8 @@ class queDisplayComponent extends Component {
         this.props.history.push('/dashboard')
     }
     handleEditor = (noteId) => {
-        this.props.history.push('/editorComponent', noteId)
-        // console.log("handle Editor cheking",this.props);
+        this.props.history.push('/ask', noteId)
+      
     }
     handleLike = (parentId) => {
         var data = {
@@ -109,9 +88,8 @@ class queDisplayComponent extends Component {
         var notearr = this.state.note.map((key) => {
             return (
                 <div className="mainDiv">
-                    {(this.props.noteId === key.id) ?
+                    {(this.props.location.state === key.id) ?
                         <div>
-                            <MuiThemeProvider theme={theme}>
                                 <Card >
                                     <CardContent className="FirstQueDiv">
                                         <div className="queTitleDesc">
@@ -122,11 +100,9 @@ class queDisplayComponent extends Component {
                                                 {"Description : " + key.description}
                                             </div>
                                         </div>
-                                        <MuiThemeProvider theme={theme}>
                                             <Button onClick={this.RedirectToHome} className="QuecloseButton ">
                                                 <b>Close</b>
                                             </Button>
-                                        </MuiThemeProvider>
                                     </CardContent>
                                     {
                                         <div style={{ display: "flex", flexDirection: "column-reverse" }} className="QuesDisplay">
@@ -138,14 +114,13 @@ class queDisplayComponent extends Component {
                                                     </div>
                                                     <br></br>
                                                     <div className="que"
-                                                        dangerouslySetInnerHTML={{ __html: key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].message.toString().substring(3).slice(0, -4) }}>
+                                                        dangerouslySetInnerHTML={{ __html: key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].message.toString()}}>
                                                     </div>
                                                 </div>}
                                         </div>
                                     }
                                 </Card>
-                            </MuiThemeProvider>
-                            <MuiThemeProvider>
+                          
                                 {(key.questionAndAnswerNotes.length > 0) &&
                                     <Card className="secondCard">
                                         <div className="secondCardDiv">
@@ -173,26 +148,24 @@ class queDisplayComponent extends Component {
                                             </div>
                                             <div className="likeDisp">
                                                 <div onClick={() => this.handleEditor(key.id)} className="back_Arrow">
-                                                    <img src={require('../assets/images/icons8-undo-26.png')} alt="redirect">
-                                                    </img>
+                                                   <UndoIcon/>
                                                 </div>
                                                 {this.state.like ?
                                                     <div onClick={() => this.handleLike(key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}>
-                                                        <img src={require('../assets/images/like.png')} alt="like">
-                                                        </img>
+                                                       <ThumbUpAltIcon/>
                                                     </div>
                                                     :
                                                     <div onClick={() => this.handleUnlike(key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}>
-                                                        <img src={require('../assets/images/unlike.png')} alt="unlike">
-                                                        </img>
+                                                        <ThumbDownIcon/>
+                                                        
                                                     </div>}
                                             </div>
-                                            <span className="likeprint">{key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].like.length} Likes</span>
+                                            <span className="likeprint" onClick={this.countLike} > {key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].like.length} Likes</span>
 
                                         </div>
                                     </Card>
                                 }
-                            </MuiThemeProvider>
+                           
                         </div> :
                         null
                     }

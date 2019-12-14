@@ -741,7 +741,42 @@
 }
 
 /* ------------------------------------Question_Answer------------------------------------- */
-
+/* .FirstQueDiv{
+  margin-top: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid;
+    width: 40em;
+    border-radius: 13px;
+    padding: 20px;
+    margin-left: 20em;
+    background-color: #e8f5ee;
+    box-shadow: 14px 5px 23px -10px;
+}
+.que-display{
+  margin-top: 2%;
+    border: 1px solid;
+    width: 40em;
+    border-radius: 13px;
+    padding: 20px;
+    margin-left: 20em;
+    background-color: #e8f5ee;
+    box-shadow: 14px 5px 23px -10px;
+} */
+/* .secondCardDiv{
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid;
+  width: 40em;
+  border-radius: 13px;
+  padding: 20px;
+  margin-left: 20em;
+  background-color: #e8f5ee;
+  box-shadow: 14px 5px 23px -10px;
+} */
 .Ask_Que {
   margin-left: 12%;
   margin-bottom: 8px;

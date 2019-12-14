@@ -28,6 +28,7 @@ export function getQuestionAnswer(data) {
     })
 }
 
+/*-------------------------reply ans  services-----------------------*/
 
 
 export function getReply(data, parentId) {
@@ -39,3 +40,14 @@ export function getReply(data, parentId) {
         }
     })
 }
+/*-------------------------like question services-----------------------*/
+
+
+export  function likeQueAns(data,parentId) {    
+    return axios.post(baseURL+`/questionAndAnswerNotes/like/${parentId}`,data, {
+      headers: {
+        'Authorization': localStorage.getItem("token")
+  
+      }
+    })
+  }

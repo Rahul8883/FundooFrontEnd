@@ -61,11 +61,6 @@ class EditorComponent extends Component {
     handleClose = () => {
         this.setState({ open: false })
     }
-
-
-
-
-
     onEditorStateChange = (e) => {
         let question = e.blocks[0].text;
         this.setState({
@@ -75,11 +70,6 @@ class EditorComponent extends Component {
     };
 
     HandleQueAns = (data) => {
-        // this.setState({
-        //     body: this.state.body
-        // })
-        // console.log("this.props.noteId", this.props.noteId);
-
         var data = {
             'message': this.state.body,
             'notesId': data
@@ -98,69 +88,48 @@ class EditorComponent extends Component {
                 console.log("Error While posting que and ans", err);
             })
     }
-
     RedirectToHome = () => {
         this.props.history.push('/dashboard')
     }
     render() {
-        console.log('====================================');
         console.log("location of notes", this.props.location.state);
-        console.log('====================================');
         var allMessages = this.state.note.map((key) => {
             console.log("QQQQQQQQQQQQQQQQQQQQ===========>",  this.props.askId, key.id)
             return (
                 <div >
-
                     {(this.props.location.state === key.id) ?
-
                         <Card className="QueAns_Main">
-
                             <div>
                                 <AppBarComponent />
                             </div>
-
                             <div className="Ansque">
                                 <div>
-
                                     {(key.questionAndAnswerNotes.length > 0) &&
                                         <div className="que-display" >
                                             <div><b className="quehead">
                                                 Questions
                                 </b>
                                             </div>
-
                                             <div className="question" >
                                                 <div>{key.title}</div>
                                                 <div>{key.description}</div>
                                                 <div
-                                                    dangerouslySetInnerHTML={{ __html: key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].message.toString().substring(4).slice(0, -5) }}
-                                                >
+                                                    dangerouslySetInnerHTML={{ __html: key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].message.toString() }} >
                                                 </div>
                                             </div>
                                         </div>
                                     }
-
                                 </div>
-
                                 <div>
                                     <Button onClick={this.RedirectToHome} className="buttonEditorClose">
                                         <b>Close</b>
                                     </Button>
                                 </div>
-
                             </div>
                             <div>
-
                                 <div className="Ask_Que">Ask a Question...?</div>
-
                             </div>
-
-
-
-
-
                             <div className="Container"  >
-
                                 <div className="Editor_Comp" style={{ display: "flex", justifyContent: "center" }}>
                                     <Card className="Editor_Card" style={{
                                         width: "63em",
@@ -181,12 +150,10 @@ class EditorComponent extends Component {
                                     </Card>
                                 </div>
                             </div>
-
                             <div>
                                 <div onClick={() => this.HandleQueAns(this.props.location.state)} className="Ask"> Ask ? </div>
                             </div>
                         </Card>
-
                         :
                         null
                     }

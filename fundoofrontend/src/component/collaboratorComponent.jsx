@@ -53,6 +53,7 @@ export default class CollaboratorComponent extends Component {
             .catch(err => {
                 console.log("error in collab", err);
             })
+            
     }
     handleOpen = () => {
         this.setState({

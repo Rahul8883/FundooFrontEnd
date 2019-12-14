@@ -16,8 +16,8 @@ import TagFacesIcon from '@material-ui/icons/TagFaces';
 import Reminder from '../component/Reminder'
 import CollaboratorComponent from '../component/collaboratorComponent'
 import ImageUpload from '../component/imageUpload'
-import {  CardContent } from '@material-ui/core';
-
+import { CardContent } from '@material-ui/core';
+import AlarmAddIcon from '@material-ui/icons/AlarmAdd';
 function Transition(props) {
     return <Slide direction="up" {...props} />;
 }
@@ -195,30 +195,30 @@ class GetNoteComponent extends Component {
         }
     }
 
-     sendImageProps(value){
-        console.log("get value from image upoad",value);
-        
-        var file=value.toString();
-       this.setState({
-       imageUrl:file
-       })
-       console.log("sendimage props value in getnotes",this.state.imageUrl);
-       
-   }
+    sendImageProps(value) {
+        console.log("get value from image upoad", value);
 
-RedirectToQuePage=(noteId)=>{
-    this.props.history.push('/QueDisplay',noteId)
-}
+        var file = value.toString();
+        this.setState({
+            imageUrl: file
+        })
+        console.log("sendimage props value in getnotes", this.state.imageUrl);
 
-   HandleEditor=(noteId)=>{
-       console.log("ABBBBB======>",noteId);
-this.props.history.push('/ask', noteId)
+    }
 
-   }
+    RedirectToQuePage = (noteId) => {
+        this.props.history.push('/queDisplay', noteId)
+    }
+
+    HandleEditor = (noteId) => {
+        console.log("ABBBBB======>", noteId);
+        this.props.history.push('/ask', noteId)
+
+    }
     render() {
         var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
-        var iconList = this.props.iconChoose ?  "listViewCss": "GridViewCss" 
-        var ListView = this.props.iconChoose ?  "listView": "GridView"  
+        var iconList = this.props.iconChoose ? "listViewCss" : "GridViewCss"
+        var ListView = this.props.iconChoose ? "listView" : "GridView"
         console.log("-----------------------icon choose", this.props.iconChoose);
         return (
             !this.state.openNote ? (
@@ -226,7 +226,7 @@ this.props.history.push('/ask', noteId)
                     {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
                         console.log("create note final data", data);
                         return (
-                            data.isArchived === false && data.isDeleted === false && 
+                            data.isArchived === false && data.isDeleted === false &&
                             <div className="get-Whole-Card">
                                 <div className="get-card-effect">
                                     <Card className={ListView} onClick={this.handleCardClick}
@@ -285,13 +285,13 @@ this.props.history.push('/ask', noteId)
                                                 (data.reminder.length > 0) ?
                                                     <div className="rem-Chip">
                                                         <Chip style={{ backgroundColor: "rgba(0,0,0,0.08)" }}
-
+                                                        icon={<AlarmAddIcon style={{ color: "black" }} />}
                                                             label={data.reminder.toString().substring(0, 24)}
-                                                            onChange={this.handlereminder}
-                                                            onDelete={() => this.handleDeleteReminder(data.id)}
-                                                            className="chipRem"
-                                                            variant="outlined"
-                                                            size="medium" />
+                                                        onChange={this.handlereminder}
+                                                        onDelete={() => this.handleDeleteReminder(data.id)}
+                                                        className="chipRem"
+                                                        variant="outlined"
+                                                        size="medium" />
                                                     </div>
                                                     : null
                                             }
@@ -313,21 +313,10 @@ this.props.history.push('/ask', noteId)
                                                     propsToColorPallate={this.hanNoteColor}
                                                     notesId={data.id} />
                                             </div>
-                                          
-                                          
                                             <div>
-                                          { /* <Tooltip title="addImage">
-                                            <imageUpload  sendImageProps={this.sendImageProps}/>
-                                         
-                                        </Tooltip>*/}
-
-
-                                        {/*<ImageIcon className="iconEffect" />*/}
-
-                                        <ImageUpload
-                                        sendImageProps={this.sendImageProps}
-                                        className="iconEffect"
-                                        />
+                                                <ImageUpload
+                                                    sendImageProps={this.sendImageProps}
+                                                    className="iconEffect" />
                                             </div>
                                             <div>
                                                 <ArchivedComponent notesId={data.id}
@@ -337,33 +326,23 @@ this.props.history.push('/ask', noteId)
                                                 <MoreComponent notesId={data.id}
                                                     createlabelPropsToMore={this.handleRefNotesByLabel}
                                                     notesId={data.id}
-                                                    propsToEditor={()=>this.HandleEditor(data.id)}
-                                                    />
+                                                    propsToEditor={() => this.HandleEditor(data.id)} />
                                             </div>
                                         </div>
-
-                                        <CardContent>
-                                                    {
-                                                        <div style={{display:"flex", flexDirection:"column-reverse" }}>
-                                                        {(data.questionAndAnswerNotes.length > 0) &&
-                                                        <div className="que-display" onClick={()=>this.RedirectToQuePage(data.id)}  style={{ borderTop:"1px solid", padding: "5px" }}>
-                                                           
-                                                            <b className="quehead">
-                                                                Question Asked
+                                        <CardContent>{
+                                            <div style={{ display: "flex", flexDirection: "column-reverse" }}>
+                                                {(data.questionAndAnswerNotes.length > 0) &&
+                                                    <div className="que-display" onClick={() => this.RedirectToQuePage(data.id)} style={{ borderTop: "1px solid", padding: "5px" }}>
+                                                        <b className="quehead">
+                                                            Question Asked
                                                             </b>
-                                                        
-                                                            <div className="quehead" 
-                                                          
-                                                             
-dangerouslySetInnerHTML={{ __html:data.questionAndAnswerNotes[data.questionAndAnswerNotes.length-1].message.toString()}}>
-                                                               
-                                                             </div>
-                                                           
-                                                        </div>}
+                                                        <div className="quehead"
+                                                            dangerouslySetInnerHTML={{ __html: data.questionAndAnswerNotes[data.questionAndAnswerNotes.length - 1].message.toString() }}>
                                                         </div>
-                                                    }
-                                            </CardContent>
-                                
+                                                    </div>}
+                                            </div>
+                                        }
+                                        </CardContent>
                                     </Card>
                                 </div>
                             </div>
@@ -398,6 +377,9 @@ dangerouslySetInnerHTML={{ __html:data.questionAndAnswerNotes[data.questionAndAn
                                     onChange={this.handleDescription} />
                             </div>
                         </DialogContent>
+
+
+
                         <DialogActions>
                             <Button onClick={this.handleUpdate} color="primary">Close</Button>
                         </DialogActions>

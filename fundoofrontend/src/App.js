@@ -18,7 +18,9 @@ import {getTrashPage} from './pages/getTrashPage';
 import QuesAnsComponent from "./component/QuesAnsComponent";
 import Reminder from './component/Reminder';
 import imageUpload from './component/imageUpload'
+import Forgot from './component/Forgot'
 import Ask from './component/Ask'
+import queDisplay from './component/queDisplayComponent'
 class App extends Component {
   render() {
     return (
@@ -26,6 +28,7 @@ class App extends Component {
         <Switch>
           <Route path='/login' component={Login}></Route>
           <Route path='/register' component={Registration}></Route>
+          <Route path='/forgot' component={Forgot}></Route>
           <Route path='/' exact component={ServiceCardPage}></Route>
           <Route path='/appBar' component={AppBarComponent}></Route>
           <Route path='/drawer' component={Drawer}></Route>
@@ -42,6 +45,8 @@ class App extends Component {
           <Route path ='/Reminder' component = {Reminder} ></Route>
           <Route path= '/imageUpload' component={imageUpload}></Route>
           <Route path= '/ask' component={Ask}></Route>
+          <Route path= '/queDisplay' component={queDisplay}></Route>
+
         </Switch>
       </Router>
     );
