@@ -99,18 +99,18 @@ class Login extends Component {
                 'password': this.state.password
             }
             userLogin.userLogin(data).then((res) => {
+                this.setState({
+                    snackbarOpen: true,
+                    snackbarMsg: "Login successfully!!"
+                })
                 console.log("res in login---------", res);
                 localStorage.setItem('firstName', res.data.firstName);
                 localStorage.setItem('lastName', res.data.lastName);
                 localStorage.setItem('email', res.data.email)
-                 localStorage.setItem('imageUrl',url+ res.data.imageUrl)
+                localStorage.setItem('imageUrl', url + res.data.imageUrl)
                 localStorage.setItem('token', res.data.id)
                 localStorage.setItem("userId", res.data.userId)
                 this.props.history.push('/dashboard');
-                // this.setState({
-                //     snackbarOpen: true,
-                //     snackbarMsg: "Login successfully!!"
-                // })
             }).catch(err => {
                 console.log("err in login component ", err);
             })
@@ -119,15 +119,9 @@ class Login extends Component {
     render() {
         console.log("props in login render", this.props.location.state);
         console.log("render state", this.state.locState);
-
-        // var color = '', 
         var cartId = ''
-        //  var status = '';
         if (this.props.location.state !== undefined) {
-            // color = this.props.location.state.color
-            cartId = this.props.location.state.cartId
-            // status = this.props.location.state.stus
-        }
+            cartId = this.props.location.state.cartId        }
         return (
             <div className="login-container">
 

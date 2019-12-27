@@ -63,6 +63,9 @@ export class DrawerComponent extends Component {
         console.log("triggered");
         this.props.history.push("/getTrash")
     }
+    handlePushReminder=()=>{
+        this.props.history.push("/getReminder")
+    }
     render() {
         console.log("open ", this.state.open);
         return (
@@ -79,8 +82,8 @@ export class DrawerComponent extends Component {
                             <div className="mainDrawerIcon">
                                 <div >
                                     <ul type="none" style={{ borderBottom: "1px solid #ddd", margin: 0, padding: 0 }} >
-                                        <li    className="DrawerIcons"> <MenuItem style={{ backgroundColor: "transparent" }} onClick={this.handleNotes}><EmojiObjectsOutlineIcon style={{ marginBottom: "7px" }} className="Icon" /><div className="iconName">Notes</div></MenuItem></li>
-                                        <li className="DrawerIcons"><MenuItem style={{ backgroundColor: "transparent" }}><AddAlertOutlineIcon className="Icon" /><div className="iconName">Reminder</div></MenuItem></li>
+                                        <li  className="DrawerIcons"> <MenuItem style={{ backgroundColor: "transparent" }} onClick={this.handleNotes}><EmojiObjectsOutlineIcon style={{ marginBottom: "7px" }} className="Icon" /><div className="iconName">Notes</div></MenuItem></li>
+                                        <li className="DrawerIcons"><MenuItem style={{ backgroundColor: "transparent" }}  onClick={this.handlePushReminder} ><AddAlertOutlineIcon className="Icon" /><div className="iconName">Reminder</div></MenuItem></li>
                                     </ul>
                                     <ul type="none" style={{ borderBottom: "1px solid #ddd", margin: 0, padding: 0 }}>
                                         <div className="Label">LABELS</div>

@@ -35,7 +35,7 @@ function titleDesSearch(SearchText) {
     }
 }
 
-class GetNoteComponent extends Component {
+class getReminderComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -233,7 +233,7 @@ class GetNoteComponent extends Component {
                     {this.state.notes.filter(titleDesSearch(this.props.SearchText)).map((data) => {
                         console.log("create note final data", data);
                         return (
-                            data.isArchived === false && data.isDeleted === false && 
+                            data.isArchived === false && data.isDeleted === false && data.reminder===true &&
                             <div className="get-Whole-Card">
                                 <div className="get-card-effect">
                                     <Card className={ListView} onClick={this.handleCardClick}
@@ -418,4 +418,4 @@ class GetNoteComponent extends Component {
         );
     }
 }
-export default withRouter(GetNoteComponent);
+export default withRouter(getReminderComponent);

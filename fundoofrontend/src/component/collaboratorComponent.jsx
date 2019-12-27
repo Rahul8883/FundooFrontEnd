@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Dialog, DialogTitle, DialogContent, Avatar, DialogActions, Button, Input, List, ListItemText, Hidden } from '@material-ui/core';
 import ClearIcon from '@material-ui/icons/Clear';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
 import { getUserList, searchUserList, Addcollaborators, RemoveCollaborators } from '../services/collaboratorService';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 const url = "http://fundoonotes.incubation.bridgelabz.com/";

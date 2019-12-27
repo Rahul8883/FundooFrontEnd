@@ -137,7 +137,7 @@ export class getTrashComponent extends Component {
 													)}
 											/>
 										</div>
-										<div className="get_Note_Icon">
+										<div className="get_Note_Icons">
 											<div>
 												<DeleteForeverIcon className="iconEffect"
 													onClick={() => this.hanleDeleteforever(data.id)} />

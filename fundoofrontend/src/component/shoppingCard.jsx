@@ -21,6 +21,11 @@ export class shoppingCard extends Component {
 
         this.state = {
             activeStep: 0,
+            column: [
+                { title: 'signIn', field: 'signIn' },
+                { title: "review", field: "review" },
+                { title: "compleate", field: "compleate" },
+            ]
 
         }
     }
@@ -46,28 +51,31 @@ export class shoppingCard extends Component {
                     <div className="sub_div_shop">
                         <div className="stepper_Main">
                             <div className="fundoo_">fundooNotes</div>
-                            <div>
-                          
-                            <div>
-                            <ShoppingCartIcon />
-                                <MobileStepper
-                               
-                                    variant="progress"
-                                    steps={3}
-                                    position="static"
-                                    activeStep={this.state.activeStep}
-                                    className={classes.root}
-                                    
-                                    nextButton={
-                                        <Button  onClick={this.handleNext}>
-                                            Next
-                                    {/* theme.direction === 'rtl' ? <ShoppingCartIcon /> : <ShoppingCartIcon />*/}
-                                        </Button>
-                                    }
-                                 
-                                />  
+                            <div className="stepper_Icon" style={{marginTop:"5%"}}>
 
-                            </div>
+                                <div>
+                                    <MobileStepper
+
+                                        variant="progress"
+                                        steps={3}
+                                        position="static"
+                                        activeStep={this.state.activeStep}
+                                        className={classes.root}
+                                        // cart={ <ShoppingCartIcon />}
+                                        // nextButton={
+                                        //     <div onClick={this.handleNext}>
+                                        //         Next
+                              
+                                        //     </div>
+                                        // }
+                                        // step={this.state.column}
+
+                                    />
+
+                                </div>
+                                <div style={{marginTop:"-35px", marginLeft:"5px"}}>
+                                    <ShoppingCartIcon />
+                                </div>
                             </div>
                         </div>
                         <div >
@@ -97,7 +105,7 @@ export class shoppingCard extends Component {
                                     <div className="shop_Button">
                                         <div className="place_">Subtotal(1 item) : $99</div>
                                         <div className="place_">
-                                            <div className="place_order"  >Proceed to Checkout</div>
+                                            <div className="place_order"  onClick={this.handleNext}>Proceed to Checkout</div>
                                         </div>
                                     </div>
                                 </div>

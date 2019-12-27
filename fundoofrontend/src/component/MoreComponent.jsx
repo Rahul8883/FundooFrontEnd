@@ -50,6 +50,7 @@ class moreComponent extends Component {
                         onClick={(e) => this.handleMore(e)}
                     />
                 </ClickAwayListener>
+                
                 <Popper open={this.state.anchorEl} anchorEl={this.state.anchorEl} style={{ zIndex: "9999" }}>
                     <Paper className="moreOption">
                         <MenuItem><TrashComponent noteIdToTrash={this.state.trashNotesId} /></MenuItem>
