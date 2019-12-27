@@ -33,7 +33,8 @@ export default class AppBarComponent extends Component {
         this.state = {
             menu: false,
             icon: false,
-
+            searchNote: "",
+            open: false
         }
     }
 
@@ -64,15 +65,19 @@ export default class AppBarComponent extends Component {
 
 
     }
-
+    handleSearchRes = () => {
+        this.setState({
+            open: true
+        })
+    }
     render() {
         return (
             <div>
-               
 
-                <MuiThemeProvider theme={theme}  position="fixed">
 
-                    <AppBar   style={{ maxWidth: "100%" }}  >
+                <MuiThemeProvider theme={theme} position="fixed">
+
+                    <AppBar style={{ maxWidth: "100%" }}  >
 
 
                         {/*style={{ backgroundColor: "white", width: "100%" }}*/}
@@ -108,77 +113,123 @@ export default class AppBarComponent extends Component {
                                 </Typography>
                             </div>
 
-                            
-                            <div className="IconWithSearch">
-                                <div className="searchEngine">
-                                    <div className="searchIcon">
-                                        <img src={require('../assets/image/searchIcon.svg')}
-                                            alt="search icon" style={{ width: "23px" }} />
-                                    </div>
-                                    <MuiThemeProvider theme={theme}>
+
+
+
+
+
+
+                            {!this.state.open ? (
+                                <div className="responsiveSearch" onClick={this.handleSearchRes} >
+                                    <img src={require('../assets/image/searchIcon.svg')}
+                                alt="search icon" style={{ width: "23px" }} style={{
+                                    marginLeft: "3em", width: "23px",
+                                    marginLeft: "146px",
+                            display: "flex",
+                            alignItems: "center"}}/>
+                                </div>
+                        ) : (
+                                    <div style={{}}>
+                            <div className="searchEngine">
+                                <div className="searchIcon">
+                                    <img src={require('../assets/image/searchIcon.svg')}
+                                        alt="search icon" style={{ width: "23px" }} />
+                                </div>
+                                <MuiThemeProvider theme={theme}>
 
                                     <div className="inputSearchField">
                                         <InputBase
-                                        className="inputbase"
+                                            className="inputbase"
                                             fullWidth
-                                            className="SearchFieldBase"
                                             placeholder="Search…"
                                             inputProps={{ 'aria-label': 'search' }}
-                                            value={this.state.searchNotes}
+                                            value={this.state.searchNote}
                                             onChange={this.searchHandle} />
                                     </div>
-                                    </MuiThemeProvider>
+                                </MuiThemeProvider>
 
-                                </div>
                             </div>
-                            <div />
-                            <div className="applogo">
-                                <div className="Cart_referece_dashboard_logo">
-                                    <IconButton
+                        </div>
+                        )}
+
+
+
+
+
+
+
+
+
+                            <div className="IconWithSearch">
+                            <div className="searchEngine">
+                                <div className="searchIcon">
+                                    <img src={require('../assets/image/searchIcon.svg')}
+                                        alt="search icon" style={{ width: "23px" }} />
+                                </div>
+                                <MuiThemeProvider theme={theme}>
+
+                                    <div className="inputSearchField">
+                                        <InputBase
+                                            className="inputbase"
+                                            fullWidth
+                                            placeholder="Search…"
+                                            inputProps={{ 'aria-label': 'search' }}
+                                            value={this.state.searchNote}
+                                            onChange={this.searchHandle} />
+                                    </div>
+                                </MuiThemeProvider>
+
+                            </div>
+                        </div>
+                        <div />
+                        <div className="applogo">
+                            <div className="Cart_referece_dashboard_logo">
+                                <IconButton
                                     className="referesh"
-                                        edge="end"
-                                        aria-label="account of current user"
-                                        aria-haspopup="true"
-                                        color="inherit" >
-                                        <RefreshIcon />
-                                    </IconButton>
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-haspopup="true"
+                                    color="inherit" >
+                                    <RefreshIcon   onClick={this.handleRefresh} />
+                                </IconButton>
+                                <div style={{ transform: "rotate(360deg)" }} >
                                     <IconButton
-                                        onClick={this.handleRefresh}
+                                      
                                         edge="end"
                                         aria-label="account of current user"
                                         aria-haspopup="true"
                                         color="inherit">
                                         <ShoppingCartIcon />
                                     </IconButton>
-
-                                    <IconButton
-                                        className="grid_list"
-                                        edge="end"
-                                        aria-label="account of current user"
-                                        aria-haspopup="true"
-                                        color="inherit">
-                                        {this.state.icon ?
-                                            <ViewStreamSharpIcon
-                                                onClick={this.handleIcons_Grid} />
-                                            : <DashboardIcon onClick={this.handleIcons_Grid} />
-                                        }
-                                    </IconButton>
-
                                 </div>
-                                <div className="AccountCircle">
-                                    <IconButton
-                                        edge="end"
-                                        aria-label="account of current user"
-                                        aria-haspopup="true"
-                                        color="inherit">
-                                        <ProfileImgComponenet />
-                                    </IconButton>
-                                </div>
+                                <IconButton
+                                    className="grid_list"
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-haspopup="true"
+                                    color="inherit">
+                                    {this.state.icon ?
+                                        <ViewStreamSharpIcon
+                                            onClick={this.handleIcons_Grid} />
+                                        : <DashboardIcon onClick={this.handleIcons_Grid} />
+                                    }
+                                </IconButton>
+
                             </div>
+                            <div className="AccountCircle">
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-haspopup="true"
+                                    color="inherit">
+                                    <ProfileImgComponenet />
+                                </IconButton>
+                            </div>
+                        </div>
                         </Toolbar>
                     </AppBar>
                 </MuiThemeProvider>
-            </div>
+            </div >
         )
     }
 }

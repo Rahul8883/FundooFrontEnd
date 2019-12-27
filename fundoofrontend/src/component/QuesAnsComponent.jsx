@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg"
 import { Card } from '@material-ui/core';
 import AppBarComponent from '../component/AppBarComponent'
-import { height } from '@material-ui/system';
+// import { height } from '@material-ui/system';
 import { getSelectNotes, getQuestionAnswer, getReply } from '../services/questionAnswer';
 import { getNote } from '../services/notesServices';
 import ReplyIcon from '@material-ui/icons/Reply';
@@ -42,7 +42,6 @@ class QuesAnsComponent extends Component {
       readArrDetail: [],
       messg: [],
       body: "",
-      noteId: "",
       questionAns: "",
       open: false,
       profilePic: localStorage.getItem('imageUrl'),
@@ -92,12 +91,12 @@ class QuesAnsComponent extends Component {
 
   
   submitQuestion = (data) => {
-    var data = {
+    var data1 = {
       message: this.state.body,
       notesId: data
     }
     console.log("data occur while htiing back-end ask question Api", data);
-    getQuestionAnswer(data).then(res => {
+    getQuestionAnswer(data1).then(res => {
       console.log("response comming from que ans component ", res);
       this.setState({
         questionAns: res.data.data.details.message,
@@ -150,13 +149,13 @@ class QuesAnsComponent extends Component {
   }
   render() {
     var title = "", description = "", noteId = ""
-    this.state.readArrDetail = this.props.location.state
+    // this.state.readArrDetail = this.props.location.state
     if (this.props.location.state !== undefined) {
       title = this.props.location.state.title
       description = this.props.location.state.description
       noteId = this.props.location.state.id
     }
-    const { editorState } = this.state;
+    // const { editorState } = this.state;
     return (<div className='editor_Main_Div'>
       <div>
         <AppBarComponent />
@@ -210,7 +209,7 @@ class QuesAnsComponent extends Component {
               <div className="askedQue">
                 <div className="Title_Asked">Asked Question </div>
                 <div>
-                  <Avatar alt="Remy Sharp" ><img src={this.state.profilePic} /></Avatar>
+                  <Avatar alt="Remy Sharp" ><img src={this.state.profilePic}  alt="profile"/></Avatar>
                 </div>
                 <div> Question :- {this.state.questionAns}</div>
                 <div> Answer :-{this.state.replyAns}</div>

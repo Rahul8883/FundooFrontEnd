@@ -92,6 +92,9 @@ class CreateNotesComponent extends Component {
         })
     }
     handleClose = () => {
+        this.setState({
+            openNote: false,
+        })
         var data = {
             title: this.state.title,
             description: this.state.description,
@@ -108,7 +111,7 @@ class CreateNotesComponent extends Component {
                 })
                 this.props.addNotesProps(this.state.addedNote)
                 this.setState({
-                    openNote: false,
+         
                     title:"",
                     description:"",
                     color:""
@@ -146,7 +149,7 @@ class CreateNotesComponent extends Component {
                 (
                     <div className="createNote_container"
                         onClick={this.handleOpenNotes}>
-                        <Card className="CreateNote_Card1">
+                        <Card className="CreateNote_Card1" style={{ boxShadow: "0px 0px 4px 1px"}}>
                             <div classname="createNote_input_base" style={{padding:"4px"}}>
                                 <InputBase
                                     className="CreateNote_TextField"
@@ -176,7 +179,7 @@ class CreateNotesComponent extends Component {
                 (
                     <div className="createNote_container">
                 <ClickAwayListener onClickAway={this.handleListener}>
-                            <Card className="CreateNote_Card1" style={{ backgroundColor: this.state.color }}>
+                            <Card className="CreateNote_Card1" style={{ backgroundColor: this.state.color, boxShadow: "0px 0px 4px 1px" }}>
                                 <div>
                                     <div className="input_field">
                                         <div>
@@ -233,7 +236,7 @@ class CreateNotesComponent extends Component {
                                                     className="iconEffect"
                                                 />
                                             </div>
-                                            <div>
+                                          {/*  <div>
                                                 <UndoIcon
                                                     className="iconEffect"
                                                 />
@@ -242,7 +245,7 @@ class CreateNotesComponent extends Component {
                                                 <RedoIcon
                                                     className="iconEffect"
                                                 />
-                                            </div>
+                                          </div>*/}
                                         </div>
                                         <div className="closeButton">
                                             <Button

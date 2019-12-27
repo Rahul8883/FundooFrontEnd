@@ -87,9 +87,9 @@ export default class CollaboratorComponent extends Component {
         var data = {
             "searchWord": value
         }
-        const search=new Promise(function(reject, resolve){
+        // const search=new Promise(function(reject, resolve){
             
-        })
+        // })
         searchUserList(data)
             .then((response) => {
                 console.log("response from search list....", response);
@@ -145,15 +145,15 @@ export default class CollaboratorComponent extends Component {
     render() {
         // console.log(this.state.getAllCollab);
         return (
-            <div>
+            <div >
                 <div onClick={this.handleOpen}>
                     <PersonAddIcon/>
                 </div>
                 <MuiThemeProvider theme={theme}>
-                    <Dialog className="dialog"
+                    <Dialog  className="dialog"
                         open={this.state.open}
                         onClose={this.handleClose}
-                        style={{ overflow: Hidden }}>
+                        style={{ overflow: Hidden }} className="collab_Main">
                       <MuiThemeProvider theme={theme}>
                         <DialogTitle>
                             <div style={{borderBottom: "1px solid rgba(0,0,0,0.15)",

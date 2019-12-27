@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { EditorState } from "draft-js";
+// import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg"
-import { DialogActions, Button, DialogContent, DialogTitle, Card } from '@material-ui/core';
+import { Button, Card } from '@material-ui/core';
 import { getQuestionAnswer, } from '../services/questionAnswer';
 import { getNote } from '../services/notesServices';
 import { withRouter } from 'react-router-dom';
@@ -70,12 +70,12 @@ class EditorComponent extends Component {
     };
 
     HandleQueAns = (data) => {
-        var data = {
+        var data1 = {
             'message': this.state.body,
             'notesId': data
         }
         console.log("data from backend", data);
-        getQuestionAnswer(data)
+        getQuestionAnswer(data1)
             .then(response => {
                 console.log("response from ques ans", response);
                 this.setState({

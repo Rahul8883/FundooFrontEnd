@@ -1,7 +1,6 @@
 import { Button, Card, CardContent, Avatar } from '@material-ui/core';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import { likeQueAns } from '../services/questionAnswer';
 import { getNote } from '../services/notesServices';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
@@ -77,10 +76,7 @@ class queDisplayComponent extends Component {
         var countlike = 0
         if (value === true) {
             countlike++
-
         }
-
-
         console.log("checking...", countlike);
         return countlike;
     }

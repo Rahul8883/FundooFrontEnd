@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Card, InputBase, Chip, Tooltip } from "@material-ui/core";
-import ImageIcon from "@material-ui/icons/ImageOutlined";
+// import ImageIcon from "@material-ui/icons/ImageOutlined";
 import { getNote, changeColor, updateNote, removeLabelFromNote, UpdateReminder, removeReminder } from "../services/notesServices";
 import ColorComponenet from '../component/ColorComponenet'
 import ArchivedComponent from "./ArchivedComponent";
@@ -216,7 +216,7 @@ class GetNoteComponent extends Component {
 
     }
     render() {
-        var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
+        // var transition = this.props.shiftDrawer ? "transition-left" : "transition-right"
         var iconList = this.props.iconChoose ? "listViewCss" : "GridViewCss"
         var ListView = this.props.iconChoose ? "listView" : "GridView"
         console.log("-----------------------icon choose", this.props.iconChoose);
@@ -231,7 +231,7 @@ class GetNoteComponent extends Component {
                                 <div className="get-card-effect">
                                     <Card className={ListView} onClick={this.handleCardClick}
                                         style={{
-                                            // width: "240px",
+                                             border: "1px solid black",
                                             boxShadow: "3px 2px 9px 2px rgba(0,0,0,0.2), 1px 1px 2px 1px rgba(0,0,0,0.14), 3px 2px 3px 2px rgba(0,0,0,0.12)", borderRadius: "15px", padding: "1em", margin: "5px", borderradius: "14px", backgroundColor: data.color
                                             , transform: (this.props.shiftDrawer) ? "translate(80px,0)" : (null)
                                         }}>
@@ -285,13 +285,13 @@ class GetNoteComponent extends Component {
                                                 (data.reminder.length > 0) ?
                                                     <div className="rem-Chip">
                                                         <Chip style={{ backgroundColor: "rgba(0,0,0,0.08)" }}
-                                                        icon={<AlarmAddIcon style={{ color: "black" }} />}
+                                                            icon={<AlarmAddIcon style={{ color: "black" }} />}
                                                             label={data.reminder.toString().substring(0, 24)}
-                                                        onChange={this.handlereminder}
-                                                        onDelete={() => this.handleDeleteReminder(data.id)}
-                                                        className="chipRem"
-                                                        variant="outlined"
-                                                        size="medium" />
+                                                            onChange={this.handlereminder}
+                                                            onDelete={() => this.handleDeleteReminder(data.id)}
+                                                            className="chipRem"
+                                                            variant="outlined"
+                                                            size="medium" />
                                                     </div>
                                                     : null
                                             }
@@ -323,9 +323,10 @@ class GetNoteComponent extends Component {
                                                     refreshArchive={this.handleRefreshArchive} className="iconEffect" />
                                             </div>
                                             <div>
-                                                <MoreComponent notesId={data.id}
-                                                    createlabelPropsToMore={this.handleRefNotesByLabel}
+                                                <MoreComponent
                                                     notesId={data.id}
+                                                    createlabelPropsToMore={this.handleRefNotesByLabel}
+                                                    // notesId={data.id}
                                                     propsToEditor={() => this.HandleEditor(data.id)} />
                                             </div>
                                         </div>

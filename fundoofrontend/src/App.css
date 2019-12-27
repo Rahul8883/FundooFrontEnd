@@ -230,9 +230,23 @@
   align-Items: center;
 }
 
+@media only screen and (min-width: 300px) {
+  .serviceCard_HeaderTitle {
+    margin: 12px;
+  }
+  .Card_Note {
+    margin: 12px;
+  }
+  .service-cards {
+    flex-wrap: wrap;
+  }
+  .outercard {
+    width: 281px;
+    height: 275px;
+  }
+}
+
 .serviceCard_header {
-  width: 100vw;
-  height: 10vh;
   background: orange;
   display: flex;
   align-items: center;
@@ -282,8 +296,8 @@
 }
 
 .outercard {
-  width: 200px;
-  height: 270px;
+  width: 271px;
+  height: 275px;
   font-family: monospace;
   margin: 30px;
 }
@@ -449,6 +463,16 @@
 
 /* --------------------------------------------Appbar media queries------------------------------ */
 
+.responsiveSearch {
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsiveSearch {
+    visibility: visible;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .searchEngine {
     height: 46px;
@@ -484,6 +508,9 @@
     min-width: 0px;
     border-radius: 7px;
   }
+  .searchEngine {
+    visibility: hidden;
+  }
   .img {
     visibility: hidden;
   }
@@ -494,12 +521,13 @@
     margin-left: -54px;
   }
   .applogo {
-    margin-left: -49px;
+    margin-left: -4em;
   }
   .searchEngine {
     height: 46px;
     width: 13em;
     margin-left: -48px;
+    visibility: hidden;
   }
 }
 
@@ -512,9 +540,9 @@
     min-width: 0px;
     border-radius: 7px;
   }
-  /* .inputSearchField{
-        visibility: hidden;
-      } */
+  .applogo {
+    margin-left: -20em;
+  }
 }
 
 @media only screen and (max-width: 300px) {
@@ -640,6 +668,15 @@
   display: flex;
 }
 
+@media only screen and (max-width: 400px) {
+  .GridView {
+    width: 300px;
+  }
+  .collab_Main {
+    width: 23em;
+  }
+}
+
 .InputForAddEmail {
   padding: 6px;
 }
@@ -741,6 +778,7 @@
 }
 
 /* ------------------------------------Question_Answer------------------------------------- */
+
 /* .FirstQueDiv{
   margin-top: 8%;
     display: flex;
@@ -753,8 +791,8 @@
     margin-left: 20em;
     background-color: #e8f5ee;
     box-shadow: 14px 5px 23px -10px;
-}
-.que-display{
+}sub_div_shop
+.sub_div_shop
   margin-top: 2%;
     border: 1px solid;
     width: 40em;
@@ -764,6 +802,7 @@
     background-color: #e8f5ee;
     box-shadow: 14px 5px 23px -10px;
 } */
+
 /* .secondCardDiv{
   margin-top: 3%;
   display: flex;
@@ -777,6 +816,7 @@
   background-color: #e8f5ee;
   box-shadow: 14px 5px 23px -10px;
 } */
+
 .Ask_Que {
   margin-left: 12%;
   margin-bottom: 8px;
@@ -805,42 +845,29 @@
   background-color: #e8f5ee;
   box-shadow: 14px 5px 23px -10px;
 }
-.close{
+
+.close {
   cursor: pointer;
 }
 
-.askedQue{
+.askedQue {
   border: 1px solid;
-    width: 40em;
-    border-radius: 13px;
-    padding: 20px;
-    margin-left: 20em;
-    background-color: #e8f5ee;
-    box-shadow: 14px 5px 23px -10px;
-    margin-top: 18px;
+  width: 40em;
+  border-radius: 13px;
+  padding: 20px;
+  margin-left: 20em;
+  background-color: #e8f5ee;
+  box-shadow: 14px 5px 23px -10px;
+  margin-top: 18px;
 }
-.Title_Asked{
+
+.Title_Asked {
   color: red;
-    border-bottom: 1px solid;
-    margin-bottom: 10px;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.Ansque{
+.Ansque {
   margin-top: 8%;
   display: flex;
   justify-content: space-between;
@@ -854,14 +881,13 @@
   box-shadow: 14px 5px 23px -10px;
 }
 
-.QueAns_Main{
+.QueAns_Main {
   overflow-y: scroll;
-    background: linear-gradient(-45deg, rgb(230, 63, 11), rgb(255, 8, 42), rgba(35, 166, 213, 0.74)) 0% 0% / 400% 400%;
-    position: relative;
-    animation: 10s ease-in-out 0s infinite normal none running change;
-    height: 100vh;
+  background: linear-gradient(-45deg, rgb(230, 63, 11), rgb(255, 8, 42), rgba(35, 166, 213, 0.74)) 0% 0% / 400% 400%;
+  position: relative;
+  animation: 10s ease-in-out 0s infinite normal none running change;
+  height: 100vh;
 }
-
 
 /* ----------------------------------------------Reminder---------------------------------------------- */
 
@@ -888,4 +914,84 @@
   width: 73em;
   flex-wrap: wrap;
   margin-left: 63px;
+}
+
+/* -------------------------------------shopping-------------------------------------------------------- */
+.stepper_Main{
+
+}
+.advance{
+  font-family: timesNewRoman;
+    color: rgb(64, 161, 226);
+    font-size: 18px;
+    margin-left: 40px;
+    min-width: 150px;
+}
+.fundoo_{
+  border: 1px solid black;
+    background: orange;
+    color: rgb(255, 255, 255);
+    width: 101px;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 10%;
+}
+.sub_div_shop {
+  width: 70%;
+}
+
+.Main_div_Shop {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.shop_Div {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.shop_Button {
+  width: 220px;
+  height: 100px;
+  border: 1px solid black;
+  flex-direction: column;
+  align-items: center;
+}
+
+.place_ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  /* width: 100px; */
+  height: 30px;
+}
+
+.place_order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  font-size: 15px;
+  background: #0e89c2;
+  color: white;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  padding: 2px;
+}
+.sub_Total_{
+  color: #1e8ad1;
+margin: 5px;
+}
+._place_{
+  display: flex;
+  justify-content: flex-end;
+  width: 55%;
+}
+.Detalis{
+  display: flex;
+  justify-content: space-between;
 }

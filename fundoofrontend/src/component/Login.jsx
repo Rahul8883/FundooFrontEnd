@@ -120,11 +120,13 @@ class Login extends Component {
         console.log("props in login render", this.props.location.state);
         console.log("render state", this.state.locState);
 
-        var color = '', cartId = '', status = '';
+        // var color = '', 
+        var cartId = ''
+        //  var status = '';
         if (this.props.location.state !== undefined) {
-            color = this.props.location.state.color
+            // color = this.props.location.state.color
             cartId = this.props.location.state.cartId
-            status = this.props.location.state.stus
+            // status = this.props.location.state.stus
         }
         return (
             <div className="login-container">

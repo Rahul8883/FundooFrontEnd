@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { Card, InputBase, Chip, Tooltip } from "@material-ui/core";
 import ImageIcon from "@material-ui/icons/ImageOutlined";
 import PersonAddIcon from "@material-ui/icons/PersonAddOutlined";
-import { getNote, changeColor, updateNote, removeLabelFromNote, archiveNotes } from "../services/notesServices";
+import { getNote, changeColor, updateNote, removeLabelFromNote} from "../services/notesServices";
 import ColorComponenet from '../component/ColorComponenet'
 import ArchivedComponent from "./ArchivedComponent";
 import MoreComponent from "./MoreComponent";
