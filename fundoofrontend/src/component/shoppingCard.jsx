@@ -2,13 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
-import Button from '@material-ui/core/Button';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import { withRouter } from 'react-router-dom';
 import { Divider, Card } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AppBarComponent from '../component/AppBarComponent'
+import {getCartDetails} from '../services/userServices'
 const styles = {
     root: {
         maxWidth: 400,
@@ -20,6 +18,8 @@ export class shoppingCard extends Component {
         super(props)
 
         this.state = {
+            cartIdFromLogin : this.props.location.state,
+            allproductDetails:[],
             activeStep: 0,
             column: [
                 { title: 'signIn', field: 'signIn' },
@@ -29,7 +29,23 @@ export class shoppingCard extends Component {
 
         }
     }
-
+    componentDidMount(){
+        this.handleGetCartDetails();
+    }
+handleGetCartDetails=()=>{
+  console.log('====================================');
+  console.log(this.state.cartIdFromLogin);
+  console.log('====================================');
+    getCartDetails(this.state.cartIdFromLogin).then(res=>{
+        console.log("success response getting get cart details form back-end", res.data.data);
+        this.setState({
+            allproductDetails : res.data.data
+        })
+    }).catch(err=>{
+        console.log("error response getting get cart details form back-end", err);
+        
+    })
+}
     handleNext = () => {
         this.setState(state => ({
             activeStep: state.activeStep + 1,
@@ -45,6 +61,7 @@ export class shoppingCard extends Component {
         const { classes, theme } = this.props;
 
         return (
+            
             <div>
                 <AppBarComponent />
                 <div className="Main_div_Shop">
@@ -78,7 +95,8 @@ export class shoppingCard extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div >
+                        <div>
+                       {this.state.allproductDetails.map(key=>{})} 
                             <div style={{ fontWeight: "bold", margin: "15px 15px 15px 15px" }} className="Review_your_Order">Review your Order</div>
                             <Divider />
                             <div className="shop_Div">
@@ -112,7 +130,7 @@ export class shoppingCard extends Component {
                             </div>
                             <Divider />
                             <div className="sub_Total_">Subtotal(1 item) : $99</div>
-
+                        
                         </div>
                     </div>
                 </div>

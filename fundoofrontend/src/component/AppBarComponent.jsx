@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -27,7 +28,7 @@ const theme = createMuiTheme({
 
     }
 });
-export default class AppBarComponent extends Component {
+ export class AppBarComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -69,6 +70,9 @@ export default class AppBarComponent extends Component {
         this.setState({
             open: true
         })
+    }
+    handleShop=()=>{
+        this.props.history.push('/shopping')
     }
     render() {
         return (
@@ -194,7 +198,7 @@ export default class AppBarComponent extends Component {
                                 </IconButton>
                                 <div style={{ transform: "rotate(360deg)" }} >
                                     <IconButton
-                                      
+                                    onClick={this.handleShop}
                                         edge="end"
                                         aria-label="account of current user"
                                         aria-haspopup="true"
@@ -229,7 +233,8 @@ export default class AppBarComponent extends Component {
                         </Toolbar>
                     </AppBar>
                 </MuiThemeProvider>
-            </div >
+            </div>
         )
     }
 }
+export default withRouter(AppBarComponent)

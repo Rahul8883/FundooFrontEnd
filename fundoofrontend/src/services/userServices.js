@@ -22,4 +22,14 @@ function userRegister(data) {
         }
     })
 }
-export default {userRegister, userLogin, userForgot} 
+
+export function getCartDetails(id) {
+    console.log("data cart",id.cart_data);
+    const cartId= id.cart_data
+    return axios.get(baseURL + `/productcarts/getCartDetails/${cartId}`,{
+       headers:{
+           Authorization : localStorage.getItem('token')
+       } 
+    })
+}
+export default {userRegister, userLogin, userForgot, getCartDetails} 

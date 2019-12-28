@@ -32,14 +32,20 @@ class Login extends Component {
             password: "",
             snackbarOpen: false,
             snackbarMsg: "",
-            locState: ""
+            locState: "",
+            cartState: ""
         };
     }
     componentDidMount() {
         if (this.props.location.state !== undefined) {
             this.setState({
-                locState: this.props.location.state.status
+                locState: this.props.location.state.status,
+                cartState: this.props.location.state.CartId,
+
             })
+            console.log('====================================');
+            console.log("+++++++++++++++++++++++++++",this.props.location.state.CartId);
+            console.log('====================================');
         }
     }
     snackbarClose = (e) => {
@@ -110,7 +116,17 @@ class Login extends Component {
                 localStorage.setItem('imageUrl', url + res.data.imageUrl)
                 localStorage.setItem('token', res.data.id)
                 localStorage.setItem("userId", res.data.userId)
-                this.props.history.push('/dashboard');
+                console.log("check status of shopping card",localStorage.getItem('cartId')  );
+                
+                if (this.state.cartState !== undefined) {
+                    this.props.history.push('/dashboard');
+                } else {
+                    var data={
+                        cart_data : localStorage.getItem('cartId')
+                    }
+                    this.props.history.push('/shopping',data);
+                }
+
             }).catch(err => {
                 console.log("err in login component ", err);
             })
@@ -121,7 +137,8 @@ class Login extends Component {
         console.log("render state", this.state.locState);
         var cartId = ''
         if (this.props.location.state !== undefined) {
-            cartId = this.props.location.state.cartId        }
+            cartId = this.props.location.state.cartId
+        }
         return (
             <div className="login-container">
 
@@ -185,9 +202,9 @@ class Login extends Component {
                                 fullWidth
                                 variant="contained"
                                 color="secondary"
-                                onClick={this.handleSubmit}
-                            >
-                                SignIn
+                                cartState onClick={this.handleSubmit}
+                                cartState >
+                                   SignIn
                              </Button>
                             <div>
                                 <Grid container>
