@@ -1004,3 +1004,142 @@ margin: 5px;
   display: flex;
   justify-content: space-between;
 }
+
+
+/* ===============================shop====================== */
+.shoop_title {
+  background-color: #fb0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 39px;
+    width: 142px;
+    font-size: 21px;
+    border: 1px solid red;
+}
+
+.stepper {
+  margin-top: 100px;
+  width: 49%;
+  line-height: 56px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  flex-grow: 1;
+  padding-left: 37px;
+  flex-direction: column
+}
+
+.titleInShopping {
+  display: flex;
+  height: 2vh;
+  margin-top: 10%;
+}
+
+.shopping_cart {
+  font-weight: bolder;
+  font-size: 24px;
+  margin-top: 71px;
+  display: flex;
+}
+
+.main_div_shopping {
+  margin-top: 2%;
+  padding-left: 14%;
+  padding-right: 8%;
+}
+
+.shopping_details {
+  border: 1px solid chartreuse;
+    color: firebrick;
+    height: 12vh;
+    width: 4em;
+    padding: 23px;
+    background: darkturquoise;
+    border-radius: 17px;
+}
+
+.Details_adjust_shopping {
+  display: flex;
+  justify-content: space-evenly
+}
+
+.shooping_proceede {
+  border: 1px solid black;
+  width: 15em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.Checkout {
+  background: #0e89c2;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  height: 25px;
+}
+.Checkout_total{
+  font-family: 'Times New Roman', Times, serif;
+}
+.p{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold; 
+}
+.checkoutt {
+  background-color: rgb(64, 161, 226);
+  width: 152px;
+  margin-left: -2px;
+  border-radius: 2px;
+  margin-top: 16px;
+  display: flex;
+}
+
+.shopping_data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 17px;
+  align-items: baseline;
+
+}
+
+.final_subtotal {
+  display: flex;
+  font-size: 22px;
+  font-weight: 500;
+  color: rgb(64, 161, 226);
+}
+
+.shopping_delivery {
+  display: flex;
+  flex-direction: row;
+  justify-content: left
+}
+
+textarea.text_message {
+  width: 331px;
+  height: 171px;
+}
+
+.payment_status {
+  margin-left: 190px;
+}
+.not_found{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  margin-top: 3%
+}
+.data_404{
+  font-size: 200%;
+  margin-top: 4%;
+  display: flex;
+  justify-content: center
+}
+.not404 {
+  font-size: 173%;
+  font-weight: 900;
+}

@@ -21,7 +21,7 @@ import imageUpload from './component/imageUpload'
 import Forgot from './component/Forgot'
 import Ask from './component/Ask'
 import queDisplay from './component/queDisplayComponent';
-import dragAndDrop from './component/dragAndDrop';
+// import dragAndDrop from './component/dragAndDrop';
 import shoppingCard from './component/shoppingCard';
 import getReminderComponent from './component/getReminderComponent'
 class App extends Component {
@@ -49,7 +49,7 @@ class App extends Component {
           <Route path= '/imageUpload' component={imageUpload}></Route>
           <Route path= '/ask' component={Ask}></Route>
           <Route path= '/queDisplay' component={queDisplay}></Route>
-          <Route path= '/drag' component={dragAndDrop}></Route>
+          {/* <Route path= '/drag' component={dragAndDrop}></Route> */}
           <Route path= '/shopping' component={shoppingCard}></Route>
           <Route path= '/getReminder' component={getReminderComponent}></Route>
 

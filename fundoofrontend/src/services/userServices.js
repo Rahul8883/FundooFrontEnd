@@ -32,4 +32,22 @@ export function getCartDetails(id) {
        } 
     })
 }
-export default {userRegister, userLogin, userForgot, getCartDetails} 
+
+export  function userCartDetails() {    
+    return axios.get(baseURL+`/productcarts/myCart`, {
+      headers: {
+        'Authorization': localStorage.getItem("token")
+  
+      }
+    })
+  }
+  export  function placeOrder(data) {    
+    return axios.post(baseURL+`/productcarts/placeOrder`,data, {
+      headers: {
+        'Authorization': localStorage.getItem("token")
+  
+      }
+    })
+  }
+
+export default {userRegister, userLogin, userForgot, getCartDetails, userCartDetails, placeOrder} 
