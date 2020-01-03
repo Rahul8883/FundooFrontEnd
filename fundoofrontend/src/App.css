@@ -32,7 +32,6 @@
   min-width: 20em;
   width: auto;
   /* padding: 0px 30px 0px 30px; */
-
   border: 1px solid #bb6a6a;
   box-shadow: 0px 1px 4px 0px;
   padding: 15px;
@@ -423,7 +422,8 @@
   width: 251px;
   visibility: hidden;
 }
-.get_Note_Icons{
+
+.get_Note_Icons {
   display: flex;
   justify-Content: space-between;
   width: 71px;
@@ -926,25 +926,27 @@
 }
 
 /* -------------------------------------shopping-------------------------------------------------------- */
-.stepper_Main{
 
-}
-.advance{
+.stepper_Main {}
+
+.advance {
   font-family: timesNewRoman;
-    color: rgb(64, 161, 226);
-    font-size: 18px;
-    margin-left: 40px;
-    min-width: 150px;
+  color: rgb(64, 161, 226);
+  font-size: 18px;
+  margin-left: 40px;
+  min-width: 150px;
 }
-.fundoo_{
+
+.fundoo_ {
   border: 1px solid black;
-    background: orange;
-    color: rgb(255, 255, 255);
-    width: 101px;
-    padding: 10px;
-    border-radius: 3px;
-    margin-top: 10%;
+  background: orange;
+  color: rgb(255, 255, 255);
+  width: 101px;
+  padding: 10px;
+  border-radius: 3px;
+  margin-top: 10%;
 }
+
 .sub_div_shop {
   width: 70%;
 }
@@ -991,31 +993,34 @@
   outline: none;
   padding: 2px;
 }
-.sub_Total_{
+
+.sub_Total_ {
   color: #1e8ad1;
-margin: 5px;
+  margin: 5px;
 }
-._place_{
+
+._place_ {
   display: flex;
   justify-content: flex-end;
   width: 55%;
 }
-.Detalis{
+
+.Detalis {
   display: flex;
   justify-content: space-between;
 }
 
-
 /* ===============================shop====================== */
+
 .shoop_title {
   background-color: #fb0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 39px;
-    width: 142px;
-    font-size: 21px;
-    border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 39px;
+  width: 142px;
+  font-size: 21px;
+  border: 1px solid red;
 }
 
 .stepper {
@@ -1039,9 +1044,9 @@ margin: 5px;
 
 .shopping_cart {
   font-weight: bolder;
-  font-size: 24px;
+  font-size: 20px;
   margin-top: 71px;
-  display: flex;
+  
 }
 
 .main_div_shopping {
@@ -1052,12 +1057,12 @@ margin: 5px;
 
 .shopping_details {
   border: 1px solid chartreuse;
-    color: firebrick;
-    height: 12vh;
-    width: 4em;
-    padding: 23px;
-    background: darkturquoise;
-    border-radius: 17px;
+  color: firebrick;
+  /* height: 12vh; */
+  width: 4em;
+  padding: 23px;
+  background: darkturquoise;
+  border-radius: 17px;
 }
 
 .Details_adjust_shopping {
@@ -1067,7 +1072,7 @@ margin: 5px;
 
 .shooping_proceede {
   border: 1px solid black;
-  width: 15em;
+  min-width: 200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1079,14 +1084,20 @@ margin: 5px;
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
   height: 25px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
-.Checkout_total{
+
+.Checkout_total {
   font-family: 'Times New Roman', Times, serif;
 }
-.p{
+
+.p {
   font-family: 'Times New Roman', Times, serif;
-  font-weight: bold; 
+  font-weight: bold;
 }
+
 .checkoutt {
   background-color: rgb(64, 161, 226);
   width: 152px;
@@ -1097,19 +1108,15 @@ margin: 5px;
 }
 
 .shopping_data {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   font-size: 17px;
-  align-items: baseline;
-
+  margin-left: 17px;
 }
 
 .final_subtotal {
-  display: flex;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   color: rgb(64, 161, 226);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .shopping_delivery {
@@ -1126,19 +1133,22 @@ textarea.text_message {
 .payment_status {
   margin-left: 190px;
 }
-.not_found{
+
+.not_found {
   width: 100%;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: center;
   margin-top: 3%
 }
-.data_404{
+
+.data_404 {
   font-size: 200%;
   margin-top: 4%;
   display: flex;
   justify-content: center
 }
+
 .not404 {
   font-size: 173%;
   font-weight: 900;

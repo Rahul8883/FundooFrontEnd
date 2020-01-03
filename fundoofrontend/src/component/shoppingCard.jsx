@@ -271,8 +271,9 @@ class shoppingCard extends Component {
                                     className={classes.root}
                                     activeStep={this.state.activeStep}
                                     // image={<ShoppingCartIcon/>}
-                                ><div><ShoppingCartIcon/></div>
+                                >
                                 </MobileStepper>
+                                <div style={{marginTop:"-47px", marginLeft:"5px"}}><ShoppingCartIcon/></div>
                                 {/* <div>signIn         review        complete</div> */}
                             </MuiThemeProvider>
                         </div>
@@ -335,8 +336,9 @@ class shoppingCard extends Component {
                                     className={classes.root}
                                     activeStep={this.state.activeStep}
                                     // image={<ShoppingCartIcon/>}
-                                ><div><ShoppingCartIcon/></div>
+                                >
                                 </MobileStepper>
+                                <div style={{marginTop:"-47px", marginLeft:"190px"}}><ShoppingCartIcon/></div>
                             </MuiThemeProvider>
                             {/* <div>signIn    review   complete</div> */}
                         </div>
@@ -408,8 +410,9 @@ class shoppingCard extends Component {
                                     className={classes.root}
                                     activeStep={this.state.activeStep}
                                     // image={<ShoppingCartIcon/>}
-                                ><div><ShoppingCartIcon/></div>
+                                >
                                 </MobileStepper>
+                                <div style={{marginTop:"-47px", marginLeft:"390px"}}><ShoppingCartIcon/></div>
                             </MuiThemeProvider>
                             {/* <div>signIn    review   complete</div> */}
                         </div>
